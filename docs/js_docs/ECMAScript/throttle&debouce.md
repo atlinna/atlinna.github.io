@@ -1,0 +1,143 @@
+## 节流函数 throttle
+定义：
+函数节流指的是某个函数在一段时间间隔内（如五秒）只能执行一次，在这五秒内无视后来产生的函数调用请求，也不会延长时间间隔。五秒时间过了之后如果还有函数进来，则重新进入同样的流程。
+我们举个例子来理解以下：
+我们有车的朋友应该知道高速公路的收费站对吧 平时是收费的，但是如果到了节假日就会发现免费通行，好~ 。可是当我们正常工作日去的时候。他会把我们拦在收费站前，然后前面一辆车就潇洒离场，假设我们每辆车缴费的时间都是一致的情况下，设想以下，每隔一段时间才能通过一辆车。
+如果上面这个例子读了后还无法理解的话，那么只能再给老板们手绘一张图了
+首先我们定义一个场景，就是有一个按钮，按钮绑定了一个点击事件 handleClick ok  开始
+```
+s: 秒
+                5s               5s
+        ·1·   ----->    ·2·   ------->  ·3·
+    handleClick --> handleClick --> handleClick  ······ 以此类推
+```
+正常情况下如果我们疯狂点击这个按钮，他就会一直出发按钮所绑定的点击事件。但是如果我们加入节流之后，当我们再次点击按钮会发现只能触发几次而已。  这就是节流函数。
+
+
+## 原理：
+函数节流非常适用于函数被频繁调用的场景，例如 window.onresize() 、 mousemove() 事件 、上传进度等等。那么如何来实现一个 throttle 函数呢
+实现的方案有两种：
++ 1、通过时间戳来判断是否已经能够执行函数，记录上次执行的时间戳，然后每次出发事件执行回调函数，回调函数中判断当前事件戳距离上次执行的时间差值是否为我们的间距，如果是，则执行并更新上次执行的时间戳。
++ 2、通过定时器来实现，创建执行标志和定时器当定时器跑完将标志置为 false 定时器中则为 true ，定时器时间为我们的时间间隔，定时器跑完重新执行函数时再次设置定时器。
+
+这里我们通过第一种方式实现 throttle 
+```
+/**
+ * 
+ * @param {可执行的回调函数} callback 
+ * @param {时间间隔} wait 
+ */
+
+function throttle(callback, wait) {
+  let previous = 0;
+  return function (...args) {
+    let now = + new Date()
+    if (now - previous > wait) {
+      previous = now
+      callback.apply(this, args)
+    }
+  }
+}
+
+
+let so = throttle(function () {
+  console.log(1)
+}, 1000)
+
+// setInterval(so, 100)
+```
+
+**underscore 源码**  
+[underscore - 源码](https://github.com/yygmind/blog/issues/38)
+
+
+
+
+### 防抖 - debounce
+上面我们介绍了节流，这次我们来认识一下防抖。
+**防抖函数 debounce 指的是某个函数在某段时间内，无论触发多少次，都只执行最后一个回调。**假设我们有一个搜索框，我们监听了搜索框的输入事件，这样只要开始输入就会我们就会去发送接口查询内容对吧？ 但是如果我连续的输入很多字符那么这个接口是不是和我们输入的字符相关，有多少字符就会调用多少次接口，这样加大了我们服务器的压力。如果我们设置一个时间为1s的计时器，在 1s 内如果还会调用这个函数，就清除定时器重新计时，否则当定时器计时完毕运行回调函数，方法执行。
+
+```
+function debounce(fn, wait) {
+  let timer = null
+  return function () {
+    if (timer) clearTimeout(timer)
+
+    timer = setTimeout(() => {
+      fn.apply(this, Array.prototype.slice.call(arguments))
+    }, wait)
+  }
+}
+
+var f = debounce(function () {
+  console.log(123);
+}, 1000)
+
+
+var count = 0;
+var t = setInterval(function () {
+  count += 1
+  if (count > 11) {
+    clearInterval(t)
+  } else {
+    f()
+  }
+}, 800)
+```
+如果想要第一次出发回调事件，需要改写一下 debounce 函数，加上第一次触发立即执行的功能。
+```
+function debounce(fn, wait, immediate) {
+  let timer = null
+  return function () {
+    let args = Array.prototype.slice.call(arguments);
+    if (timer) clearTimeout(timer);
+    if (immediate && !timer) {
+      fn.apply(this, args);
+    }
+
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, wait)
+  }
+}
+
+var f = debounce(function () {
+  console.log(123);
+}, 1000, true)
+
+
+var count = 0;
+var t = setInterval(function () {
+  count += 1
+  if (count > 11) {
+    clearInterval(t)
+  } else {
+    f()
+  }
+}, 800)
+```
+[underscore - debounce](https://github.com/yygmind/blog/issues/39)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
