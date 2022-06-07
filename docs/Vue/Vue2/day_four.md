@@ -7,8 +7,8 @@
 - 插槽的内容 如果不指定 传入的是默认插槽
 - 具名插槽 是指定名字的插槽
 - 通过 v-slot:default 的方式来放入指定插槽内
-- <template v-slot:default></template>
-- <template #default></template>
+- ```<template v-slot:default></template>```
+- ```<template #default></template>```
 
 # Vue router
 
@@ -24,17 +24,21 @@
 - 将文件命名为 xxx.module.css 即可
 
 2、得到组件生成的根 dom
-export function getComponentDom(comp, property) {
-const vm = new Vue({
-render: (h) => h(comp, { props: property }),
-});
-vm.$mount();
-  //   console.log(vm);
-  return vm.$el;
-}
+```
+  export function getComponentDom(comp, property) {
+  const vm = new Vue({
+  render: (h) => h(comp, { props: property }),
+  });
+  vm.$mount();
+    //   console.log(vm);
+    return vm.$el;
+  }
+```
 
 3、向实例注入成员
-Vue.prototype.$show = xxx;
+```
+  Vue.prototype.$show = xxx;
+```
 
 4、ref
 组件或 dom 元素属性 refs = ""
@@ -64,7 +68,8 @@ Interceptors
 
 - 全局定义
 
-  - Vue.directive('myDirective',{
+```
+   Vue.directive('myDirective',{
     binding(el,binding){
 
         }
@@ -77,6 +82,7 @@ Interceptors
     }
 
     })
+```
 
 ## 组件混入
 
@@ -91,17 +97,16 @@ mixins:[]
 ## 监听器 watch
 
 ```
-watch:{
-    $route:{
-        handler(){
+  watch:{
+      $route:{
+          handler(){
 
-        },
-        immediate:true|false //表示是否初始化立即执行一次
-        deep:true|false, 是否监听数据内部属性的变化
-    }
+          },
+          immediate:true|false //表示是否初始化立即执行一次
+          deep:true|false, 是否监听数据内部属性的变化
+      }
 
-}
-
+  }
 ```
 
 ## 小技巧
