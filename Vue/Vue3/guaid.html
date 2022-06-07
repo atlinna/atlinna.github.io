@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue3 -- composition API | start to life</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="互相探讨，共同学习">
+    
+    <link rel="preload" href="/assets/css/0.styles.9dbfd8c1.css" as="style"><link rel="preload" href="/assets/js/app.7215e3d5.js" as="script"><link rel="preload" href="/assets/js/3.56274d76.js" as="script"><link rel="preload" href="/assets/js/1.3d70ced9.js" as="script"><link rel="preload" href="/assets/js/21.b574b79f.js" as="script"><link rel="prefetch" href="/assets/js/10.dead6dce.js"><link rel="prefetch" href="/assets/js/11.e056fb56.js"><link rel="prefetch" href="/assets/js/12.405e3e47.js"><link rel="prefetch" href="/assets/js/13.7054fc8f.js"><link rel="prefetch" href="/assets/js/14.10ea742d.js"><link rel="prefetch" href="/assets/js/15.c74bc7f0.js"><link rel="prefetch" href="/assets/js/16.163ff913.js"><link rel="prefetch" href="/assets/js/17.7c34df68.js"><link rel="prefetch" href="/assets/js/18.9f1000d1.js"><link rel="prefetch" href="/assets/js/19.10f0109b.js"><link rel="prefetch" href="/assets/js/20.674bb86c.js"><link rel="prefetch" href="/assets/js/22.c377980f.js"><link rel="prefetch" href="/assets/js/23.fa0e3522.js"><link rel="prefetch" href="/assets/js/24.8edd0817.js"><link rel="prefetch" href="/assets/js/25.0a9e7fdd.js"><link rel="prefetch" href="/assets/js/26.6dddc0cf.js"><link rel="prefetch" href="/assets/js/27.f6b2b206.js"><link rel="prefetch" href="/assets/js/28.2c79ef8d.js"><link rel="prefetch" href="/assets/js/29.493d3b56.js"><link rel="prefetch" href="/assets/js/30.f022c6c8.js"><link rel="prefetch" href="/assets/js/31.eba22bcd.js"><link rel="prefetch" href="/assets/js/32.e424c10c.js"><link rel="prefetch" href="/assets/js/33.22dd2bdf.js"><link rel="prefetch" href="/assets/js/34.57a47538.js"><link rel="prefetch" href="/assets/js/35.7c27641a.js"><link rel="prefetch" href="/assets/js/36.eecfe8e3.js"><link rel="prefetch" href="/assets/js/37.c03aa867.js"><link rel="prefetch" href="/assets/js/38.3699af40.js"><link rel="prefetch" href="/assets/js/39.187c6fb1.js"><link rel="prefetch" href="/assets/js/4.a758b311.js"><link rel="prefetch" href="/assets/js/40.a55ddc79.js"><link rel="prefetch" href="/assets/js/41.0106140f.js"><link rel="prefetch" href="/assets/js/42.8e3cb92e.js"><link rel="prefetch" href="/assets/js/43.578c8058.js"><link rel="prefetch" href="/assets/js/44.409d8277.js"><link rel="prefetch" href="/assets/js/45.2c9c89f5.js"><link rel="prefetch" href="/assets/js/46.956c1c2a.js"><link rel="prefetch" href="/assets/js/47.43686695.js"><link rel="prefetch" href="/assets/js/48.66f6510b.js"><link rel="prefetch" href="/assets/js/49.ee01a54f.js"><link rel="prefetch" href="/assets/js/5.207f49f7.js"><link rel="prefetch" href="/assets/js/50.1ee1684c.js"><link rel="prefetch" href="/assets/js/51.d24adc0d.js"><link rel="prefetch" href="/assets/js/52.900d45e4.js"><link rel="prefetch" href="/assets/js/53.9faa8c19.js"><link rel="prefetch" href="/assets/js/54.64654524.js"><link rel="prefetch" href="/assets/js/55.0228dcd6.js"><link rel="prefetch" href="/assets/js/56.6f63c629.js"><link rel="prefetch" href="/assets/js/57.338dbf35.js"><link rel="prefetch" href="/assets/js/58.2375d626.js"><link rel="prefetch" href="/assets/js/59.2613dd82.js"><link rel="prefetch" href="/assets/js/6.82897e40.js"><link rel="prefetch" href="/assets/js/60.7dcca2ec.js"><link rel="prefetch" href="/assets/js/61.811e9043.js"><link rel="prefetch" href="/assets/js/62.0e64fbe1.js"><link rel="prefetch" href="/assets/js/63.47c0969e.js"><link rel="prefetch" href="/assets/js/64.dd3c645a.js"><link rel="prefetch" href="/assets/js/65.15fe32b5.js"><link rel="prefetch" href="/assets/js/66.58f0a783.js"><link rel="prefetch" href="/assets/js/67.20049817.js"><link rel="prefetch" href="/assets/js/68.d1326364.js"><link rel="prefetch" href="/assets/js/69.93e56418.js"><link rel="prefetch" href="/assets/js/7.536a4c66.js"><link rel="prefetch" href="/assets/js/70.63d63ea1.js"><link rel="prefetch" href="/assets/js/71.dc35c346.js"><link rel="prefetch" href="/assets/js/72.495db9c5.js"><link rel="prefetch" href="/assets/js/73.80156466.js"><link rel="prefetch" href="/assets/js/74.f808746f.js"><link rel="prefetch" href="/assets/js/75.e6802c4b.js"><link rel="prefetch" href="/assets/js/76.d3a79c09.js"><link rel="prefetch" href="/assets/js/77.c8fe16b3.js"><link rel="prefetch" href="/assets/js/78.a87f5d18.js"><link rel="prefetch" href="/assets/js/79.69d4c8b9.js"><link rel="prefetch" href="/assets/js/8.bc4fe1be.js"><link rel="prefetch" href="/assets/js/80.69dd4827.js"><link rel="prefetch" href="/assets/js/81.f49df39f.js"><link rel="prefetch" href="/assets/js/9.d0427f84.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9dbfd8c1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>start to life</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>互相探讨，共同学习</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">start to life</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>68</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">Vue3 -- composition API</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h2 id="vue3-composition-api"><a href="#vue3-composition-api" class="header-anchor">#</a> Vue3 -- composition API</h2> <p>经过一段时间的沉沦，决心开始分发图强，争取给自己一个好的结果。</p> <p>惶惶世人，可知警钟已在怒雷中长鸣！</p> <p><strong>正题</strong></p> <p>我们会来了解的是 Vue3 在 Vue2的哪些升级变化，以及他的核心思想API</p> <p>这里我们使用 vite 创建 vue3 工程</p> <div class="language- extra-class"><pre class="language-text"><code>npm init vite 'name'
+</code></pre></div><p>这里如果小伙伴们的 npm 版本过低可能会提示你更新 npm</p> <ul><li><p>首先我们看到第一处不同的地方 在 main.js</p> <div class="language- extra-class"><pre class="language-text"><code>import { createApp } from 'vue'
+import App from './App.vue'
+
+createApp(App).mount('#app')
+</code></pre></div><p>我们之前 vue2 中的写法是先通过 vue创建 vue 实例 然后通过$mount方法挂载到节点</p> <div class="language- extra-class"><pre class="language-text"><code>import Vue from 'vue'
+
+// ...
+new Vue({}).$mount('#app')
+</code></pre></div><p>这意味着我们 vue2 项目不能放到 vue3 上继续跑  breaking -- 截断思想</p></li></ul> <p>然后我们来到组件</p> <ul><li>首先先试一下我们原始写法是否还支持，我们编写了一个组件 creasebtn 通过点击增加count值</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;button @click=&quot;increase&quot;&gt;{{ count }}&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      count: 0,
+    };
+  },
+  methods: {
+    increase() {
+      this.count++;
+    },
+  },
+};
+&lt;/script&gt;
+
+</code></pre></div><p>经过实验，原始写法完美运行 好 完结撒花~ 哈哈哈  it's a joke。</p> <ul><li><p>然后我们看下 composition api 会给我们带来哪些惊喜。</p> <ul><li>首先是 我们的 setup
+<ul><li>setup 在我们所有的生命周期钩子函数之前调用</li> <li>setup 中没有 this  this --》指向的 是 undefined</li></ul></li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;button @click=&quot;increase&quot;&gt;count:{{ count }}&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  setup() {
+    let count = 0;
+    const increase = () =&gt; {
+      count++;
+    };
+
+    return {
+      count,
+      increase,
+    };
+  },
+};
+&lt;/script&gt;
+</code></pre></div><p>ok 写好组件 我们就来测试一下，当我们点击 button 的时候，讲道理 count 应该是 增加的 可是 啊嘞嘞~ 事与愿违 没有变化</p> <p>我们在 increase 中 打印个 log 试试</p> <div class="language- extra-class"><pre class="language-text"><code>const increase = () =&gt; {
+			console.log(1)
+      count++;
+    };
+</code></pre></div><p>结果发现我们的 increase 函数确实运行了，count也确实增加了这是什么原因？</p> <p>是不是因为我们的 count 改变没有触发页面的改变，从本质来说是不是 count 不是一个响应式变量啊？</p> <p>他就是一个普普通通的一个变量而已···</p></li> <li><p>这里我们就来介绍第二位成员 ref  为了规范命名 一般都会在变量名之后加个 Ref 表示我们创建了一个 ref</p> <p>我们先来简单的修改一下代码</p> <div class="language- extra-class"><pre class="language-text"><code>setup() {
+    let countRef = ref(0);
+    const increase = () =&gt; {
+      countRef++;
+    };
+
+    return {
+      countRef,
+      increase,
+    };
+  },
+</code></pre></div><p>ok 我们满怀信心再次点击我们的按钮 button ，TMD 怎么还是一个鸟样子，没有任何反应对吧？</p> <p>我们要先来理解一下新版 vue 的特性</p> <p>首先我们新增一个 mounted 声明周期 ，这里面我们就能访问到我们的 vue 实例的</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;button @click=&quot;increase&quot;&gt;count:{{ countRef }}&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { ref } from &quot;vue&quot;;
+export default {
+  setup() {
+    let countRef = ref(0);
+    const increase = () =&gt; {
+      countRef++;
+    };
+
+    return {
+      countRef,
+      increase,
+    };
+  },
+  mounted() {
+    console.log(this);
+  },
+};
+&lt;/script&gt;
+
+</code></pre></div><p>我们打印出 this 看到 vue 实例是什么，像不像 ES6 的 Proxy 一个代理对象对吧</p> <p>同理 我们在 setup 中打印出我们的 countRef</p> <div class="language- extra-class"><pre class="language-text"><code>let countRef = ref(0);
+    console.log(countRef)
+    const increase = () =&gt; {
+      countRef++;
+    };
+</code></pre></div><p>我们会发现，countRef 竟然是一个对象！我们看到 countRef中 存在一个 value 属性这个 value 属性就是我们创建出的 ref 的值</p> <p>但是我们访问的时候明明可以直接访问到值，这个是作者为了不让我们在使用中这么繁琐 给出的一点点小福利把算是。</p> <p>所以，如果想让页面也改变需要在 increase 方法中做一点小小的改变</p> <div class="language- extra-class"><pre class="language-text"><code> const increase = () =&gt; {
+      countRef.value++;
+    };
+
+</code></pre></div><p>因为我们创建的 ref 是个对象 而且我们能拿到的 是这个对象的 value 属性的值对吧</p> <p>有关与 ref 的相关原理 会有对应的讲解 不要急~~</p> <p>go on~</p></li> <li><p>欢迎我们的第三位成员 watchEffect，这个成员呢比较特殊</p> <p>我们为什么说他特殊呢，watchEffect 是一个函数，然后呢 参数接收的也是一个函数</p> <p>作用是和 $watch 相似 当我们这个传入的函数中的 依赖变化的时候，传入的函数就会运行。</p> <p>我们知道 vue 是可以搜集依赖的对吧 现在呢 我们的依赖项变成了 ref 它来给我们提供依赖 这样可以懂吧，当我们创建的 ref 发生改变时 会触发我们 watchEffect 中函数的执行。</p> <p>Like this</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;button @click=&quot;increase&quot;&gt;count:{{ countRef }}&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { ref, watchEffect } from &quot;vue&quot;;
+export default {
+  setup() {
+    let countRef = ref(0);
+    let arr = [];
+    const increase = () =&gt; {
+      countRef.value++;
+    };
+
+    watchEffect(() =&gt; {
+      arr.push(countRef.value);
+      console.log(arr);
+    });
+
+    return {
+      countRef,
+      increase,
+    };
+  },
+};
+&lt;/script&gt;
+</code></pre></div><p>我们点击函数触发 increase 函数执行，increase 函数会改变 countRef 的 value 值，同时 我们 watchEffect 能够收到 countRef 改变的消息 执行函数 arr 数组就会添加 countRef 的 value 值，打印 arr</p></li> <li><p>下一位 onMounted 听到名字就知道 和 mounted 生命周期相关哈</p> <p>onMounted 接收一个函数</p> <div class="language- extra-class"><pre class="language-text"><code>onMounted(() =&gt; {
+      console.log(&quot;mounted here&quot;);
+    });
+</code></pre></div></li> <li><p>onUnmounted 这个是组件销毁事件</p> <div class="language- extra-class"><pre class="language-text"><code>onUnmounted(() =&gt; {
+      console.log(&quot;unmounted here&quot;);
+    });
+</code></pre></div></li> <li><p>然后我们介绍 computed 成员</p> <p>这个computed 和 Vue2 中的是相似的 都有两种方式来实现，而且 我们 composition api 中的 computed 成员返回的也是经过 ref 包装过后的响应式数据。</p> <div class="language- extra-class"><pre class="language-text"><code>const stepA = computed(() =&gt; {
+      return countRef.value + &quot;-a121&quot;;
+    });
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>const stepB = computed({
+      get() {},
+      set(val) {
+      },
+    });
+</code></pre></div></li></ul></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:290px;display:none;" data-v-5775ee02>
+      欢迎来到我的博客
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-5775ee02></i></div> <canvas id="banniang" width="250" height="320" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><canvas id="vuepress-canvas-cursor"></canvas></div></div>
+    <script src="/assets/js/app.7215e3d5.js" defer></script><script src="/assets/js/3.56274d76.js" defer></script><script src="/assets/js/1.3d70ced9.js" defer></script><script src="/assets/js/21.b574b79f.js" defer></script>
+  </body>
+</html>

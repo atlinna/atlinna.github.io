@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>new 运算符 | start to life</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="互相探讨，共同学习">
+    
+    <link rel="preload" href="/assets/css/0.styles.9dbfd8c1.css" as="style"><link rel="preload" href="/assets/js/app.7215e3d5.js" as="script"><link rel="preload" href="/assets/js/3.56274d76.js" as="script"><link rel="preload" href="/assets/js/1.3d70ced9.js" as="script"><link rel="preload" href="/assets/js/32.e424c10c.js" as="script"><link rel="prefetch" href="/assets/js/10.dead6dce.js"><link rel="prefetch" href="/assets/js/11.e056fb56.js"><link rel="prefetch" href="/assets/js/12.405e3e47.js"><link rel="prefetch" href="/assets/js/13.7054fc8f.js"><link rel="prefetch" href="/assets/js/14.10ea742d.js"><link rel="prefetch" href="/assets/js/15.c74bc7f0.js"><link rel="prefetch" href="/assets/js/16.163ff913.js"><link rel="prefetch" href="/assets/js/17.7c34df68.js"><link rel="prefetch" href="/assets/js/18.9f1000d1.js"><link rel="prefetch" href="/assets/js/19.10f0109b.js"><link rel="prefetch" href="/assets/js/20.674bb86c.js"><link rel="prefetch" href="/assets/js/21.b574b79f.js"><link rel="prefetch" href="/assets/js/22.c377980f.js"><link rel="prefetch" href="/assets/js/23.fa0e3522.js"><link rel="prefetch" href="/assets/js/24.8edd0817.js"><link rel="prefetch" href="/assets/js/25.0a9e7fdd.js"><link rel="prefetch" href="/assets/js/26.6dddc0cf.js"><link rel="prefetch" href="/assets/js/27.f6b2b206.js"><link rel="prefetch" href="/assets/js/28.2c79ef8d.js"><link rel="prefetch" href="/assets/js/29.493d3b56.js"><link rel="prefetch" href="/assets/js/30.f022c6c8.js"><link rel="prefetch" href="/assets/js/31.eba22bcd.js"><link rel="prefetch" href="/assets/js/33.22dd2bdf.js"><link rel="prefetch" href="/assets/js/34.57a47538.js"><link rel="prefetch" href="/assets/js/35.7c27641a.js"><link rel="prefetch" href="/assets/js/36.eecfe8e3.js"><link rel="prefetch" href="/assets/js/37.c03aa867.js"><link rel="prefetch" href="/assets/js/38.3699af40.js"><link rel="prefetch" href="/assets/js/39.187c6fb1.js"><link rel="prefetch" href="/assets/js/4.a758b311.js"><link rel="prefetch" href="/assets/js/40.a55ddc79.js"><link rel="prefetch" href="/assets/js/41.0106140f.js"><link rel="prefetch" href="/assets/js/42.8e3cb92e.js"><link rel="prefetch" href="/assets/js/43.578c8058.js"><link rel="prefetch" href="/assets/js/44.409d8277.js"><link rel="prefetch" href="/assets/js/45.2c9c89f5.js"><link rel="prefetch" href="/assets/js/46.956c1c2a.js"><link rel="prefetch" href="/assets/js/47.43686695.js"><link rel="prefetch" href="/assets/js/48.66f6510b.js"><link rel="prefetch" href="/assets/js/49.ee01a54f.js"><link rel="prefetch" href="/assets/js/5.207f49f7.js"><link rel="prefetch" href="/assets/js/50.1ee1684c.js"><link rel="prefetch" href="/assets/js/51.d24adc0d.js"><link rel="prefetch" href="/assets/js/52.900d45e4.js"><link rel="prefetch" href="/assets/js/53.9faa8c19.js"><link rel="prefetch" href="/assets/js/54.64654524.js"><link rel="prefetch" href="/assets/js/55.0228dcd6.js"><link rel="prefetch" href="/assets/js/56.6f63c629.js"><link rel="prefetch" href="/assets/js/57.338dbf35.js"><link rel="prefetch" href="/assets/js/58.2375d626.js"><link rel="prefetch" href="/assets/js/59.2613dd82.js"><link rel="prefetch" href="/assets/js/6.82897e40.js"><link rel="prefetch" href="/assets/js/60.7dcca2ec.js"><link rel="prefetch" href="/assets/js/61.811e9043.js"><link rel="prefetch" href="/assets/js/62.0e64fbe1.js"><link rel="prefetch" href="/assets/js/63.47c0969e.js"><link rel="prefetch" href="/assets/js/64.dd3c645a.js"><link rel="prefetch" href="/assets/js/65.15fe32b5.js"><link rel="prefetch" href="/assets/js/66.58f0a783.js"><link rel="prefetch" href="/assets/js/67.20049817.js"><link rel="prefetch" href="/assets/js/68.d1326364.js"><link rel="prefetch" href="/assets/js/69.93e56418.js"><link rel="prefetch" href="/assets/js/7.536a4c66.js"><link rel="prefetch" href="/assets/js/70.63d63ea1.js"><link rel="prefetch" href="/assets/js/71.dc35c346.js"><link rel="prefetch" href="/assets/js/72.495db9c5.js"><link rel="prefetch" href="/assets/js/73.80156466.js"><link rel="prefetch" href="/assets/js/74.f808746f.js"><link rel="prefetch" href="/assets/js/75.e6802c4b.js"><link rel="prefetch" href="/assets/js/76.d3a79c09.js"><link rel="prefetch" href="/assets/js/77.c8fe16b3.js"><link rel="prefetch" href="/assets/js/78.a87f5d18.js"><link rel="prefetch" href="/assets/js/79.69d4c8b9.js"><link rel="prefetch" href="/assets/js/8.bc4fe1be.js"><link rel="prefetch" href="/assets/js/80.69dd4827.js"><link rel="prefetch" href="/assets/js/81.f49df39f.js"><link rel="prefetch" href="/assets/js/9.d0427f84.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9dbfd8c1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>start to life</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>互相探讨，共同学习</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">start to life</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link router-link-active"><i class="undefined"></i>
+  JS
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>68</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link router-link-active"><i class="undefined"></i>
+  JS
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>ECMAScript</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/js_docs/ECMAScript/ECAMScript-5-2.html" aria-current="page" class="active sidebar-link">ECAMScript-5-2</a></li><li><a href="/js_docs/ECMAScript/ECAMScript-5-3.html" class="sidebar-link">ECAMScript-5-3</a></li><li><a href="/js_docs/ECMAScript/ECAMScript-5.html" class="sidebar-link">ECAMScript-5</a></li><li><a href="/js_docs/ECMAScript/ECMAScript-6.html" class="sidebar-link">ECMAScript-6</a></li><li><a href="/js_docs/ECMAScript/ObjExtends.html" class="sidebar-link">ObjExtends</a></li><li><a href="/js_docs/ECMAScript/high.html" class="sidebar-link">high</a></li><li><a href="/js_docs/ECMAScript/throttle&amp;debouce.html" class="sidebar-link">throttle&amp;debouce</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>你不知道的 JS</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">new 运算符</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h3 id="new-运算符"><a href="#new-运算符" class="header-anchor">#</a> new 运算符</h3> <p>接下来我们用new 操作符来创建一个 Person 实例</p> <div class="language- extra-class"><pre class="language-text"><code>function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.sayName = function () {
+    return this.name + ' --&gt; ' + this.age + ' years old';
+}
+
+var p = new Person('zhang san', 18);
+
+console.log(p.sayName());
+</code></pre></div><p>我们可以看出 new 创建出来的实例有两个特性：</p> <ul><li>可以访问构造函数中的属性</li> <li>可以范文原型中的属性</li></ul> <hr> <p><strong>模拟实现</strong>
+实现前要先分析
+假设 我们现在运行 new Person</p> <ul><li>首先会创建一个新对象</li> <li>新对象的原型指向 Person.prototype</li> <li>将函数的this 绑定为 新对象 为新对象添加属性</li> <li>返回新对象（构造函数如果有返回值就返回构造函数的值）。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// 模拟 new 
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.sayName = function () {
+    return this.name + ' --&gt; ' + this.age + ' years old';
+}
+
+// 模拟 new 
+function NEW() {
+    var obj = new Object()
+    arguments = Array.prototype.slice.call(arguments)
+    var fun = arguments.shift(0);
+    obj.__proto__ = fun.prototype
+    var ret = fun.apply(obj, arguments)
+    return ret instanceof Object ? ret : obj
+}
+
+// var p = new Person('zhang san', 18);
+var p = NEW(Person, 'zhangsan', 19)
+
+console.log(p);
+</code></pre></div><hr> <h3 id="深浅拷贝原理"><a href="#深浅拷贝原理" class="header-anchor">#</a> 深浅拷贝原理</h3> <p>为什么会出现深浅拷贝？
+原因是因为我们知道基本数据赋值是直接赋值，修改之后互不影响，但是如果是引用类型的数据，我们赋值本质上是这个值的地址，如果其中一个改变，那么这个地址中的值就改变了，所有的值都会更新。
+于是 深浅拷贝 应运而生。
+那么浅拷贝和深拷贝又要怎么区分呢？
+首先你要知道什么是拷贝：
+就是创建了一个新对象，对象中是原对象的精确拷贝，如果是基本类型就复制基本类型，如果属性是引用类型就复制引用类型，拷贝的是引用数据的内存地址。
+浅拷贝呢就相当于只解决了第一层的问题，后面还是会出现。深拷贝就相当于完美解决了这个问题。
+<strong>浅拷贝使用场景</strong>
+1、Object.assign()
+Object.assign作用是将所有可枚举属性的值从一个或多个元对象中复制到目标对象，然后返回这个目标对象。 （这是个浅拷贝）</p> <div class="language- extra-class"><pre class="language-text"><code>var a = {
+    name: 'zhang san',
+    book: {
+        'nature': 'peoples of nature',
+        'technology': 'Bill Gates'
+    }
+}
+
+
+var a_a = Object.assign({}, a)
+console.log(a, a_a);
+a.name = 'li si'
+console.log(a, a_a);
+a.book.nature = 'lots of moneys'
+console.log(a, a_a);
+
+</code></pre></div><p>我们来分析一下上面的行为 首先创建了一个对象 a a中 有两个属性分别是基本数据和引用数据 ，现在又创建了一个对象a_a 来接受Object.assign合并后的值 目标对象是 ‘{}’
+当我们修改a中的基本数据时，发现这个浅拷贝是好用的 两个对象互不影响，可是 当我们修改引用类型的时候 我们发现所有的值都变了。</p> <div class="language- extra-class"><pre class="language-text"><code>let a = {
+    name: 'zhangsan',
+    age: '19',
+    like: null,
+    id: Symbol('zhangsan'),
+    next: undefined
+}
+
+let b = Object.assign({}, a)
+
+console.log(a,b);
+</code></pre></div><p>String 类型 和 Symbol 类型的属性都会被拷贝，而且不会跳过那些值为null 或 undefined 的源对象。
+<strong>Object.assign 的模拟实现</strong><br>
+首先我们看下Object.assign的特征：</p> <ul><li>1、判断原生 Object 是否支持该函数，如果不存在的话创建一个函数 assign，并使用 Object.defineProperty 将该函数绑定到 Object 上。</li> <li>2、判断参数是否正确 目标对象不能为空，可以为空对象但是不能不设置值。</li> <li>3、使用Object（）转成对象，并保存为 to ，最后返回这个对象 to。</li> <li>4、使用 for ··· in 循环遍历出所有可枚举的自由属性。并复制给新的目标对象（使用hasOwnProperty 获取自由属性，即非原型链上的属性）。
+代码实现：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>if (typeof Object.myAssign !== 'function') {
+    Object.defineProperty(Object, 'myAssign', {
+        value: function (target) {
+            if (target == null) {
+                throw new Error('Cannot Convert null to object')
+            }
+            var to = Object(target)
+
+            for (var i = 1; i &lt; arguments.length; i++) {
+                var propSource = arguments[i]
+                if (propSource) {
+                    for (var prop in propSource) {
+                         if (Object.prototype.hasOwnProperty.call(propSource, prop)) {
+                             to[prop] = propSource[prop]
+                         }
+                    }
+                }
+            }
+
+            return to
+        },
+        writable: true,
+        configurable: true
+    })
+}
+
+var b = Object.myAssign({}, { name: 'zhangsan' }, { age: 18 });
+console.log(b);
+
+注意：
+1、可枚举性
+原生情况下挂载在Object上的属性是不可枚举的，但是直接在Object上挂载属性是可枚举的，所以这里必须使用Object.defineProperty,并设置enumerable:false,writable:true,configurable:true.
+for (var key in Object) {
+    console.log(key);
+}
+console.log(Object.keys(Object));
+我们也可以使用Object.getOwnPropertyDescriptor 或者Object.propertyIsEnumerable 来查看Object.assign 是否可枚举
+console.log(Object.getOwnPropertyDescriptor(Object, 'assign')); // 可以看到defineProperty的配置对象
+ {
+        writable: true, // 可写
+        enumerable: false, // 可枚举
+        configurable: true, // 可配置
+        value: ƒ
+    }
+2、判断参数是否正确
+有些文章判断参数是否正确是这样判断的
+if(target === undefined || target === null){
+    throw new TypeError('Cannot convert undefined or null to object!')
+}
+这样写就没有必要了，因为 undefined 和 null 是相等的 即 undefined == null 为 true，
+所以我们只需要判断 我们的目标对象 是否等于 null 即可。
+</code></pre></div><p>2、ES6 展开操作符 （浅拷贝）
+3、Array.prototype.slice() （浅拷贝）
+slice 方法返回一个新的数组对象，这一对象是一个由begin 和 end（不包括end）决定的原数组的浅拷贝，原始数组不会改变</p> <div class="language- extra-class"><pre class="language-text"><code>let arr = [1, '2', 3, [4, 5]]
+
+let brr = arr.slice(0, arr.length)
+arr[0] = 10
+arr[3][0] = 2
+console.log(brr);
+</code></pre></div><p>我们发现改变 arr[0]的值 brr 中的值没有改变 但是改变 arr[3][0]的值后 brr[3][0]的值也跟着改变 说明 slice 方法是浅拷贝。 <strong>相应的还有 concat</strong></p> <p><strong>深拷贝</strong>
+深拷贝会拷贝所有的属性，并且拷贝属性指向的内存，就相当于把源对象及对象中所有的属性（基本数据，引用数据）全部拷贝即为深拷贝。
+深拷贝相比于浅拷贝速度慢，花销大 看情况使用。</p> <p><strong>深拷贝使用场景</strong>
+1、JSON.parse(JSON.stringify(Object))</p> <div class="language- extra-class"><pre class="language-text"><code>var a = {
+    name: 'zhangsan',
+    age: 19,
+    books: {
+        nature: 'people of nature',
+        technology: 'Bill Gates'
+    }
+};
+
+var b = JSON.parse(JSON.stringify(a));
+
+console.log(a, b);
+a.name = 'li si';
+console.log(a, b);
+b.books.nature = 'Man And Nature';
+console.log(a, b);
+</code></pre></div><p>发现改变不同的数据 两个对象之间互不影响。
+再试试对数组的深拷贝</p> <div class="language- extra-class"><pre class="language-text"><code>var a = [1, 2, 3, [4, 5]]
+
+var b = JSON.parse(JSON.stringify(a))
+
+console.log(a, b);
+a[0] = 10
+console.log(a, b);
+b[3][1] = 0
+console.log(a, b);
+</code></pre></div><p>对数组深拷贝之后，改变原数组不会影响到拷贝之后的数组。
+但是使用JSON API 实现深拷贝是有弊端的</p> <ul><li>1、如果obj中存在时间对象，深拷贝后时间是字符串形式，而不是对象的形式</li> <li>2、如果obj中有RegExp，则打印出来是空对象</li> <li>3、如果obj中有函数或者undefined，则会直接被丢弃</li> <li>4、如果对象是由构造函数生成，则会丢掉对象的constructor</li> <li>5、如果对象中存在循环引用的情况，无法正确实现深拷贝</li> <li>6、如果对象中存在NaN，则序列化后会变成null
+下面我们来看下这些问题：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// 1、如果obj中存在时间对象，深拷贝后时间是字符串形式，而不是对象的形式
+var obj = {
+    time: new Date()
+}
+
+var a = JSON.parse(JSON.stringify(obj))
+
+console.log(obj, typeof obj.time, a, typeof a.time); 
+// {time: Wed Feb 09 2022 14:56:13 GMT+0800 (中国标准时间)}time: Wed Feb 09 2022 14:56:13 GMT+0800 (中国标准时间) {}__proto__: Object &quot;object&quot;
+/* {time: &quot;2022-02-09T06:56:13.002Z&quot;} &quot;string&quot;
+time: &quot;2022-02-09T06:56:13.002Z&quot;
+__proto__: Object
+*/
+/*
+    我们发现深拷贝之后的数据变成了字符串，这个如何解决呢？ 我们把日期对象转为时间戳
+*/
+var obj = {
+    time: (new Date()).valueOf()
+}
+
+var a = JSON.parse(JSON.stringify(obj))
+
+console.log(obj, typeof obj.time, a, typeof a.time);
+/*现在我们转换后的数据是不是就一致了*/
+
+// -------------------------------------------------
+// 2、如果obj中有RegExp，则打印出来是空对象
+var obj = {
+    reg: new RegExp(/\/\.{1,10}/)
+}
+
+var a = JSON.parse(JSON.stringify(obj))
+
+console.log(obj, a);
+// 我们发现经过深拷贝之后 a 变为了 空对象。
+// -------------------------------------------------
+// 3、如果obj中有函数、Symbol 或者 undefined，则会直接被丢弃
+var obj = {
+    a: function () { },
+    b: undefined,
+    c: Symbol('hello')
+}
+
+var a = JSON.parse(JSON.stringify(obj))
+
+console.log(obj, a);
+
+// -------------------------------------------------
+// 4、如果对象是由构造函数生成，则会丢掉对象的constructor
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+let p = new Person('zhangsan', 19)
+
+var obj = {
+    person: p
+}
+
+
+let b = JSON.parse(JSON.stringify(p))
+
+console.log(obj, b);
+console.log(p instanceof Person, b instanceof Person);
+// 发现此时经过深拷贝后的对象原型已经不再指向我们的构造函数
+// -------------------------------------------------
+// 5、如果对象中存在循环引用的情况，无法正确实现深拷贝
+var a = {
+    name: 'zhangsan'
+}
+
+a.a = a;
+
+console.log(a);
+
+var b = JSON.parse(JSON.stringify(a))
+console.log(a, b);
+/*
+    Uncaught TypeError: Converting circular structure to JSON
+    --&gt; starting at object with constructor 'Object'
+    --- property 'a' closes the circle
+    at JSON.stringify (&lt;anonymous&gt;)
+*/
+// -------------------------------------------------
+
+// 6、如果对象中存在NaN，则序列化后会变成null
+var a = {
+    num:NaN
+}
+
+
+var b = JSON.parse(JSON.stringify(a))
+console.log(a, b);
+
+// -------------------------------------------------
+
+</code></pre></div><p><strong>浅拷贝的实现：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>var shallowCopy = function (target) {
+    var to = new Object();
+    for (var prop in target) {
+        if (Object.prototype.hasOwnProperty.call(target, prop)) {
+            to[prop] = target[prop];
+        }
+    }
+    return to
+}
+
+
+var a = {
+    name: 'zhang san',
+    age: 18,
+    book: {
+        title: 'Man And Nature',
+        price: 100
+    }
+}
+
+var b = shallowCopy(a)
+console.log(b);
+a.name = 'li si';
+console.log(b);
+a.book.title = 'People of Nature';
+console.log(b);
+</code></pre></div><p><strong>实现深拷贝：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>Object.defineProperty(Object, 'cloneDeep', {
+    value: function (target) {
+        var source = {};
+        for (var prop in target) {
+            if (Object.prototype.hasOwnProperty.call(target, prop)) {
+                if (typeof target[prop] == 'object') {
+                    source[prop] = Object.cloneDeep(target[prop])
+                } else {
+                    source[prop] = target[prop]
+                }
+            }
+        }
+        return source;
+    },
+    writable: false,
+    configurable: true
+})
+
+var a = {
+    name: 'zhang san',
+    age: 18,
+    book: {
+        title: 'Man And Nature',
+        price: 19
+    }
+}
+
+var b = Object.cloneDeep(a)
+a.book.title = 'People of Nature';
+console.log(a, b);
+</code></pre></div><p>测试通过 这样就完成了一个简单的深拷贝， 但是这样的深拷贝会存在一些问题</p> <ul><li>没有正确的判断入参的类型 和 返回参数的类型 比如 如果参数为null 返回的 却是一个空对象。</li> <li>不能兼容数组</li> <li>重复引用问题
+接下来我们依次完善我们的深拷贝
+首先我们解决参数类型的问题</li></ul> <div class="language- extra-class"><pre class="language-text"><code>/*
+    之前我们通过一些方式来判断参数是否为数组，同样我们可以用这种方式来判断我们的参数是否是 对象
+*/
+Object.prototype.isObj = function (target) {
+    return Object.prototype.toString.call(target) == '[object Object]';
+}
+// 修改我们 deepClone 的代码
+Object.prototype.isObj = function (target) {
+    return Object.prototype.toString.call(target) == '[object Object]';
+}
+Object.defineProperty(Object, 'cloneDeep', {
+    value: function (target) {
+        if (!Object.isObj(target)) return target // 判断是否是对象 如果不是则返回此类型
+        var source = {};
+        for (var prop in target) {
+            if (Object.prototype.hasOwnProperty.call(target, prop)) {
+                if (Object.isObj(target[prop])) {
+                    source[prop] = Object.cloneDeep(target[prop])
+                } else {
+                    source[prop] = target[prop]
+                }
+            }
+        }
+        return source;
+    },
+    writable: false,
+    configurable: true
+})
+
+var a = {
+    name: 'zhang san',
+    age: 18,
+    book: {
+        title: 'Man And Nature',
+        price: 19
+    }
+}
+
+a = null
+
+var b = Object.cloneDeep(a)
+// a.book.title = 'People of Nature';
+console.log(a, b);
+
+/*测试正常 不是对象类型的都会返回对应值*/
+/*
+    我们来看下一个兼容数组，我们想一下如果要兼容数组的话 我们用来判断对象的方式，是不是就不妥当了，因为如果是数组的话 返回的应该是[object Array] 
+    所以我们这里判断类型还是要使用 typeof 但是如果使用typeof的话要注意一些小细节
+    typeof null // object
+    typeof {} // object
+    typeof [] // object
+ */
+Object.prototype.isObj = function (target) {
+    return target &amp;&amp; typeof target === 'object';
+}
+Array.prototype.isArray = function (target) {
+    return Object.prototype.toString.call(target) === '[object Array]'
+}
+Object.defineProperty(Object, 'cloneDeep', {
+    value: function (target) {
+        if (!Object.isObj(target)) return target // 判断是否是对象 如果不是则返回此类型
+        var source = Array.isArray(target) ? [] : {}; // 兼容数组
+        for (var prop in target) {
+            if (Object.prototype.hasOwnProperty.call(target, prop)) {
+                if (Object.isObj(target[prop])) {
+                    source[prop] = Object.cloneDeep(target[prop])
+                } else {
+                    source[prop] = target[prop]
+                }
+            }
+        }
+        return source;
+    },
+    writable: false,
+    configurable: true
+})
+
+// 测试一下
+var a = [1, 2, 3, [4, 5]]
+var b = Object.cloneDeep(a)
+a[3][1] = 10
+console.log(a, b);
+/* 测试正常，能够兼容数组 */
+/* 下一个问题，重复引用的问题，解决这个问题的本质是找到并返回重复引用的地方就可以了？ */
+Object.prototype.isObj = function (target) {
+    return target &amp;&amp; typeof target === 'object';
+}
+Array.prototype.isArray = function (target) {
+    return Object.prototype.toString.call(target) === '[object Array]'
+}
+
+function findFlag(list, target) {
+    for (var i = 0; i &lt; list.length; i++) {
+        if (list[i].target === target) {
+            return list[i];
+        }
+    }
+    return null;
+}
+
+Object.defineProperty(Object, 'cloneDeep', {
+    value: function (target, flagStack) {
+        if (!Object.isObj(target)) return target // 判断是否是对象 如果不是则返回此类型
+        if (!flagStack) flagStack = []; // 新增代码，初始化数组
+        var source = Array.isArray(target) ? [] : {}; // 兼容数组
+        var dta = findFlag(flagStack, target)
+
+        if (dta) return dta.source
+        flagStack.push({
+            source,
+            target
+        })
+        for (var prop in target) {
+            if (Object.prototype.hasOwnProperty.call(target, prop)) {
+                if (Object.isObj(target[prop])) {
+                    source[prop] = Object.cloneDeep(target[prop], flagStack)
+                } else {
+                    source[prop] = target[prop]
+                }
+            }
+        }
+        return source;
+    },
+    writable: false,
+    configurable: true
+})
+
+// 测试一下
+// var a = [1, 2, 3, [4, 5]]
+// var b = Object.cloneDeep(a)
+// a[3][1] = 10
+// console.log(a, b);
+var a = {
+    s: 'obj'
+}
+a.tina = a
+var b = Object.cloneDeep(a)
+console.log(b);
+/*测试正常*/
+
+// 还有第二种方式就是使用哈希表，但是 WeakMap 是 ES6中的知识。
+Object.defineProperty(Object, 'cloneDeep', {
+    value: function (target, hashmap = new WeakMap()) {
+        if (!Object.isObj(target)) return target // 判断是否是对象 如果不是则返回此类型
+        if (hashmap.has(target)) return hashmap.get(target)
+        var source = Array.isArray(target) ? [] : {}; // 兼容数组
+        hashmap.set(target, source)
+        for (var prop in target) {
+            if (Object.prototype.hasOwnProperty.call(target, prop)) {
+                if (Object.isObj(target[prop])) {
+                    source[prop] = Object.cloneDeep(target[prop], hashmap)
+                } else {
+                    source[prop] = target[prop]
+                }
+            }
+        }
+        return source;
+    },
+    writable: false,
+    configurable: true
+})
+
+// 测试一下
+// var a = [1, 2, 3, [4, 5]]
+// var b = Object.cloneDeep(a)
+// a[3][1] = 10
+// console.log(a, b);
+var a = {
+    s: 'obj'
+}
+a.tina = a
+var b = Object.cloneDeep(a)
+console.log(b);
+</code></pre></div><p>有的同学就会发现了 说 我们用的都是递归的方式，那么就会存在递归爆栈的问题
+爆栈 --》 RangeError: Maximum call stack size exceeded
+了解算法的同学可能会更好的了解 递归可以转化成while循环的方式。</p> <div class="language- extra-class"><pre class="language-text"><code>Object.prototype.isObj = function (target) {
+    return target &amp;&amp; typeof target === 'object';
+}
+Array.prototype.isArray = function (target) {
+    return Object.prototype.toString.call(target) === '[object Array]'
+}
+
+function findFlag(list, target) {
+    for (var i = 0; i &lt; list.length; i++) {
+        if (list[i].target === target) {
+            return list[i];
+        }
+    }
+    return null;
+}
+
+Object.defineProperty(Object, 'cloneDeep', {
+    value: function (target) {
+
+        if (!Object.isObj(target)) return target // 判断是否是对象 如果不是则返回此类型
+        var source = Array.isArray(target) ? [] : {}; // 兼容数组   
+
+        const loopList = [
+            {
+                parent: source,
+                key: undefined,
+                data: target
+            }
+        ]
+
+        while (loopList.length) {
+            let node = loopList.pop();
+            let parent = node.parent;
+            let key = node.key;
+            let data = node.data;
+            let ret = parent;
+            if (key !== undefined) {
+                ret = parent[key] = Array.isArray(target) ? [] : {}
+            }
+
+            for (let prop in data) {
+                if (data.hasOwnProperty(prop)) {
+                    if (Object.isObj(data[prop])) {
+                        loopList.push({
+                            parent: ret,
+                            key: prop,
+                            data: data[prop]
+                        })
+                    } else {
+                        ret[prop] = data[prop]
+                    }
+                }
+            }
+
+        }
+        return source
+    },
+    writable: false,
+    configurable: true
+})
+
+var a = {
+    name: 'zhang san',
+    age: 18,
+    book: {
+        title: 'Man And Nature',
+        price: 19
+    }
+}
+
+var b = Object.cloneDeep(a)
+console.log(a, b);
+a.book.title = 'People of Nature'
+console.log(a, b);
+</code></pre></div><p><strong>Lodash 中的深拷贝是如何实现的：</strong>  https://github.com/yygmind/blog/issues/31<br>
+整体流程
+入口文件是cloneDeep.js，直接调用核心文件baseClone.js的方法</p> <div class="language- extra-class"><pre class="language-text"><code>const CLONE_DEEP_FLAG = 1;
+const CLONE_SYMBOLS_FLAG = 4;
+
+/**
+ * baseClone
+ * @param { 需要拷贝的对象 } value 
+ * @param { 位掩码（Bitwise） }
+ * @returns 
+ */
+function cloneDeep(value) {
+    return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG)
+}
+</code></pre></div><p><strong>baseClone 方法</strong>
+先介绍该方法的参数 baseClone(value,bitmask,custoizer,key,object,stack)</p> <ul><li>value: 需要拷贝的对象</li> <li>bitmask: 位掩码，其中1是深拷贝，2拷贝原型链上的属性，4是拷贝Symbols属性</li> <li>customizer: 定制的clone函数</li> <li>key: 传入value值的key</li> <li>object: 传入value值的父对象</li> <li>stack: Stack 栈， 用来处理循环引用</li></ul> <p>完整代码：</p> <div class="language- extra-class"><pre class="language-text"><code>function baseClone(value, bitmask, customizer, key, object, stack) {
+    let result
+
+    // 标志位
+    const isDeep = bitmask &amp; CLONE_DEEP_FLAG		// 深拷贝，true
+    const isFlat = bitmask &amp; CLONE_FLAT_FLAG		// 拷贝原型链，false
+    const isFull = bitmask &amp; CLONE_SYMBOLS_FLAG	// 拷贝 Symbol，true
+
+    // 自定义 clone 函数
+    if (customizer) {
+        result = object ? customizer(value, key, object, stack) : customizer(value)
+    }
+    if (result !== undefined) {
+        return result
+    }
+
+    // 非对象  
+    if (!isObject(value)) {
+        return value
+    }
+    
+    const isArr = Array.isArray(value)
+    const tag = getTag(value)
+    if (isArr) {
+        // 数组
+        result = initCloneArray(value)
+        if (!isDeep) {
+            return copyArray(value, result)
+        }
+    } else {
+        // 对象
+        const isFunc = typeof value == 'function'
+
+        if (isBuffer(value)) {
+            return cloneBuffer(value, isDeep)
+        }
+        if (tag == objectTag || tag == argsTag || (isFunc &amp;&amp; !object)) {
+            result = (isFlat || isFunc) ? {} : initCloneObject(value)
+            if (!isDeep) {
+                return isFlat
+                    ? copySymbolsIn(value, copyObject(value, keysIn(value), result))
+                	: copySymbols(value, Object.assign(result, value))
+            }
+        } else {
+            if (isFunc || !cloneableTags[tag]) {
+                return object ? value : {}
+            }
+            result = initCloneByTag(value, tag, isDeep)
+        }
+    }
+    // 循环引用
+    stack || (stack = new Stack)
+    const stacked = stack.get(value)
+    if (stacked) {
+        return stacked
+    }
+    stack.set(value, result)
+
+    // Map
+    if (tag == mapTag) {
+        value.forEach((subValue, key) =&gt; {
+            result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack))
+        })
+        return result
+    }
+
+    // Set
+    if (tag == setTag) {
+        value.forEach((subValue) =&gt; {
+            result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack))
+        })
+        return result
+    }
+
+    // TypedArray
+    if (isTypedArray(value)) {
+        return result
+    }
+
+    // Symbol &amp; 原型链
+    const keysFunc = isFull
+    	? (isFlat ? getAllKeysIn : getAllKeys)
+    	: (isFlat ? keysIn : keys)
+
+    const props = isArr ? undefined : keysFunc(value)
+    
+    // 遍历赋值
+    arrayEach(props || value, (subValue, key) =&gt; {
+        if (props) {
+            key = subValue
+            subValue = value[key]
+        }
+        assignValue(result, key, baseClone(subValue, bitmask, customizer, key, value, stack))
+    })
+    
+    // 返回结果
+    return result
+}
+</code></pre></div><p>我们将源码分为了下面几个部分来阅读</p> <ul><li>位掩码</li> <li>定制 clone 函数</li> <li>非对象</li> <li>数组 &amp; 正则</li> <li>对象 &amp; 函数</li> <li>循环引用</li> <li>Map &amp; Set</li> <li>Symbol &amp; 原型链</li></ul> <h4 id="位掩码"><a href="#位掩码" class="header-anchor">#</a> 位掩码</h4> <p>位掩码参数定义如下</p> <div class="language- extra-class"><pre class="language-text"><code>const CLONE_DEEP_FLAG = 1   // 1 即 0001，深拷贝标志位
+const CLONE_FLAT_FLAG = 2   // 2 即 0010，拷贝原型链标志位
+const CLONE_SYMBOLS_FLAG = 4    // 4 即 0100，拷贝 Symbols 标志位
+</code></pre></div><p>位掩码用于处理同时存在多个布尔选项的情况，其中<strong>掩码中的每个选项的值都等于 2 的幂。</strong> 相比直接使用变量来说，优点是可以节省没存</p> <div class="language- extra-class"><pre class="language-text"><code> // cloneDeep 添加标志位，1|4 即 0001 | 0100 即 0101 即 5
+ CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG
+ 
+ let result;
+ const isDeep = bitmask &amp; CLONE_DEEP_FLAG   // 5 &amp; 1 即 1 true
+ const isFlat = bitmask &amp; CLONE_FLAT_FLAG   // 5 &amp; 2 即 0 false
+ const isFull = bitmask &amp; CLONE_SYMBOLS_FLAG    // 5 &amp; 4 即 4 true
+</code></pre></div><p>常用的基本操作如下：</p> <ul><li>a | b: 添加标志位 a 和 b</li> <li>mask &amp; a: 去除标志位 a</li> <li>mask &amp; ~a: 清除标志位 a</li> <li>mask ^ a: 取出与 a 的不同部分</li></ul> <h4 id="定制-clone-函数"><a href="#定制-clone-函数" class="header-anchor">#</a> 定制 clone 函数</h4> <div class="language- extra-class"><pre class="language-text"><code>if (customizer) {
+	result = object ? customizer(value, key, object, stack) : customizer(value)
+}
+if (result !== undefined) {
+    return result
+}
+</code></pre></div><p>上面代码是当存在 customizer 的情况时 如果 存在 value 值的父对象，就传入 value，key，object，stack 这几个参数，如果不存在 value 的父对象 object 则只传入 value 执行定制函数。
+函数的返回值 result 不为空则返回执行结果。</p> <h4 id="非对象"><a href="#非对象" class="header-anchor">#</a> 非对象</h4> <div class="language- extra-class"><pre class="language-text"><code>if (!isObject(value)) {
+    return value;
+}
+
+// ../isObject.js
+function isObject(value) {
+    const type = typeof value;
+    return value != null &amp;&amp; (type == 'object' || type ='function');
+}
+</code></pre></div><p>这里判断 value 是否为对象，如果不是则直接返回这个值，用来判断对象的方法和我们的相差不大，只不过他这里多了一个 function 类型</p></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/js_docs/ECMAScript/ECAMScript-5-3.html">
+            ECAMScript-5-3
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:290px;display:none;" data-v-5775ee02>
+      欢迎来到我的博客
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-5775ee02></i></div> <canvas id="banniang" width="250" height="320" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><canvas id="vuepress-canvas-cursor"></canvas></div></div>
+    <script src="/assets/js/app.7215e3d5.js" defer></script><script src="/assets/js/3.56274d76.js" defer></script><script src="/assets/js/1.3d70ced9.js" defer></script><script src="/assets/js/32.e424c10c.js" defer></script>
+  </body>
+</html>

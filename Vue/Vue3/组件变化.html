@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue3 中组件的变化 | start to life</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="互相探讨，共同学习">
+    
+    <link rel="preload" href="/assets/css/0.styles.9dbfd8c1.css" as="style"><link rel="preload" href="/assets/js/app.7215e3d5.js" as="script"><link rel="preload" href="/assets/js/3.56274d76.js" as="script"><link rel="preload" href="/assets/js/1.3d70ced9.js" as="script"><link rel="preload" href="/assets/js/27.f6b2b206.js" as="script"><link rel="prefetch" href="/assets/js/10.dead6dce.js"><link rel="prefetch" href="/assets/js/11.e056fb56.js"><link rel="prefetch" href="/assets/js/12.405e3e47.js"><link rel="prefetch" href="/assets/js/13.7054fc8f.js"><link rel="prefetch" href="/assets/js/14.10ea742d.js"><link rel="prefetch" href="/assets/js/15.c74bc7f0.js"><link rel="prefetch" href="/assets/js/16.163ff913.js"><link rel="prefetch" href="/assets/js/17.7c34df68.js"><link rel="prefetch" href="/assets/js/18.9f1000d1.js"><link rel="prefetch" href="/assets/js/19.10f0109b.js"><link rel="prefetch" href="/assets/js/20.674bb86c.js"><link rel="prefetch" href="/assets/js/21.b574b79f.js"><link rel="prefetch" href="/assets/js/22.c377980f.js"><link rel="prefetch" href="/assets/js/23.fa0e3522.js"><link rel="prefetch" href="/assets/js/24.8edd0817.js"><link rel="prefetch" href="/assets/js/25.0a9e7fdd.js"><link rel="prefetch" href="/assets/js/26.6dddc0cf.js"><link rel="prefetch" href="/assets/js/28.2c79ef8d.js"><link rel="prefetch" href="/assets/js/29.493d3b56.js"><link rel="prefetch" href="/assets/js/30.f022c6c8.js"><link rel="prefetch" href="/assets/js/31.eba22bcd.js"><link rel="prefetch" href="/assets/js/32.e424c10c.js"><link rel="prefetch" href="/assets/js/33.22dd2bdf.js"><link rel="prefetch" href="/assets/js/34.57a47538.js"><link rel="prefetch" href="/assets/js/35.7c27641a.js"><link rel="prefetch" href="/assets/js/36.eecfe8e3.js"><link rel="prefetch" href="/assets/js/37.c03aa867.js"><link rel="prefetch" href="/assets/js/38.3699af40.js"><link rel="prefetch" href="/assets/js/39.187c6fb1.js"><link rel="prefetch" href="/assets/js/4.a758b311.js"><link rel="prefetch" href="/assets/js/40.a55ddc79.js"><link rel="prefetch" href="/assets/js/41.0106140f.js"><link rel="prefetch" href="/assets/js/42.8e3cb92e.js"><link rel="prefetch" href="/assets/js/43.578c8058.js"><link rel="prefetch" href="/assets/js/44.409d8277.js"><link rel="prefetch" href="/assets/js/45.2c9c89f5.js"><link rel="prefetch" href="/assets/js/46.956c1c2a.js"><link rel="prefetch" href="/assets/js/47.43686695.js"><link rel="prefetch" href="/assets/js/48.66f6510b.js"><link rel="prefetch" href="/assets/js/49.ee01a54f.js"><link rel="prefetch" href="/assets/js/5.207f49f7.js"><link rel="prefetch" href="/assets/js/50.1ee1684c.js"><link rel="prefetch" href="/assets/js/51.d24adc0d.js"><link rel="prefetch" href="/assets/js/52.900d45e4.js"><link rel="prefetch" href="/assets/js/53.9faa8c19.js"><link rel="prefetch" href="/assets/js/54.64654524.js"><link rel="prefetch" href="/assets/js/55.0228dcd6.js"><link rel="prefetch" href="/assets/js/56.6f63c629.js"><link rel="prefetch" href="/assets/js/57.338dbf35.js"><link rel="prefetch" href="/assets/js/58.2375d626.js"><link rel="prefetch" href="/assets/js/59.2613dd82.js"><link rel="prefetch" href="/assets/js/6.82897e40.js"><link rel="prefetch" href="/assets/js/60.7dcca2ec.js"><link rel="prefetch" href="/assets/js/61.811e9043.js"><link rel="prefetch" href="/assets/js/62.0e64fbe1.js"><link rel="prefetch" href="/assets/js/63.47c0969e.js"><link rel="prefetch" href="/assets/js/64.dd3c645a.js"><link rel="prefetch" href="/assets/js/65.15fe32b5.js"><link rel="prefetch" href="/assets/js/66.58f0a783.js"><link rel="prefetch" href="/assets/js/67.20049817.js"><link rel="prefetch" href="/assets/js/68.d1326364.js"><link rel="prefetch" href="/assets/js/69.93e56418.js"><link rel="prefetch" href="/assets/js/7.536a4c66.js"><link rel="prefetch" href="/assets/js/70.63d63ea1.js"><link rel="prefetch" href="/assets/js/71.dc35c346.js"><link rel="prefetch" href="/assets/js/72.495db9c5.js"><link rel="prefetch" href="/assets/js/73.80156466.js"><link rel="prefetch" href="/assets/js/74.f808746f.js"><link rel="prefetch" href="/assets/js/75.e6802c4b.js"><link rel="prefetch" href="/assets/js/76.d3a79c09.js"><link rel="prefetch" href="/assets/js/77.c8fe16b3.js"><link rel="prefetch" href="/assets/js/78.a87f5d18.js"><link rel="prefetch" href="/assets/js/79.69d4c8b9.js"><link rel="prefetch" href="/assets/js/8.bc4fe1be.js"><link rel="prefetch" href="/assets/js/80.69dd4827.js"><link rel="prefetch" href="/assets/js/81.f49df39f.js"><link rel="prefetch" href="/assets/js/9.d0427f84.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9dbfd8c1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>start to life</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>互相探讨，共同学习</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">start to life</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>68</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">Vue3 中组件的变化</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h2 id="vue3-中组件的变化"><a href="#vue3-中组件的变化" class="header-anchor">#</a> Vue3 中组件的变化</h2> <p>Vue router  的一些变化</p> <p>vue 异步组件</p> <p>Teleport</p> <hr> <ul><li><p>首先我们先来看下 vue router 的一些变化</p> <p>安装的方式 -- https://router.vuejs.org/zh/guide/#javascript</p> <div class="language- extra-class"><pre class="language-text"><code>npm install vue-router@4
+</code></pre></div><p>首先是创建 Home、About 页面</p> <p>我们新建一个 views 文件夹存放我们的页面，然后新建Home.vue和About.vue</p> <div class="language- extra-class"><pre class="language-text"><code>// Home.vue
+&lt;template&gt;
+  &lt;div class=&quot;common-view default-view&quot;&gt;
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：一&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：二&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：三&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：四&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：五&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：六&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.common-view {
+  width: 90%;
+  height: 40%;
+  border: 1px solid #f0f0f0;
+  margin: 0 auto;
+  margin-top: 30px;
+  overflow: hidden;
+}
+.default-view {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.child-view {
+  width: 30%;
+  height: 45%;
+  background: #bdcac8;
+  text-align: center;
+  line-height: 158px;
+  border-radius: 8px;
+}
+.child-view span{
+    color: #fff;
+}
+&lt;/style&gt;
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>// About.vue
+&lt;template&gt;
+  &lt;span&gt;this is about view&lt;/span&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+span{
+    font-size: 16px;
+    font-weight: bold;
+}
+&lt;/style&gt;
+</code></pre></div><p>然后新建 Router 文件夹来引入 vue-router</p> <p>新增 index.js</p> <div class="language- extra-class"><pre class="language-text"><code>import { createRouter, createWebHashHistory } from &quot;vue-router&quot;;
+import routes from &quot;./routes&quot;;
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
+});
+
+export default router;
+</code></pre></div><p>我们可以看到 vue-router 也放弃了构造函数，直接导出的形式来创建 router，</p> <p>并且 路由的形式是通过 函数创建的方式来使用 createWebHashHistory 这是 Hash 路由</p> <p>然后在 main.js 中使用 use 来引用我们的插件，符合链式调用的新特性。</p> <div class="language- extra-class"><pre class="language-text"><code>import { createApp } from &quot;vue&quot;;
+import App from &quot;./App.vue&quot;;
+import router from &quot;./Router&quot;;
+
+const app = createApp(App);
+// console.log(app);
+app.use(router).mount(&quot;#app&quot;);
+
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>&lt;div class=&quot;router-line-edit&quot;&gt;
+    &lt;router-link to=&quot;/&quot;&gt;Home&lt;/router-link&gt;
+    |
+    &lt;router-link to=&quot;/about&quot;&gt;About&lt;/router-link&gt;
+  &lt;/div&gt;
+  &lt;router-view /&gt;
+</code></pre></div><p>然后在 App.vue 中使用 router ，这里和原来是一致的。</p> <p>ok 至此 vue-router 成功集成</p></li> <li><p>异步组件</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div class=&quot;common-view default-view&quot;&gt;
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：一&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：二&lt;/span&gt;
+    &lt;/div&gt;
+    
+    &lt;ChildBlock /&gt;
+
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：四&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：五&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;child-view&quot;&gt;
+      &lt;span&gt;子组件：六&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import ChildBlock from &quot;../components/ChildBlock.vue&quot;;
+export default {
+  components: {
+    ChildBlock,
+  },
+};
+&lt;/script&gt;
+</code></pre></div><p>我们将组件三改为组件引入方式，但是如果我们的文件过多，全部整合到一个 js 中，会导致 js 文件过大，响应慢，这时候需要按需引用的方式来异步加载我们的组件</p> <p>这里需要用到 <strong>defineAsyncComponent</strong> 这个成员 他呢接收一个函数并返回一个 Promise</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script&gt;
+import { defineAsyncComponent } from &quot;vue&quot;;
+const Block3 = defineAsyncComponent(() =&gt;
+  import(&quot;../components/ChildBlock.vue&quot;)
+);
+export default {
+  components: {
+    Block3,
+  },
+};
+&lt;/script&gt;
+</code></pre></div><p>刷新之后，我们看到 诶？ 这个效果和之前是一样的呀，</p> <p>那肯定的，我们在本地加载肯定是很快的，而且 ChildBlock 组件里面东西很少，加载速度会很快，但是我们来到浏览器看到 network 中 ChildBlock是在 Home.vue 之后才加载的</p> <p>![截屏2022-03-27 上午12.08.22](/Users/lucasy/Desktop/截屏2022-03-27 上午12.08.22.png)</p> <p>我们来用一些手段模拟一下</p> <p>新增一个 文件夹 util 和 utils 工具 js</p> <div class="language- extra-class"><pre class="language-text"><code>export function delay() {
+  let duration = random(1000, 4000);
+  return new Promise((resolve) =&gt; {
+    setTimeout(() =&gt; {
+      resolve();
+    }, duration);
+  });
+}
+
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+</code></pre></div><p>然后使用工具函数</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script&gt;
+import { delay } from &quot;../util/utils&quot;;
+import { defineAsyncComponent } from &quot;vue&quot;;
+const Block3 = defineAsyncComponent(async () =&gt; {
+  await delay();
+  return import(&quot;../components/ChildBlock.vue&quot;);
+});
+export default {
+  components: {
+    Block3,
+  },
+};
+&lt;/script&gt;
+</code></pre></div><p>这个时候我们会发现，好像是这么回事！</p> <p>然后 defineAsyncComponent 还可以使用配置的方式来进行定制化</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script&gt;
+import { delay } from &quot;../util/utils&quot;;
+import { defineAsyncComponent } from &quot;vue&quot;;
+const Block3 = defineAsyncComponent({
+  loader: async () =&gt; {
+    await delay();
+    const comp = import(&quot;../components/ChildBlock.vue&quot;);
+    return comp;
+  },
+});
+export default {
+  components: {
+    Block3,
+  },
+};
+&lt;/script&gt;
+</code></pre></div><p>两种方式相同，但是这个可以处理比较多的场景，比如说，在组件加载的 pendding 状态，和组件加载后的 error 状态。</p> <p>加载中</p> <p>我们新增一个Loading 组件</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div class=&quot;child-view loading&quot;&gt;
+    &lt;span&gt;加载中···&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+.loading {
+  background-color: #afb9be;
+}
+span {
+  color: orange;
+}
+&lt;/style&gt;
+</code></pre></div><p>然后 Home.vue 中的 loadingComponent 配置，这个配置是 组件加载中的状态。</p> <div class="language- extra-class"><pre class="language-text"><code>const Block3 = defineAsyncComponent({
+  loader: async () =&gt; {
+    await delay();
+    const comp = import(&quot;../components/ChildBlock.vue&quot;);
+    return comp;
+  },
+  loadingComponent: Loading,
+});
+</code></pre></div><p>error状态</p> <p>我们可以新增一个 error 状态的组件  ，这里 error 使用了插槽的方式来填写</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div class=&quot;child-view loading&quot;&gt;
+    &lt;span&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+.loading {
+  background-color: #badbcb;
+}
+span {
+  color: red;
+}
+&lt;/style&gt;
+</code></pre></div><p>配置，然后 配置 errorComponent，但是我们会发现直接引用组件的话没有办法添加属性，但是组件的创建是不是也是对象？ 我们可以用配置的方式来配置组件 使用 render 函数。但是 由于 render 函数中参数 h 取消 改为 vue 中的 成员，所以要在 vue 中解构 h</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script&gt;
+import { delay } from &quot;../util/utils&quot;;
+import { defineAsyncComponent, h } from &quot;vue&quot;;
+import Loading from &quot;../components/Loading.vue&quot;;
+import Error from &quot;../components/Error.vue&quot;;
+const Block3 = defineAsyncComponent({
+  loader: async () =&gt; {
+    await delay();
+    throw new Error(&quot;error&quot;);
+    const comp = import(&quot;../components/ChildBlock.vue&quot;);
+    return comp;
+  },
+  loadingComponent: Loading,
+  errorComponent: {
+    render() {
+      return h(Error, &quot;组件加载失败！&quot;);
+    },
+  },
+});
+export default {
+  components: {
+    Block3,
+  },
+};
+&lt;/script&gt;
+</code></pre></div><p>同理 我们在 App vue 中是否也可以用这种方式来异步加载页面。</p> <p>但是这样写是否有些麻烦，每次都写一大串，我们简单封装一下。</p> <p>Utils.js</p> <div class="language- extra-class"><pre class="language-text"><code>export function getAsyncComponent(path) {
+  const Block = defineAsyncComponent({
+    loader: async () =&gt; {
+      await delay();
+      throw new ReferenceError(&quot;error&quot;);
+      const comp = import(path);
+      return comp;
+    },
+    loadingComponent: Loading,
+    errorComponent: {
+      render() {
+        return h(ErrorCom, &quot;组件加载失败！&quot;);
+      },
+    },
+  });
+  return Block;
+}
+</code></pre></div><p>这样可以通过传入路径来获取我们的 异步组件啦！</p> <p>同理，我们封装一个获取异步页面的函数</p> <div class="language- extra-class"><pre class="language-text"><code>export function getAsyncPage(path) {
+  const Block = defineAsyncComponent({
+    loader: async () =&gt; {
+      await delay();
+      const comp = import(path);
+      return comp;
+    }
+  });
+  return Block;
+}
+</code></pre></div><p>然后 在 routes 中将组件替换为异步获取</p> <div class="language- extra-class"><pre class="language-text"><code>import { getAsyncPage } from &quot;../util/utils&quot;;
+
+const Home = getAsyncPage(&quot;../views/Home.vue&quot;);
+const About = getAsyncPage(&quot;../views/About.vue&quot;);
+
+export default [
+  { path: &quot;/&quot;, component: Home },
+  { path: &quot;/about&quot;, component: About },
+];
+</code></pre></div><p>完整代码：</p> <div class="language- extra-class"><pre class="language-text"><code>import { defineAsyncComponent, h } from &quot;vue&quot;;
+import Loading from &quot;../components/Loading.vue&quot;;
+import ErrorCom from &quot;../components/Error.vue&quot;;
+import &quot;nprogress/nprogress.css&quot;;
+import NProgress from &quot;nprogress&quot;;
+
+export function delay() {
+  let duration = random(1000, 4000);
+  return new Promise((resolve) =&gt; {
+    setTimeout(() =&gt; {
+      resolve();
+    }, duration);
+  });
+}
+
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+export function getAsyncComponent(path) {
+  const Block = defineAsyncComponent({
+    loader: async () =&gt; {
+      NProgress.start();
+      await delay();
+      const comp = import(path);
+      NProgress.start();
+      return comp;
+    },
+    loadingComponent: Loading,
+    errorComponent: {
+      render() {
+        return h(ErrorCom, &quot;组件加载失败！&quot;);
+      },
+    },
+  });
+  return Block;
+}
+
+export function getAsyncPage(path) {
+  const Block = defineAsyncComponent({
+    loader: async () =&gt; {
+      NProgress.start();
+      await delay();
+      const comp = import(path);
+      NProgress.done();
+      return comp;
+    },
+  });
+  return Block;
+}
+
+</code></pre></div></li> <li><p>Teleport</p> <p>Teleport 有什么作用呢？</p> <p>我们用一个例子来讲述一下。</p> <p>首先创建一个MaskView组件，全局蒙版</p> <div class="language- extra-class"><pre class="language-text"><code>//MaskView.vue
+&lt;template&gt;
+  &lt;div class=&quot;mask&quot;&gt;
+    &lt;slot&gt;&lt;/slot&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+&lt;/style&gt;
+</code></pre></div><p>这就是一个模糊的蒙版</p> <p>然后我们在 Home 页面导入 MaskView 组件，然后新增一个按钮来使蒙版显示或隐藏。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;button @click=&quot;onMaskShow&quot;&gt;show mask&lt;/button&gt;
+&lt;mask-view v-show=&quot;maskRef&quot;&gt;
+      &lt;button @click=&quot;onMaskOff&quot;&gt;turn off&lt;/button&gt;
+    &lt;/mask-view&gt;
+    
+   setup() {
+    const maskRef = ref(false);
+
+    const onMaskShow = () =&gt; {
+      maskRef.value = true;
+    };
+
+    const onMaskOff = () =&gt; {
+      maskRef.value = false;
+    };
+
+    return {
+      maskRef,
+      onMaskShow,
+      onMaskOff,
+    };
+  },
+</code></pre></div><p>项目跑起来之后我们可以观察一下项目结构，</p> <p>很明显我们的 MaskView 是在 app Home 页面下的对吧，</p> <p>但是这个 MaskView 是不是应该在 body 下面呢？</p> <p>以前我们 Vue 不可能实现这个功能，模板结构，即页面逻辑。</p> <p>但是现在不一样了，Vue3 中提供给我们一种新的组件，这是一个内置的全局组件Teleport, 我们可以用它来帮助我们，改变页面构造</p> <div class="language- extra-class"><pre class="language-text"><code>  &lt;Teleport to=&quot;body&quot;&gt;
+    &lt;mask-view v-show=&quot;maskRef&quot;&gt;
+      &lt;button @click=&quot;onMaskOff&quot;&gt;turn off&lt;/button&gt;
+    &lt;/mask-view&gt;
+  &lt;/Teleport&gt;
+</code></pre></div><p>ok 这就可以了， Teleport 存在一个属性 to 意思是去哪。</p></li></ul></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:290px;display:none;" data-v-5775ee02>
+      欢迎来到我的博客
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-5775ee02></i></div> <canvas id="banniang" width="250" height="320" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><canvas id="vuepress-canvas-cursor"></canvas></div></div>
+    <script src="/assets/js/app.7215e3d5.js" defer></script><script src="/assets/js/3.56274d76.js" defer></script><script src="/assets/js/1.3d70ced9.js" defer></script><script src="/assets/js/27.f6b2b206.js" defer></script>
+  </body>
+</html>
