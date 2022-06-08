@@ -8,6 +8,7 @@ module.exports = {
     theme: 'reco',
     lastUpdated: 'Last Updated',
     themeConfig: {
+        huawei:true,
         sidebar: utils.getContents(),
         logo: '',
         nav: utils.getTableBars()
