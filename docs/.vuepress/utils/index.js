@@ -7,7 +7,7 @@ const arr = [
     { text: 'HTML', link: '/html_docs/' },
     { text: 'CSS', link: '/css_docs/' },
     { text: 'JS', link: '/js_docs/' },
-    { text: '设计模式' , link: '/设计模式/'}
+    { text: '设计模式', link: '/设计模式/' },
 ]
 
 function getSideBar(dir) {
