@@ -9,6 +9,7 @@ const arr = [
     { text: 'JS', link: '/js_docs/' },
     { text: 'Vue', link: '/Vue/' },
     { text: '设计模式', link: '/设计模式/' },
+    { text: '数据结构与算法', link: '/problem/' },
 ]
 
 function getSideBar(dir) {
