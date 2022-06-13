@@ -5,6 +5,9 @@ module.exports = {
     description: '互相探讨，共同学习',
     repo: '',
     base: '',
+    author:'周始',
+    record:'not yet haha···',
+    startYear:'2022',
     theme: 'reco',
     lastUpdated: 'Last Updated',
     themeConfig: {
