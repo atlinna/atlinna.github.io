@@ -266,3 +266,51 @@ delete 只用来直接删除对象的（可删除）属性。如果对象的某�
   console.log(Object.keys(obj)) // ['name']
   console.log(obj); // {name: "zhang san", age: 18}
 ```
+
+#### 不变性
+所有的方法创建的都是浅不变形，也就是说，它们只会影响目标对象和它的直接属性。
+如果目标对象引用了其他对象（数组、对象、函数，等），其他对象的内容不受影响，仍然是可变的
+
+在 JavaScript 程序中很少需要深不可变性。
+有些特殊情况可能需要这样做，但是根据通用的设计模式，如果你发现需要密封或者冻结所有的对象，那
+你或许应当退一步，重新思考一下程序的设计，让它能更好地应对对象值的改变。
+
+**1、对象常量**
+结合 writable:false 和 configurable:false 就可以创建一个真正的常量属性（不可修改、重定义或者删除）
+```
+  var obj = {}
+  Object.defineProperty(obj, 'name', {
+      writable: false,
+      value: 10,
+      configurable: false,
+      enumerable: true
+  })
+```
+
+**2、禁止扩展**
+```
+  var obj = {}
+  Object.preventExtensions(obj)
+  obj.a = 1
+  obj.b = 2
+  console.log(obj)
+```
+在非严格模式下，创建属性 b 会静默失败。在严格模式下，将会抛出 TypeError 错误。
+
+**3、密封**
+Object.seal(..) 会创建一个“密封”的对象，这个方法实际上会在一个现有对象上调用Object.preventExtensions(..) 并把所有现有属性标记为 configurable:false 。
+密封之后不仅不能添加新属性，也不能重新配置或者删除任何现有属性（虽然可以修改属性的值）。
+
+
+**4、冻结**
+Object.freeze(..) 会创建一个冻结对象，这个方法实际上会在一个现有对象上调用Object.seal(..) 并把所有“数据访问”属性标记为 writable:false ，这样就无法修改它们的值。
+
+这个方法是你可以应用在对象上的级别最高的不可变性，它会禁止对于对象本身及其任意直接属性的修改（不过就像我们之前说过的，这个对象引用的其他对象是不受影响的）。
+
+你可以“深度冻结”一个对象，具体方法为，首先在这个对象上调用 Object.freeze(..) ，然后遍历它引用的所有对象并在这些对象上调用 Object.freeze(..) 。但是一定要小心，因
+为这样做有可能会在无意中冻结其他（共享）对象。
+
+
+
+
+
