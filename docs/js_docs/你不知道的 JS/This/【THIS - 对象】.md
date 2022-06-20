@@ -134,11 +134,135 @@ Object.assign(..) 方法的第一个参数是目标对象，之后还可以跟�
   var newObj = Object.assign( {}, {a:2},{b:3} );
 ```
 
+#### 属性描述符
+在 ES5 之前，JavaScript 语言本身并没有提供可以直接检测属性特性的方法，比如判断属性是否是只读。
+但是从 ES5 开始，所有的属性都具备了属性描述符。
+获取对象属性描述符可以使用 ```Object.getOwnPropertyDescriptor(obj,"prop")```
+如下,我们获取了一下 obj 对象的 name 属性的属性描述符：
+```
+  var obj = {
+   "name":"zhang san"
+  };
+  console.log(Object.getOwnPropertyDescriptor(obj,"name"));
+  /*
+    {
+      configurable: true,
+      enumerable: true,
+      value: "zhangsan",
+      writable: true
+    }
+  */
+```
+它除了包含属性值之外还包括另外三个特性：
++ writable  可写
++ enumerable 可枚举
++ configurable 可配置
 
+在创建普通属性时属性描述符会使用默认值，我们也可以使用 Object.defineProperty(..)来添加一个新属性或者修改一个已有属性（如果它是 configurable ）并对特性进行设置。
+如：
+```
+  var obj = {}
+  Object.defineProperty(obj, "name", {
+      value: 'zhang san',
+      writable: true,
+      enumerable: true,
+      configurable: true,
+  })
+  console.log(obj, Object.getOwnPropertyDescriptor(obj, 'name'))
+```
 
+**1、Writable 决定是否可以修改属性的值**
+```
+  var obj = {}
+  Object.defineProperty(obj, "name", {
+      value: 'zhang san',
+      writable: false,
+      enumerable: true,
+      configurable: true,
+  })
+  console.log(obj,)
+  obj.name = 'lisa'
+  console.log(obj);
+```
+如你所见，我们对属性值的修改静默失败（silently failed），如果在严格模式下，这种方法会报错。
 
+**2、Configurable 决定我们的属性描述符是否可以配置**
+```
+  var obj = {}
+  Object.defineProperty(obj, "name", {
+      value: 'zhang san',
+      writable: true,
+      enumerable: true,
+      configurable: false,
+  })
+  Object.defineProperty(obj, 'name', {
+      value: 'wang wu',
+      writable: false,
+      configurable: false,
+      enumerable: false
+  })
+  console.log(obj)
+  obj.name = 'lisa'
+  console.log(Object.getOwnPropertyDescriptor(obj, 'name'));
+```
+我们发现最后一个 Object.defineProperty() 抛出了一个 TypeError 告诉我们不能重复定义属性描述符
+**注意：如你所见，把 configurable 修改成false 是单向操作，无法撤销！**
 
+但是有一个例外，如果我们只修改 writable 这个特性的话，是不会抛出这个 TypeError 的。但只限于将 writable 由 true 改为 false。
+```
+  var obj = {}
+  Object.defineProperty(obj, "name", {
+      value: 'zhang san',
+      writable: true,
+      enumerable: true,
+      configurable: false,
+  })
+  Object.defineProperty(obj, 'name', {    // 正常修改
+      writable: false,
+  })
+  Object.defineProperty(obj, 'name', {    // TypeError 
+      writable: true,
+  })
+```
+除了不能修改配置之外，还会影响 delete 删除。因为属性是不可配置。
+```
+  var obj = {}
+  Object.defineProperty(obj, "name", {
+      value: 'zhang san',
+      writable: true,
+      enumerable: true,
+      configurable: false,
+  })
 
+  console.log(obj)
+  delete obj.name
+  console.log(obj);
+```
+delete 只用来直接删除对象的（可删除）属性。如果对象的某个属性是某个对象 / 函数的最后一个引用者，对这个属性执行 delete 操作之后，这个未引用的对象 / 函
+数就可以被垃圾回收。但是，不要把 delete 看作一个释放内存的工具（就像 C/C++ 中那样），它就是一个删除对象属性的操作，仅此而已。
 
+**3、Enumerable 决定属性是否可枚举**
+从名字就可以看出，这个描述符控制的是属性是否会出现在对象的属性枚举中，比如说for..in 循环。
+如果把 enumerable 设置成 false ，这个属性就不会出现在枚举中，虽然仍然可以正常访问它。相对地，设置成 true 就会让它出现在枚举中。
+```
+  var obj = {}
+  Object.defineProperty(obj, "name", {
+      value: 'zhang san',
+      writable: true,
+      enumerable: true,
+      configurable: true,
+  })
+  Object.defineProperty(obj, 'age', {
+      value: 18,
+      writable: true,
+      configurable: true,
+      enumerable: false
+  })
 
+  for (const prop in obj) {
+      console.log(prop, 'enumerable') // name
+  }
 
+  console.log(Object.keys(obj)) // ['name']
+  console.log(obj); // {name: "zhang san", age: 18}
+```
