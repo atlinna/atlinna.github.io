@@ -31,7 +31,9 @@ function getSideBar(dir) {
 
     return sortBars(bars);
 }
-
+/**
+ * 添加侧边栏排序功能 
+ */
 function getSortField(n) {
     return n.substring(n.indexOf('@') + 1, n.length - 3)
 }
