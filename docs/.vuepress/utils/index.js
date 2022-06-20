@@ -22,11 +22,22 @@ function getSideBar(dir) {
             bars.push({ title: filename, children: getSideBar(path) })
         }
         if (filename.endsWith('.md') && filename !== 'index.md') {
+            let s = getSortField(filename)
             let name = filename.replace('.md', '')
-            bars.push({ text: name, title: name, path: `${dir}${name}` })
+            let art_name = name.replace(`@${s}`, '')
+            bars.push({ text: art_name, title: art_name, path: `${dir}${name}`, sort: s })
         }
     })
-    return bars;
+
+    return sortBars(bars);
+}
+
+function getSortField(n) {
+    return n.substring(n.indexOf('@') + 1, n.length - 3)
+}
+
+function sortBars(arr) {
+    return arr.sort((a, b) => a.sort - b.sort)
 }
 
 function getContents() {
