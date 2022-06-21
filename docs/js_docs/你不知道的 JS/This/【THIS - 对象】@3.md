@@ -464,4 +464,69 @@ myObject.a 的属性访问返回值可能是 undefined ，但是这个值有可�
   console.log(Object.getOwnPropertyNames(obj)); // ['a','b']
 ```
 
+### 遍历
+for..in 循环可以用来遍历对象的可枚举属性列表（包括 [[Prototype]] 链）。但是如何遍历属性的值呢
+对于数值索引的数组来说，可以使用标准的 for 循环来遍历值
+这实际上并不是在遍历值，而是遍历下标来指向值
+
+ES6 增加了一种用来遍历数组的 for..of 循环语法（如果对象本身定义了迭代器的话也可以遍历对象）
+for..of 循环首先会向被访问对象请求一个迭代器对象，然后通过调用迭代器对象的 next() 方法来遍历所有返回值。
+
+数组有内置的 @@iterator ，因此 for..of 可以直接应用在数组上。我们使用内置的 @@iterator 来手动遍历数组
+```
+  var arr = [1, 2, 3, 4, 5]
+
+  for (const val of arr) {
+      console.log(val);
+  }
+```
+那么如何自定义迭代器来遍历对象的属性呢？
+```
+  var obj = {
+      a: 1,
+      b: 2,
+      c: 3,
+      d: 4
+  }
+
+  Object.defineProperty(obj, Symbol.iterator, {
+      writable: true,
+      configurable: true,
+      enumerable: true,
+      value: function () {
+          let key_arr = Object.keys(this);
+          let index = 0;
+          let self = this;
+          return {
+              next: function () {
+                  return {
+                      value: self[key_arr[index++]],
+                      done: index > key_arr.length
+                  }
+              }
+          }
+      }
+  })
+
+  for (const val of obj) {
+      console.log(val);
+  }
+```
+我们使用 Object.defineProperty(..) 定义了我们自己的 @@iterator （主要是为了让它不可枚举），不过注意，
+我们把符号当作可计算属性名（本章之前有介绍）。此外，也可以直接在定义对象时进行声明，
+比如 var myObject = { a:2, b:3, [Symbol.iterator]: function() { /* .. */ } } 。
+
+**注意：一定要给迭代器一个出口，不然的话会无限循环**
+
+### 小结
+对象就是键 / 值对的集合。可以通过 .propName 或者 ["propName"] 语法来获取属性值。访问属性时，
+引擎实际上会调用内部的默认 [[Get]] 操作（在设置属性值时是 [[Put]] ），[[Get]] 操作会检查对象本身是否包含这个属性，
+如果没找到的话还会查找 [[Prototype]] 链。
+
+属性的特性可以通过属性描述符来控制，比如 writable 和 configurable 。此外，可以使用
+Object.preventExtensions(..) 、 Object.seal(..) 和 Object.freeze(..) 来设置对象（及其属性）的不可变性级别。
+
+属性不一定包含值——它们可能是具备 getter/setter 的“访问描述符”。此外，属性可以是可枚举或者不可枚举的，这决定了它们是否会出现在 for..in 循环中。
+
+你可以使用 ES6 的 for..of 语法来遍历数据结构（数组、对象，等等）中的值， for..of 会寻找内置或者自定义的 @@iterator 对象并调用它的 next() 方法来遍历数据值。
 
