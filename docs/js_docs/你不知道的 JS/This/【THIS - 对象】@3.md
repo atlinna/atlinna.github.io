@@ -311,6 +311,157 @@ Object.freeze(..) 会创建一个冻结对象，这个方法实际上会在一�
 为这样做有可能会在无意中冻结其他（共享）对象。
 
 
+#### [[Get]]
+属性访问在实现时有一个微妙却非常重要的细节
+```
+  var myObject = {
+  a: 2
+  };
+  myObject.a; // 2
+```
+在语言规范中， myObject.a 在 myObject 上实际上是实现了 [[Get]] 操作（有点像函数调用： [[Get]]() ）。
+对象默认的内置 [[Get]] 操作首先在对象中查找是否有名称相同的属性，如果找到就会返回这个属性的值。
 
+然而，如果没有找到名称相同的属性，按照 [[Get]] 算法的定义会执行另外一种非常重要的行为。
+-遍历可能存在的 [[Prototype]] 链，也就是原型链
+
+如果无论如何都没有找到名称相同的属性，那 [[Get]] 操作会返回值 undefined
+
+```
+  var myObject = {
+  a: undefined
+  };
+  myObject.a; // undefined
+  myObject.b; // undefined
+```
+从返回值的角度来说，这两个引用没有区别——它们都返回了 undefined 。然而，尽管乍
+看之下没什么区别，实际上底层的 [[Get]] 操作对 myObject.b 进行了更复杂的处理。
+
+#### [[Put]]
+既然有可以获取属性值的 [[Get]] 操作，就一定有对应的 [[Put]] 操作。
+
+[[Put]] 被触发时，实际的行为取决于许多因素，包括对象中是否已经存在这个属性（这是最重要的因素）。
+
+如果已经存在这个属性， [[Put]] 算法大致会检查下面这些内容。
++ 1. 属性是否是访问描述符（参见 3.3.9 节）？如果是并且存在 setter 就调用 setter。
++ 2. 属性的数据描述符中 writable 是否是 false ？如果是，在非严格模式下静默失败，在严格模式下抛出 TypeError 异常。
++ 3. 如果都不是，将该值设置为属性的值。
+
+#### Getter 和 Setter
+对象默认的 [[Put]] 和 [[Get]] 操作分别可以控制属性值的设置和获取。
+
+在 ES5 中可以使用 getter 和 setter 部分改写默认操作，但是只能应用在单个属性上，无法应用在整个对象上。
+getter 是一个隐藏函数，会在获取属性值时调用。setter 也是一个隐藏函数，会在设置属性值时调用。
+
+当你给一个属性定义 getter、setter 或者两者都有时，这个属性会被定义为“访问描述符”（和“数据描述符”相对）。
+对于访问描述符来说，JavaScript 会忽略它们的 value 和 writable 特性，取而代之的是关心 set 和 get （还有 configurable 和 enumerable ）特性。
+
+```
+  var obj = {
+      get a() {
+          return Math.random() * 10
+      }
+  }
+
+  Object.defineProperty(obj, 'b', {
+      get() {
+          return Math.floor(this.a)
+      },
+      enumerable: true
+  })
+
+  console.log(obj);
+  console.log(obj.a);
+  console.log(obj.b);
+```
+不管是对象文字语法中的 get a() { .. } ，还是 defineProperty(..) 中的显式定义，二者
+都会在对象中创建一个不包含值的属性，对于这个属性的访问会自动调用一个隐藏函数，它的返回值会被当作属性访问的返回值.
+
+为了让属性更合理，还应当定义 setter，和你期望的一样，setter 会覆盖单个属性默认的 [[Put]] （也被称为赋值）操作。
+通常来说 getter 和 setter 是成对出现的（只定义一个的话通常会产生意料之外的行为）
+
+#### 存在性
+myObject.a 的属性访问返回值可能是 undefined ，但是这个值有可能是属性中存储的 undefined ，也可能是因为属性不存在所以返回 undefined 。
+那么如何区分这两种情况呢？
+
+我们可以在不访问属性值的情况下判断对象中是否存在这个属性
++ in 操作符：in 操作符会检查属性是否在对象及其 [[Prototype]] 原型链中
+  ```
+    var obj = {
+        a: 1,
+        b: 3
+    }
+
+    console.log('a' in obj); // true
+    console.log('c' in obj); // false
+    console.log('b' in obj); // true
+  ```
++ hasOwnProperty(..) 只会检查属性是否在 myObject 对象中，不会检查 [[Prototype]] 链。
+  ```
+    var obj = {
+        a: 1,
+        b: 3
+    }
+
+    console.log(obj.hasOwnProperty('a')); // true
+    console.log(obj.hasOwnProperty('c')); // false
+    console.log(obj.hasOwnProperty('b')); // true
+  ```
+看起来 in 操作符可以检查容器内是否有某个值，但是它实际上检查的是某个属性名是否存在。
+比如数组 [1,2,3] 但是如果你检查 3 的话是不存在的，因为数组的键是从0开始依次排列的。
+
+**可枚举**
+```
+  var obj = {}
+
+  Object.defineProperty(obj, 'a', {
+      enumerable: true,
+      value: 1
+  })
+
+  Object.defineProperty(obj, 'b', {
+      enumerable: false,
+      value: 2
+  })
+
+  console.log('a' in obj); // true
+  console.log('b' in obj); // true
+
+  console.log(obj.hasOwnProperty('a')); // true
+  console.log(obj.hasOwnProperty('b')); // true
+
+  for (const p in obj) {
+      console.log(p, 'enumer-key');
+  }
+  // a enumer-key
+```
+我们发现我们定义的两个属性都在对象 obj 中，只不过 a 是可枚举的， b 是不可枚举的
+当我们访问 obj.b 的时候确实存在访问值，但是却不会出现在 for ··· in 循环中
+原因是**可枚举就相当于“可以出现在对象属性的遍历中”**。
+
+在数组上应用 for..in 循环有时会产生出人意料的结果，因为这种枚举不仅会包含所有数值索引，还会包含所有可枚举属性。
+最好只在对象上应用 for..in 循环，如果要遍历数组就使用传统的 for 循环来遍历数值索引。
+
+也可以通过另一种方式来区分属性是否可枚举
+```
+  var obj = {}
+
+  Object.defineProperty(obj, 'a', {
+      enumerable: true,
+      value: 1
+  })
+
+  Object.defineProperty(obj, 'b', {
+      enumerable: false,
+      value: 2
+  })
+
+
+  console.log(obj.propertyIsEnumerable('a'));  // true
+  console.log(obj.propertyIsEnumerable('b'));  // false
+
+  console.log(Object.keys(obj));  // ['a']
+  console.log(Object.getOwnPropertyNames(obj)); // ['a','b']
+```
 
 
