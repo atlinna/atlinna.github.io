@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>排序 | Mr.Zhou（周始）</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="梦开始的地方">
+    
+    <link rel="preload" href="/assets/css/0.styles.cb10be4e.css" as="style"><link rel="preload" href="/assets/js/app.c702b549.js" as="script"><link rel="preload" href="/assets/js/3.5f4f345c.js" as="script"><link rel="preload" href="/assets/js/1.6abec770.js" as="script"><link rel="preload" href="/assets/js/55.ffe5bc47.js" as="script"><link rel="prefetch" href="/assets/js/10.d291cc62.js"><link rel="prefetch" href="/assets/js/11.54450c60.js"><link rel="prefetch" href="/assets/js/12.12a073b2.js"><link rel="prefetch" href="/assets/js/13.eb056b91.js"><link rel="prefetch" href="/assets/js/14.3bc283b6.js"><link rel="prefetch" href="/assets/js/15.7ce8a272.js"><link rel="prefetch" href="/assets/js/16.c36b1d89.js"><link rel="prefetch" href="/assets/js/17.50f53894.js"><link rel="prefetch" href="/assets/js/18.1ad6f2f3.js"><link rel="prefetch" href="/assets/js/19.1a30d70a.js"><link rel="prefetch" href="/assets/js/20.a1a36541.js"><link rel="prefetch" href="/assets/js/21.9fe0645a.js"><link rel="prefetch" href="/assets/js/22.9d821df1.js"><link rel="prefetch" href="/assets/js/23.8be55d22.js"><link rel="prefetch" href="/assets/js/24.d46d441d.js"><link rel="prefetch" href="/assets/js/25.8d175c37.js"><link rel="prefetch" href="/assets/js/26.da98ad3f.js"><link rel="prefetch" href="/assets/js/27.e0f4c450.js"><link rel="prefetch" href="/assets/js/28.712508ac.js"><link rel="prefetch" href="/assets/js/29.8e42a93d.js"><link rel="prefetch" href="/assets/js/30.a3b4f6a7.js"><link rel="prefetch" href="/assets/js/31.8a96312c.js"><link rel="prefetch" href="/assets/js/32.4e73a5f8.js"><link rel="prefetch" href="/assets/js/33.ac69bfaf.js"><link rel="prefetch" href="/assets/js/34.f5b25751.js"><link rel="prefetch" href="/assets/js/35.446da3ac.js"><link rel="prefetch" href="/assets/js/36.2ff28df5.js"><link rel="prefetch" href="/assets/js/37.b179e499.js"><link rel="prefetch" href="/assets/js/38.d37b3f7d.js"><link rel="prefetch" href="/assets/js/39.67f85d8a.js"><link rel="prefetch" href="/assets/js/4.9d53d442.js"><link rel="prefetch" href="/assets/js/40.f310b1e3.js"><link rel="prefetch" href="/assets/js/41.c146657c.js"><link rel="prefetch" href="/assets/js/42.f8268ec5.js"><link rel="prefetch" href="/assets/js/43.a6172bd6.js"><link rel="prefetch" href="/assets/js/44.55ccf872.js"><link rel="prefetch" href="/assets/js/45.5699626d.js"><link rel="prefetch" href="/assets/js/46.204eb14d.js"><link rel="prefetch" href="/assets/js/47.b797b7f0.js"><link rel="prefetch" href="/assets/js/48.5dc859a6.js"><link rel="prefetch" href="/assets/js/49.309581b2.js"><link rel="prefetch" href="/assets/js/5.c48ac34b.js"><link rel="prefetch" href="/assets/js/50.9dbf38e7.js"><link rel="prefetch" href="/assets/js/51.547f2bcf.js"><link rel="prefetch" href="/assets/js/52.e4140abc.js"><link rel="prefetch" href="/assets/js/53.989e1e59.js"><link rel="prefetch" href="/assets/js/54.3cb2fff0.js"><link rel="prefetch" href="/assets/js/56.49a9eae6.js"><link rel="prefetch" href="/assets/js/57.bd3b0744.js"><link rel="prefetch" href="/assets/js/58.4b2a3448.js"><link rel="prefetch" href="/assets/js/59.978ba6e1.js"><link rel="prefetch" href="/assets/js/6.adca58f2.js"><link rel="prefetch" href="/assets/js/60.d5b5e4f8.js"><link rel="prefetch" href="/assets/js/61.5429a874.js"><link rel="prefetch" href="/assets/js/62.ed277134.js"><link rel="prefetch" href="/assets/js/63.d82596f0.js"><link rel="prefetch" href="/assets/js/64.c5bf90d6.js"><link rel="prefetch" href="/assets/js/65.bfa45bf9.js"><link rel="prefetch" href="/assets/js/66.5f4633c7.js"><link rel="prefetch" href="/assets/js/67.d4d93bbd.js"><link rel="prefetch" href="/assets/js/68.624b14b6.js"><link rel="prefetch" href="/assets/js/69.1bff0a7c.js"><link rel="prefetch" href="/assets/js/7.dae64c3f.js"><link rel="prefetch" href="/assets/js/70.8be782d6.js"><link rel="prefetch" href="/assets/js/71.ca2fd878.js"><link rel="prefetch" href="/assets/js/72.217ce3bf.js"><link rel="prefetch" href="/assets/js/73.6b491d9e.js"><link rel="prefetch" href="/assets/js/74.b0e2f33d.js"><link rel="prefetch" href="/assets/js/75.93197459.js"><link rel="prefetch" href="/assets/js/76.4c3341bb.js"><link rel="prefetch" href="/assets/js/77.41c2ecb4.js"><link rel="prefetch" href="/assets/js/78.2f27e0c2.js"><link rel="prefetch" href="/assets/js/79.24db11a0.js"><link rel="prefetch" href="/assets/js/8.db2e63b1.js"><link rel="prefetch" href="/assets/js/80.6703f35b.js"><link rel="prefetch" href="/assets/js/81.2dce7ba5.js"><link rel="prefetch" href="/assets/js/82.cc72c92f.js"><link rel="prefetch" href="/assets/js/83.1d517002.js"><link rel="prefetch" href="/assets/js/84.62321407.js"><link rel="prefetch" href="/assets/js/85.de4316e9.js"><link rel="prefetch" href="/assets/js/86.cb1829f7.js"><link rel="prefetch" href="/assets/js/87.10e4de1d.js"><link rel="prefetch" href="/assets/js/88.56875217.js"><link rel="prefetch" href="/assets/js/89.eeebb818.js"><link rel="prefetch" href="/assets/js/9.5989cf25.js"><link rel="prefetch" href="/assets/js/90.f7f2533a.js"><link rel="prefetch" href="/assets/js/91.f8dc4cde.js"><link rel="prefetch" href="/assets/js/92.0351b165.js"><link rel="prefetch" href="/assets/js/93.46eab1ab.js"><link rel="prefetch" href="/assets/js/94.8c735238.js"><link rel="prefetch" href="/assets/js/95.0b0e523e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cb10be4e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Mr.Zhou（周始）</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>梦开始的地方</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Mr.Zhou（周始）</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/problem/" class="nav-link router-link-active"><i class="undefined"></i>
+  数据结构与算法
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>74</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/problem/" class="nav-link router-link-active"><i class="undefined"></i>
+  数据结构与算法
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>数据结构</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/problem/数据结构/【栈和队列】@1.html" class="sidebar-link">【栈和队列】</a></li><li><a href="/problem/数据结构/【链表】@2.html" class="sidebar-link">【链表】</a></li><li><a href="/problem/数据结构/【排序】@3.html" class="active sidebar-link">【排序】</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">排序</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h3 id="排序"><a href="#排序" class="header-anchor">#</a> 排序</h3> <p>首先我们要了解排序的本质，什么是排序呢？</p> <p>给你一个数组 你会用什么样的方式对内部元素进行排序呢？</p> <p>我们忘记创建代替数组，通过删除数组内部元素来排序的方式，因为这代表着你有更大的空间消耗，而且还删除了数组内部元素，性能可以说极差。</p> <p>记住，排序不是比较大小。</p> <p>排序是比较和交换的过程。</p> <p><strong>冒泡排序：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>function compare(a, b) {
+  return a &gt; b;
+}
+
+function exchange(array, a, b) {
+  let temp = array[a];
+  array[a] = array[b];
+  array[b] = temp;
+}
+
+function sort(array) {
+  for (let i = 0; i &lt; array.length - 1; i++) {
+    for (let j = 0; j &lt; array.length - i - 1; j++) {
+      if (compare(array[j], arr[j + 1])) {
+        exchange(array, j, j + 1);
+      }
+    }
+  }
+}
+</code></pre></div><p>冒泡排序的本质呢，就是每次都会将两者之中最大的置于后面，这样当每一层循环结束，能够保证，最后面那个一定是最大的（或最小的，根据 compare中的定义来判断）</p> <p><strong>每次都会交换一个两者之中的最大值（或最小值）放在后面</strong></p> <p>接下来我们看选择排序》</p> <p><strong>选择排序</strong></p> <div class="language- extra-class"><pre class="language-text"><code>function compare(a, b) {
+  return a &lt; b;
+}
+
+function exchange(array, a, b) {
+  let temp = array[a];
+  array[a] = array[b];
+  array[b] = temp;
+}
+
+// 选择排序
+function sort(array) {
+  for (let i = 0; i &lt; array.length - 1; i++) {
+    let maxIndex = 0;
+    for (let j = 0; j &lt; array.length - 1 - i; j++) {
+      if (compare(array[maxIndex], array[j + 1])) {
+        maxIndex = j + 1;
+      }
+    }
+    exchange(array, maxIndex, array.length - i - 1);
+  }
+}
+</code></pre></div><p>我们看下选择排序的原理，他呢和冒泡排序机器相似，但是有一个地方不同</p> <p>我们冒泡排序的时候，每次比较都会进行元素置换，但是选择排序是取最大的（或最小的）那个元素和最后一个元素进行置换。从而达到排序的目的。</p> <p><strong>快速排序：</strong></p> <p>快速排序呢比较不好理解，希望能多看几遍然后自行推导一下，如果感兴趣的话可以去看一下《算法导论》讲述了 算法推导的全过程。</p> <p>首先我们先来看一下快排的工作原理：</p> <p>![截屏2022-04-03 下午11.06.39](/Users/lucasy/workspace/new_level/note/Problem/picture/截屏2022-04-03 下午11.06.39.png)</p> <p>可以先看下图，不知道画的清不清楚，</p> <p>首先呢，我们拿到原数组之后第一次排序，我们先拿到一个对照点，比如取数组第一个元素， 然后呢和数组中其他元素进行比对，比这个点小的 就站在 对照点的左边，比对照点大的，就站在对照点的右边。</p> <p>理论如此，我们上代码</p> <div class="language- extra-class"><pre class="language-text"><code>function quickSort(arr) {
+  if (!arr || arr.length &lt; 1) return [];
+
+  var left = [];
+  var right = [];
+  var current = arr[0];
+  for (let i = 1; i &lt; arr.length; i++) {
+    if (arr[i] &lt; current) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  left = quickSort(left);
+  right = quickSort(right);
+
+  return left.concat([current], right);
+}
+</code></pre></div><p>首先呢，我们看下 核心部分，使用一个循环来对比元素的大小。将比对照点大的放到 right 数组，然后将比对照点小的放到 left 数组中。但是这样不够，为什么不够呢</p> <p>这只进行了一次排序然后将大小分组对吧</p> <p>没错，然后重点来了，看到下面这里</p> <div class="language- extra-class"><pre class="language-text"><code>  left = quickSort(left);
+  right = quickSort(right);
+</code></pre></div><p>我们继续递归来排序，各自的数组，想象一下，当你走到最后一个的时候，left、right 都是空数组了，空数组走到严谨性判断直接返回也就不会继续走这两行代码。于是递归结束。懂了？</p> <p>上面这个呢是简化版本的快速排序，可以发现创建了很多辅助数组，牺牲了额外的内存空间来完成排序，也是可以的</p> <p>接下来我们看下标准的快速排序。</p> <div class="language- extra-class"><pre class="language-text"><code>function exchange(arr, a, b) {
+  let temp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = temp;
+}
+
+function quickSort(arr, begin, end) {
+  if (begin &gt;= end - 1) return;
+  let left = begin;
+  let right = end;
+  do {
+    do left++;
+    while (left &lt; right &amp;&amp; arr[left] &lt; arr[begin]);
+    do right--;
+    while (right &gt; left &amp;&amp; arr[right] &gt; arr[begin]);
+    if (left &lt; right) exchange(arr, left, right);
+  } while (left &lt; right);
+  let current = left == right ? right - 1 : right;
+  exchange(arr, begin, current);
+  quickSort(arr, begin, current);
+  quickSort(arr, current + 1, end);
+}
+
+function main(arr) {
+  quickSort(arr, 0, arr.length);
+}
+</code></pre></div><p>思想是相同的，只不过没有了额外的辅助数组</p> <p>多多练习</p></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/problem/数据结构/【链表】@2.html" class="prev">
+            【链表】
+          </a></span> <span class="next"><a href="/problem/算法/【动态规划】@1.html">
+            【动态规划】
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><canvas id="vuepress-canvas-cursor"></canvas><div></div></div></div>
+    <script src="/assets/js/app.c702b549.js" defer></script><script src="/assets/js/3.5f4f345c.js" defer></script><script src="/assets/js/1.6abec770.js" defer></script><script src="/assets/js/55.ffe5bc47.js" defer></script>
+  </body>
+</html>
