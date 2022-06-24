@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>二叉搜索树 | Mr.Zhou（周始）</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="梦开始的地方">
+    
+    <link rel="preload" href="/assets/css/0.styles.cb10be4e.css" as="style"><link rel="preload" href="/assets/js/app.5c9780a4.js" as="script"><link rel="preload" href="/assets/js/3.5f4f345c.js" as="script"><link rel="preload" href="/assets/js/1.6abec770.js" as="script"><link rel="preload" href="/assets/js/55.d018c2c1.js" as="script"><link rel="prefetch" href="/assets/js/10.d291cc62.js"><link rel="prefetch" href="/assets/js/11.54450c60.js"><link rel="prefetch" href="/assets/js/12.12a073b2.js"><link rel="prefetch" href="/assets/js/13.eb056b91.js"><link rel="prefetch" href="/assets/js/14.3bc283b6.js"><link rel="prefetch" href="/assets/js/15.7ce8a272.js"><link rel="prefetch" href="/assets/js/16.c36b1d89.js"><link rel="prefetch" href="/assets/js/17.50f53894.js"><link rel="prefetch" href="/assets/js/18.1ad6f2f3.js"><link rel="prefetch" href="/assets/js/19.1a30d70a.js"><link rel="prefetch" href="/assets/js/20.a1a36541.js"><link rel="prefetch" href="/assets/js/21.9fe0645a.js"><link rel="prefetch" href="/assets/js/22.9d821df1.js"><link rel="prefetch" href="/assets/js/23.8be55d22.js"><link rel="prefetch" href="/assets/js/24.d46d441d.js"><link rel="prefetch" href="/assets/js/25.8d175c37.js"><link rel="prefetch" href="/assets/js/26.da98ad3f.js"><link rel="prefetch" href="/assets/js/27.e0f4c450.js"><link rel="prefetch" href="/assets/js/28.712508ac.js"><link rel="prefetch" href="/assets/js/29.8e42a93d.js"><link rel="prefetch" href="/assets/js/30.a3b4f6a7.js"><link rel="prefetch" href="/assets/js/31.8a96312c.js"><link rel="prefetch" href="/assets/js/32.4e73a5f8.js"><link rel="prefetch" href="/assets/js/33.ac69bfaf.js"><link rel="prefetch" href="/assets/js/34.f5b25751.js"><link rel="prefetch" href="/assets/js/35.446da3ac.js"><link rel="prefetch" href="/assets/js/36.2ff28df5.js"><link rel="prefetch" href="/assets/js/37.b179e499.js"><link rel="prefetch" href="/assets/js/38.d37b3f7d.js"><link rel="prefetch" href="/assets/js/39.67f85d8a.js"><link rel="prefetch" href="/assets/js/4.9d53d442.js"><link rel="prefetch" href="/assets/js/40.f310b1e3.js"><link rel="prefetch" href="/assets/js/41.c146657c.js"><link rel="prefetch" href="/assets/js/42.f8268ec5.js"><link rel="prefetch" href="/assets/js/43.a6172bd6.js"><link rel="prefetch" href="/assets/js/44.55ccf872.js"><link rel="prefetch" href="/assets/js/45.5699626d.js"><link rel="prefetch" href="/assets/js/46.204eb14d.js"><link rel="prefetch" href="/assets/js/47.b797b7f0.js"><link rel="prefetch" href="/assets/js/48.5dc859a6.js"><link rel="prefetch" href="/assets/js/49.309581b2.js"><link rel="prefetch" href="/assets/js/5.c48ac34b.js"><link rel="prefetch" href="/assets/js/50.9dbf38e7.js"><link rel="prefetch" href="/assets/js/51.547f2bcf.js"><link rel="prefetch" href="/assets/js/52.e4140abc.js"><link rel="prefetch" href="/assets/js/53.989e1e59.js"><link rel="prefetch" href="/assets/js/54.3cb2fff0.js"><link rel="prefetch" href="/assets/js/56.cfc72a21.js"><link rel="prefetch" href="/assets/js/57.9382d376.js"><link rel="prefetch" href="/assets/js/58.e2a762ba.js"><link rel="prefetch" href="/assets/js/59.3ba878ce.js"><link rel="prefetch" href="/assets/js/6.adca58f2.js"><link rel="prefetch" href="/assets/js/60.033325b1.js"><link rel="prefetch" href="/assets/js/61.beb610f0.js"><link rel="prefetch" href="/assets/js/62.9af88500.js"><link rel="prefetch" href="/assets/js/63.72fafdcd.js"><link rel="prefetch" href="/assets/js/64.dada07db.js"><link rel="prefetch" href="/assets/js/65.131f3980.js"><link rel="prefetch" href="/assets/js/66.44e74ba0.js"><link rel="prefetch" href="/assets/js/67.e95465b0.js"><link rel="prefetch" href="/assets/js/68.a4c03495.js"><link rel="prefetch" href="/assets/js/69.cb01f3a4.js"><link rel="prefetch" href="/assets/js/7.dae64c3f.js"><link rel="prefetch" href="/assets/js/70.2af95ca8.js"><link rel="prefetch" href="/assets/js/71.b0766acf.js"><link rel="prefetch" href="/assets/js/72.176b47d8.js"><link rel="prefetch" href="/assets/js/73.9e1090b8.js"><link rel="prefetch" href="/assets/js/74.4b504f52.js"><link rel="prefetch" href="/assets/js/75.169965f0.js"><link rel="prefetch" href="/assets/js/76.88ae20e0.js"><link rel="prefetch" href="/assets/js/77.5ed15260.js"><link rel="prefetch" href="/assets/js/78.f3a5df8e.js"><link rel="prefetch" href="/assets/js/79.6ec03020.js"><link rel="prefetch" href="/assets/js/8.db2e63b1.js"><link rel="prefetch" href="/assets/js/80.93639a80.js"><link rel="prefetch" href="/assets/js/81.653f8cb1.js"><link rel="prefetch" href="/assets/js/82.b9d22e6f.js"><link rel="prefetch" href="/assets/js/83.597d1663.js"><link rel="prefetch" href="/assets/js/84.9b02189f.js"><link rel="prefetch" href="/assets/js/85.6d806900.js"><link rel="prefetch" href="/assets/js/86.640f04b1.js"><link rel="prefetch" href="/assets/js/87.fae6efcd.js"><link rel="prefetch" href="/assets/js/88.910ede36.js"><link rel="prefetch" href="/assets/js/89.9a173e3b.js"><link rel="prefetch" href="/assets/js/9.41916cb8.js"><link rel="prefetch" href="/assets/js/90.076839b2.js"><link rel="prefetch" href="/assets/js/91.51cefd45.js"><link rel="prefetch" href="/assets/js/92.3c38a041.js"><link rel="prefetch" href="/assets/js/93.e8f8a782.js"><link rel="prefetch" href="/assets/js/94.045d1dfe.js"><link rel="prefetch" href="/assets/js/95.82c673d4.js"><link rel="prefetch" href="/assets/js/96.4fb7b3a2.js"><link rel="prefetch" href="/assets/js/97.5e914d39.js"><link rel="prefetch" href="/assets/js/98.180fff6a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cb10be4e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Mr.Zhou（周始）</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>梦开始的地方</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Mr.Zhou（周始）</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/problem/" class="nav-link router-link-active"><i class="undefined"></i>
+  数据结构与算法
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>77</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link"><i class="undefined"></i>
+  JS
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/problem/" class="nav-link router-link-active"><i class="undefined"></i>
+  数据结构与算法
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>数据结构</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/problem/数据结构/【栈和队列】@1.html" class="sidebar-link">【栈和队列】</a></li><li><a href="/problem/数据结构/【链表】@2.html" class="sidebar-link">【链表】</a></li><li><a href="/problem/数据结构/【排序】@3.html" class="sidebar-link">【排序】</a></li><li><a href="/problem/数据结构/【二叉树】@4.html" class="sidebar-link">【二叉树】</a></li><li><a href="/problem/数据结构/【最小生成树】@5.html" class="sidebar-link">【最小生成树】</a></li><li><a href="/problem/数据结构/【二叉搜索树】@6.html" class="active sidebar-link">【二叉搜索树】</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">二叉搜索树</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h3 id="二叉搜索树"><a href="#二叉搜索树" class="header-anchor">#</a> 二叉搜索树</h3> <p>假设：</p> <p>有一万个书，写一个方法，进行查找给定的树，返回存在还是不存在。</p> <p>要求： 尽可能的性能好。</p> <p>二叉搜索树（二叉排序树）</p> <p>首先这是一颗二叉树，</p> <p>其次有排序的效果，左子树的节点逗比当前节点小，右子树的节点都比当前节点大。</p> <p><img src="/Problem/picture/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-1.png" alt="截屏2022-04-17 21.24.20"></p> <p>假设现在有这么一个数列。那么我们怎么来构建二叉搜索树呢?</p> <p>首先，拿到第一个数字当做根节点，然后后面的数字依次比较，比根节点小的 放左边，比根节点大的，放右边。如下</p> <p><img src="/Problem/picture/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-2.png" alt="截屏2022-04-17 21.27.23"></p> <p>把 3 当做根节点，然后呢 1 和 3 比较 比 3 小 放在 3 的左边，5比3大 放3 的 右边，然后 4 比 3 大 但是比 5 小 放在 5 的左边，这样依次放下放。</p> <p><img src="/Problem/picture/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-3.png" alt="截屏2022-04-17 21.30.50"></p> <p>可以发现构建完成之后的二叉搜索树就是这样的结构，我们可以发现 <strong>节点左边的 肯定是比自己小的，节点右边的 肯定是比自己大的</strong>。</p> <p>这样我们一层一层的遍历是不是最多查找 5 次就可以了</p> <p>代码实现：</p> <div class="language- extra-class"><pre class="language-text"><code>const { TreeNode } = require(&quot;./utils&quot;);
+let arr = [3, 1, 5, 4, 2, 7, 6, 9, 10];
+
+function addNode(root, value) {
+  if (!root) return;
+  if (root.value &lt; value) {
+    if (root.right) {
+      addNode(root.right, value);
+    } else {
+      root.right = new TreeNode(value);
+    }
+  } else {
+    if (root.left) {
+      addNode(root.left, value);
+    } else {
+      root.left = new TreeNode(value);
+    }
+  }
+}
+
+function buildSearchTree(arr) {
+  if (!arr || arr.length == 0) return null;
+  let root = new TreeNode(arr[0]);
+  for (let i = 1; i &lt; arr.length; i++) {
+    addNode(root, arr[i]);
+  }
+  return root;
+}
+
+console.log(buildSearchTree(arr));
+</code></pre></div><p>那么 二叉搜索树我们构建出来了，要怎么去使用这个数据结构呢？</p> <p>接下来我们看下如何搜索：</p> <p>代码：</p> <div class="language- extra-class"><pre class="language-text"><code>function searchByTree(root, target) {
+  if (!root || !target) return false;
+  if (root.value === target) return true;
+  else if (root.value &gt; target) return searchByTree(root.left, target);
+  else return searchByTree(root.right, target);
+}
+</code></pre></div><p>这样的话我们就能查找到想要的数据了，</p> <p>这样虽然是快了 ，但是还没有达到极致。</p> <p>为什么这样说呢？</p> <p>假设 我们使用 5 当做 根节点 的话</p> <p><img src="/Problem/picture/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-3.png" alt="截屏2022-04-17 22.14.11"></p> <p>我们发现，刚刚我们最多需要查找5次，现在换了个节点，最多只需要查找 4 次 就能找到。</p> <p>基于这个结构，能缩减查找次数的根本是什么？</p> <p>是不是 这个二叉树必须是一颗满二叉树。这样能最大限度的缩小我们 整颗二叉树的深度 对吧。</p> <p><strong>我们希望将二叉搜索树变成二叉平衡树。</strong></p> <h3 id="平衡二叉树"><a href="#平衡二叉树" class="header-anchor">#</a> 平衡二叉树</h3> <p>首先先看一下平衡二叉树的特点</p> <ul><li>根节点的左右子树的高度差不能大于1</li> <li>这颗二叉树的每个子树都符合第一条</li></ul> <p>代码实现如何判断一棵树是否为平衡二叉树：</p> <div class="language- extra-class"><pre class="language-text"><code>   /**
+    * 
+    * @param {根节点} root 
+    * 获取树的深度
+    */
+   function getDeep(root) {
+       if (!root) return 0
+       let l = getDeep(root.left) + 1
+       let r = getDeep(root.right) + 1
+       return Math.max(l, r)
+   }
+
+   function isBalance(root) {
+       if (!root) return true
+       let left_deep = getDeep(root.left)
+       let right_deep = getDeep(root.right)
+       if (Math.abs(left_deep - right_deep) &gt; 1) {
+           return false
+       }
+       let left_ret = isBalance(root.left)
+       let right_ret = isBalance(root.right)
+       return left_ret &amp;&amp; right_ret
+   }
+</code></pre></div><h3 id="二叉树单旋"><a href="#二叉树单旋" class="header-anchor">#</a> 二叉树单旋</h3> <p>**左单旋特点:**左边浅右边深，左旋</p> <ul><li>新根节点为根节点的右子树</li> <li>根节点的右子树为新根节点的左子树</li> <li>新根节点的左子树为根节点</li></ul> <p>**右单旋特点:**右边浅左边深，右旋</p> <ul><li>新根节点为根节点的左子树</li> <li>根节点的右子树为新根节点的右子树</li> <li>新根节点的右子树为根节点</li></ul> <div class="language- extra-class"><pre class="language-text"><code>    /**
+     * 二叉树左单旋
+     * @param {*} root 
+     */
+    function leftRotate(root) {
+        if (!root) return
+        let newRoot = root.right
+        root.right = newRoot.left
+        newRoot.left = root
+        return newRoot
+    }
+
+    /**
+     * 二叉树右单旋
+     * @param {*} root 
+     */
+    function rightRotate(root) {
+        if (!root) return
+        let newRoot = root.left
+        root.left = newRoot.right
+        newRoot.right = root
+        return newRoot
+    }
+
+    /**
+     * 将树变为平衡二叉树
+     * @param {*} root 
+     * @returns 
+     */
+    function changeSearchTree(root) {
+        if (isBalance(root)) return root
+        if (!root) return
+        if (root.left) root.left = changeSearchTree(root.left)
+        if (root.right) root.right = changeSearchTree(root.right)
+        let left_deep = getDeep(root.left)
+        let right_deep = getDeep(root.right)
+        if (left_deep - right_deep &gt; 1) {
+            // 左边深，需要右旋
+            let changeTreeDeep = getDeep(root.left.right)
+            let noChangeTreeDeep = getDeep(root.left.left)
+            if (changeTreeDeep &gt; noChangeTreeDeep) root.left = leftRotate(root.left)
+            let newRoot = rightRotate(root)
+            newRoot = changeSearchTree(newRoot)
+            return newRoot
+        } else if (right_deep - left_deep &gt; 1) {
+            // 右边深，需要左旋
+            let changeTreeDeep = getDeep(root.right.left)
+            let noChangTreeDeep = getDeep(root.right.right)
+            if (changeTreeDeep &gt; noChangeTreeDeep) {
+                root.right = rightRotate(root.right)
+            }
+            let newRoot = leftRotate(root)
+            newRoot = changeSearchTree(newRoot)
+            return newRoot
+        }
+        return root
+    }
+</code></pre></div><h3 id="判断二叉树是否为二叉搜索树"><a href="#判断二叉树是否为二叉搜索树" class="header-anchor">#</a> 判断二叉树是否为二叉搜索树</h3> <div class="language- extra-class"><pre class="language-text"><code>    /**
+     * 判断一棵树是否为二叉搜索树
+     * @param {根节点} root 
+     */
+    function validTree(root, min_val = -Infinity, max_val = Infinity) {
+        if (!root) return true
+        if (root.value &lt;= min_val || root.value &gt;= max_val) return false;
+        return validTree(root.left, min_val, root.value) &amp;&amp; validTree(root.right, root.value, max_val)
+    }
+
+    function isValidBST(root) {
+        return validTree(root)
+    }
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/problem/数据结构/【最小生成树】@5.html" class="prev">
+            【最小生成树】
+          </a></span> <span class="next"><a href="/problem/算法/【动态规划】@1.html">
+            【动态规划】
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><canvas id="vuepress-canvas-cursor"></canvas><div></div></div></div>
+    <script src="/assets/js/app.5c9780a4.js" defer></script><script src="/assets/js/3.5f4f345c.js" defer></script><script src="/assets/js/1.6abec770.js" defer></script><script src="/assets/js/55.d018c2c1.js" defer></script>
+  </body>
+</html>
