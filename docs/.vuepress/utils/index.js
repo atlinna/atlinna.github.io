@@ -11,6 +11,7 @@ const arr = [
     { text: '设计模式', link: '/设计模式/' },
     { text: '数据结构与算法', link: '/problem/' },
     { text: '手写系列', link: '/手写/' },
+    { text: '其他', link: '/Other/' },
 ]
 
 function getSideBar(dir) {
