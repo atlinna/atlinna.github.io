@@ -1,6 +1,6 @@
 ---
-home: true  #指定该文件为您的首页，改为false则不作为首页
-heroText: 惶惶世人，可知警钟已在怒雷中长鸣,
+home: true  
+heroText: Break Your Leg
 author: '周始'
 # tagline: A simple and beautiful vuepress blog theme. # 首页显示的标语
 heroImage: /bg2.jpeg
