@@ -97,7 +97,7 @@ font-family 设置字体 （arial）
 color 设置字体颜色 
 + 单词  red\green\blue
 + 颜色代码  #xx|xx|xx 每两位代表一种颜色代码 16 进制 分别是 红、绿、蓝。rgb
-+ 颜色函数 rgb() 内部是 0~255,0~255,0~255 的三个十进制数
++ 颜色函数 rgb() 内部是 0 ~ 255,0 ~ 255, 0~ 255 的三个十进制数
 + 
 border 边框 1px solid black 这是一个复合属性 border:border-width border-style border-color
 text-align 文本对齐方式
