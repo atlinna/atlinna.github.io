@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TS 中常用的基本类型 | Mr.Zhou（周始）</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="梦开始的地方">
+    
+    <link rel="preload" href="/assets/css/0.styles.fd1208e4.css" as="style"><link rel="preload" href="/assets/js/app.afd2293c.js" as="script"><link rel="preload" href="/assets/js/3.0b599431.js" as="script"><link rel="preload" href="/assets/js/1.60dcabc9.js" as="script"><link rel="preload" href="/assets/js/49.31bfb0b9.js" as="script"><link rel="prefetch" href="/assets/js/10.d79fa2f3.js"><link rel="prefetch" href="/assets/js/11.a0017f2d.js"><link rel="prefetch" href="/assets/js/12.43f14e9b.js"><link rel="prefetch" href="/assets/js/13.039832d8.js"><link rel="prefetch" href="/assets/js/14.bd96a98c.js"><link rel="prefetch" href="/assets/js/15.6b0417fc.js"><link rel="prefetch" href="/assets/js/16.eb24c4b1.js"><link rel="prefetch" href="/assets/js/17.ebc3714c.js"><link rel="prefetch" href="/assets/js/18.021f2034.js"><link rel="prefetch" href="/assets/js/19.c31570a9.js"><link rel="prefetch" href="/assets/js/20.11f5f877.js"><link rel="prefetch" href="/assets/js/21.15d2f9a7.js"><link rel="prefetch" href="/assets/js/22.6d60de12.js"><link rel="prefetch" href="/assets/js/23.296e5b8a.js"><link rel="prefetch" href="/assets/js/24.80370ac1.js"><link rel="prefetch" href="/assets/js/25.f8a71ef2.js"><link rel="prefetch" href="/assets/js/26.5326a3ec.js"><link rel="prefetch" href="/assets/js/27.d7817a1b.js"><link rel="prefetch" href="/assets/js/28.e8ef46dd.js"><link rel="prefetch" href="/assets/js/29.20205cf5.js"><link rel="prefetch" href="/assets/js/30.c129e038.js"><link rel="prefetch" href="/assets/js/31.b99acb52.js"><link rel="prefetch" href="/assets/js/32.37d7caf8.js"><link rel="prefetch" href="/assets/js/33.372d8eeb.js"><link rel="prefetch" href="/assets/js/34.39d69e31.js"><link rel="prefetch" href="/assets/js/35.ec9b11d7.js"><link rel="prefetch" href="/assets/js/36.1f2276de.js"><link rel="prefetch" href="/assets/js/37.cfd6d438.js"><link rel="prefetch" href="/assets/js/38.7bdab81c.js"><link rel="prefetch" href="/assets/js/39.ae67ba88.js"><link rel="prefetch" href="/assets/js/4.9d53d442.js"><link rel="prefetch" href="/assets/js/40.79ee65e0.js"><link rel="prefetch" href="/assets/js/41.138a24f6.js"><link rel="prefetch" href="/assets/js/42.72623164.js"><link rel="prefetch" href="/assets/js/43.d128442d.js"><link rel="prefetch" href="/assets/js/44.8fe699ba.js"><link rel="prefetch" href="/assets/js/45.5aef16ca.js"><link rel="prefetch" href="/assets/js/46.f4cadf0f.js"><link rel="prefetch" href="/assets/js/47.4e9eee66.js"><link rel="prefetch" href="/assets/js/48.a973d02a.js"><link rel="prefetch" href="/assets/js/5.c48ac34b.js"><link rel="prefetch" href="/assets/js/50.7a6452a0.js"><link rel="prefetch" href="/assets/js/51.473191e3.js"><link rel="prefetch" href="/assets/js/52.c08cf3fb.js"><link rel="prefetch" href="/assets/js/53.d476dd7c.js"><link rel="prefetch" href="/assets/js/54.44ae973b.js"><link rel="prefetch" href="/assets/js/55.f2c9bd79.js"><link rel="prefetch" href="/assets/js/56.fb2af3fa.js"><link rel="prefetch" href="/assets/js/57.75c2f9b5.js"><link rel="prefetch" href="/assets/js/58.494c014c.js"><link rel="prefetch" href="/assets/js/59.422fc936.js"><link rel="prefetch" href="/assets/js/6.adca58f2.js"><link rel="prefetch" href="/assets/js/60.1896a21f.js"><link rel="prefetch" href="/assets/js/61.37546581.js"><link rel="prefetch" href="/assets/js/62.4c833972.js"><link rel="prefetch" href="/assets/js/63.bf44a259.js"><link rel="prefetch" href="/assets/js/64.c5ae661e.js"><link rel="prefetch" href="/assets/js/65.ce7cab48.js"><link rel="prefetch" href="/assets/js/66.e6cd5a81.js"><link rel="prefetch" href="/assets/js/67.ff25b850.js"><link rel="prefetch" href="/assets/js/68.6189bb6b.js"><link rel="prefetch" href="/assets/js/69.2fec9ef5.js"><link rel="prefetch" href="/assets/js/7.dae64c3f.js"><link rel="prefetch" href="/assets/js/70.4017359a.js"><link rel="prefetch" href="/assets/js/71.298f1b4a.js"><link rel="prefetch" href="/assets/js/72.375469ba.js"><link rel="prefetch" href="/assets/js/73.56d71cd4.js"><link rel="prefetch" href="/assets/js/74.5351abbe.js"><link rel="prefetch" href="/assets/js/75.cd3a5245.js"><link rel="prefetch" href="/assets/js/76.d0be788f.js"><link rel="prefetch" href="/assets/js/77.4f9d6971.js"><link rel="prefetch" href="/assets/js/78.3ef1bd5f.js"><link rel="prefetch" href="/assets/js/79.b0d441f7.js"><link rel="prefetch" href="/assets/js/8.db2e63b1.js"><link rel="prefetch" href="/assets/js/80.59c58ff4.js"><link rel="prefetch" href="/assets/js/81.1f00bd2c.js"><link rel="prefetch" href="/assets/js/82.e3cd8f6b.js"><link rel="prefetch" href="/assets/js/83.e995d8c2.js"><link rel="prefetch" href="/assets/js/84.29289654.js"><link rel="prefetch" href="/assets/js/85.0edc2d8b.js"><link rel="prefetch" href="/assets/js/86.d14765c2.js"><link rel="prefetch" href="/assets/js/87.3d624826.js"><link rel="prefetch" href="/assets/js/88.47907464.js"><link rel="prefetch" href="/assets/js/89.6c22f092.js"><link rel="prefetch" href="/assets/js/9.709149a2.js"><link rel="prefetch" href="/assets/js/90.82ff8640.js"><link rel="prefetch" href="/assets/js/91.1807792d.js"><link rel="prefetch" href="/assets/js/92.765bad09.js"><link rel="prefetch" href="/assets/js/93.46eab1ab.js"><link rel="prefetch" href="/assets/js/94.8c735238.js"><link rel="prefetch" href="/assets/js/95.6a8d8964.js"><link rel="prefetch" href="/assets/js/96.abb51ddc.js"><link rel="prefetch" href="/assets/js/97.b0a34a61.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fd1208e4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Mr.Zhou（周始）</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>梦开始的地方</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Mr.Zhou（周始）</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link router-link-active"><i class="undefined"></i>
+  JS
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/problem/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></div><div class="nav-item"><a href="/手写/" class="nav-link"><i class="undefined"></i>
+  手写系列
+</a></div><div class="nav-item"><a href="/Other/" class="nav-link"><i class="undefined"></i>
+  其他
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>72</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/html_docs/" class="nav-link"><i class="undefined"></i>
+  HTML
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link"><i class="undefined"></i>
+  CSS
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link router-link-active"><i class="undefined"></i>
+  JS
+</a></div><div class="nav-item"><a href="/Vue/" class="nav-link"><i class="undefined"></i>
+  Vue
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/problem/" class="nav-link"><i class="undefined"></i>
+  数据结构与算法
+</a></div><div class="nav-item"><a href="/手写/" class="nav-link"><i class="undefined"></i>
+  手写系列
+</a></div><div class="nav-item"><a href="/Other/" class="nav-link"><i class="undefined"></i>
+  其他
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ECMAScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Js-前置</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>TypeScript</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/js_docs/TypeScript/【导论】@1.html" class="sidebar-link">【导论】</a></li><li><a href="/js_docs/TypeScript/【基本类型】@2.html" class="active sidebar-link">【基本类型】</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>你不知道的 JS</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">TS 中常用的基本类型</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h2 id="ts-中常用的基本类型"><a href="#ts-中常用的基本类型" class="header-anchor">#</a> TS 中常用的基本类型</h2> <ul><li>number        数字</li> <li>string        字符串</li> <li>boolean       布尔值 true/false</li> <li>字面量         限制变量的值就是该字面量的值</li> <li>any           任意类型</li> <li>unknown       类型安全的 any</li> <li>void          没有值（或 undefined）</li> <li>never         不能是任何值</li> <li>object        js 对象</li> <li>array         js 数组</li> <li>tuple         js 元组（定长的数组类似于 Python中的 Tuple 表现形式为：[1,2]）</li> <li>enum          枚举</li></ul> <h3 id="联合类型"><a href="#联合类型" class="header-anchor">#</a> 联合类型</h3> <p>通过 “或运算符” 来连接多个类型</p> <h4 id="字面量"><a href="#字面量" class="header-anchor">#</a> 字面量</h4> <div class="language- extra-class"><pre class="language-text"><code>let sex: 'man' | 'woman'
+sex = 'man';
+sex = 'woman';
+</code></pre></div><h4 id="any"><a href="#any" class="header-anchor">#</a> any</h4> <p>任意类型，不做任何类型限制。</p> <div class="language- extra-class"><pre class="language-text"><code>let a:any;
+a = 1;
+a = 'str';
+a = true;
+</code></pre></div><p>如果声明时不指定任意类型的话，ts解析器会隐式的将变量设置为 any 类型</p> <div class="language- extra-class"><pre class="language-text"><code>let a;
+// 此时 a 的类型是 any
+</code></pre></div><p>变量赋值</p> <div class="language- extra-class"><pre class="language-text"><code>let a;
+let b:string
+a = 10
+b = a;
+// 并不会报错
+</code></pre></div><h4 id="unknown"><a href="#unknown" class="header-anchor">#</a> unknown</h4> <p>任意类型，只作用于本身，不能直接赋值给其他变量</p> <div class="language- extra-class"><pre class="language-text"><code>let s:unknown;
+s = 10;
+let a:string;
+a = s;
+// 会报错 Type 'unknown' is not assignable to type 'string'.
+</code></pre></div><h4 id="类型断言"><a href="#类型断言" class="header-anchor">#</a> 类型断言</h4> <p>使用 as 来告诉解析器我们的 unknow 的变量是一个什么类型(或使用 <Type>)</Type></p> <div class="language- extra-class"><pre class="language-text"><code>let s: unknown;
+s = 10;
+let a: string;
+a = &lt;string&gt;s;
+a = s as string;
+</code></pre></div><p>或使用 typeof 来判断变量的类型</p> <h4 id="void-和-never"><a href="#void-和-never" class="header-anchor">#</a> void 和 never</h4> <p>当函数没有返回值的时候 使用 void</p> <div class="language- extra-class"><pre class="language-text"><code>function foo() :void{
+   // return
+}
+</code></pre></div><p>或者是当函数返回 undefined、null</p> <p>never 是不会有任何返回值,多用于抛出异常</p> <div class="language- extra-class"><pre class="language-text"><code>function test():never{
+    throw Error('err')
+}
+</code></pre></div><h4 id="object"><a href="#object" class="header-anchor">#</a> object</h4> <p>在 JS 中一切皆对象，如果给一个变量限制为 object 没有任何作用。</p> <div class="language- extra-class"><pre class="language-text"><code>let a: object;
+a = [];
+a = function () { }
+a = new Date()
+// 并不会报错
+</code></pre></div><p>我们主要是为了限制对象中属性的类型，那么可以这样来限制对象的结构：</p> <div class="language- extra-class"><pre class="language-text"><code>let a: {
+    name: string,
+    age: number
+}
+
+a = { name: 'zhang san', age: 18 }
+</code></pre></div><p>但是这样做的话，你的类型定义的结构和赋值后对象的结构必须保持一致。如果不同会报错。</p> <div class="language- extra-class"><pre class="language-text"><code>let a: {
+    name: string,
+    age: number
+}
+
+a = { name: 'zhang san', age: 18, home: 'shen zhen' }
+// 报错
+</code></pre></div><p>可以通过 ？ 将参数类型变为可选</p> <div class="language- extra-class"><pre class="language-text"><code>let a: {
+    name: string,
+    age: number,
+    home?: string
+}
+
+a = { name: 'zhang san', age: 18 }
+// 不会报错
+</code></pre></div><p>如果有多个未知的属性，或者说只限制某几个属性的话可以使用这种方式：</p> <div class="language- extra-class"><pre class="language-text"><code>let a: {
+    name: string,
+    [propnames: string]: string | number, // 可以使用 any 表示不对其他属性做任何限制。
+}
+
+a = { name: 'zhang san', age: 18, home: 'shen zhen' }
+</code></pre></div><h4 id="函数限制"><a href="#函数限制" class="header-anchor">#</a> 函数限制</h4> <p>使用箭头函数的形式来返回对函数的结构限制
+括号内是对参数结构的限制，箭头处是对返回值的限制。</p> <div class="language- extra-class"><pre class="language-text"><code>let foo: (a: number, b: string) =&gt; string;
+foo = function (a, b) {
+    return 's'
+}
+</code></pre></div><h4 id="数组的限制"><a href="#数组的限制" class="header-anchor">#</a> 数组的限制</h4> <div class="language- extra-class"><pre class="language-text"><code>let foo: string[];
+let boo: Array&lt;number | string&gt;
+boo = [1, 2, 3, 4, '5']
+foo = ['1', '2']
+</code></pre></div><h4 id="tuple-元组"><a href="#tuple-元组" class="header-anchor">#</a> tuple 元组</h4> <p>元组比较像坐标形如 [1,2]</p> <div class="language- extra-class"><pre class="language-text"><code>let n: [number, string]
+n = [1, '2']
+</code></pre></div><h4 id="enum-枚举"><a href="#enum-枚举" class="header-anchor">#</a> enum 枚举</h4> <div class="language- extra-class"><pre class="language-text"><code>enum Flower {
+    rose = 0,
+    jasmine = 1
+}
+
+let a: { flower: Flower }
+a = {
+    flower: 0
+}
+</code></pre></div><h4 id="运算符连接条件"><a href="#运算符连接条件" class="header-anchor">#</a> &amp; 运算符连接条件</h4> <div class="language- extra-class"><pre class="language-text"><code>enum Flower {
+    rose = 0,
+    jasmine = 1
+}
+
+let a: { flower: Flower } &amp; { name: string }
+a = {
+    flower: 0,
+    name:'zhang san'
+}
+</code></pre></div><h4 id="类型别名"><a href="#类型别名" class="header-anchor">#</a> 类型别名</h4> <p>简化操作</p> <div class="language- extra-class"><pre class="language-text"><code>type flowes = 1 | 10 | 100 | 1000 | 10000
+
+let a: flowes = 1;
+let b: flowes = 10;
+let c: flowes = 100;
+let d: flowes = 1000;
+let e: flowes = 10000;
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/js_docs/TypeScript/【导论】@1.html" class="prev">
+            【导论】
+          </a></span> <span class="next"><a href="/js_docs/你不知道的 JS/Scoped/【作用域 - 前导】.html">
+            【作用域 - 前导】
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><canvas id="vuepress-canvas-cursor"></canvas><div></div></div></div>
+    <script src="/assets/js/app.afd2293c.js" defer></script><script src="/assets/js/3.0b599431.js" defer></script><script src="/assets/js/1.60dcabc9.js" defer></script><script src="/assets/js/49.31bfb0b9.js" defer></script>
+  </body>
+</html>
