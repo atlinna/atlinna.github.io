@@ -37,11 +37,27 @@ WebApi包含两个部分：
 + querySelector             根据CSS选择器来选中标签
 + querySelectorAll
 
-#### document.head
+##### document.documentElement
+获取 html 元素
+
+##### document.head
 可以拿到 head 标签，往里面动态加入 script 标签
 
-#### Element.children
+##### Element.children
 可以拿到 Element 中的子元素
 
-Element.childNodes
+##### Element.childNodes
 可以拿到 Element 中的子节点（包含文本）
+
+
+#### 创建DOM
+document.createElement()
+
+#### 改变DOM结构
++ remove 自杀，去掉自己
++ removeChild 去掉某个子节点
++ insertBefore 将节点插入到某个节点前
++ appendChild  在末尾添加节点
+
+#### getComputedStyle
+获取计算后的样式
