@@ -21,11 +21,12 @@ reject(reason) -> 处理失败
 #### Promise 对象
 
 ```
-未决阶段											已决阶段 
-unsettled										 settled						data
- 									----->		 完成状态 fulfilled =======》 onFulfilled(data)
-挂起状态																				reason
-pendding					----->     失败状态 rejected ======》 onRejected(reason)
+未决阶段										已决阶段 
+
+unsettled								settled	     data
+ 						----->		 完成状态 fulfilled =======》 onFulfilled(data)
+挂起状态																														    reason
+pendding					----->    	 失败状态 rejected ========》 onRejected(reason)
 ```
 
 ### Promise Api
