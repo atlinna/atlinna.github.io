@@ -17,13 +17,6 @@ module.exports = {
         nav: utils.getTableBars()
     },
     plugins: [
-        [
-            'vuepress-plugin-cursor-effects', {
-                size: 2,
-                shape: 'star',
-                zIndex: 9999999999
-            }
-        ],
         ["vuepress-plugin-boxx"],
         ["vuepress-plugin-nuggets-style-copy", {
             copyText: "复制代码",
