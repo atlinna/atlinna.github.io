@@ -25,7 +25,8 @@ reject(reason) -> 处理失败
 
 unsettled								settled	     data
  						----->		 完成状态 fulfilled =======》 onFulfilled(data)
-挂起状态																														    reason
+挂起状态
+										    reason
 pendding					----->    	 失败状态 rejected ========》 onRejected(reason)
 ```
 
