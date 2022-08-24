@@ -21,7 +21,8 @@ function getSideBar(dir) {
     files.forEach(filename => {
         if (filename.indexOf('.') == -1) {
             let path = `${dir}${filename}/`
-            bars.push({ title: filename, children: getSideBar(path) })
+            let sort = getSortFolder(filename);
+            bars.push({ title: filename, children: getSideBar(path),sort })
         }
         if (filename.endsWith('.md') && filename !== 'index.md') {
             let s = getSortField(filename)
@@ -38,6 +39,10 @@ function getSideBar(dir) {
  */
 function getSortField(n) {
     return n.substring(n.indexOf('@') + 1, n.length - 3)
+}
+function getSortFolder(name){
+    if(name.indexOf('@') == -1) return 0;
+    return name.substring(name.indexOf('@')+1,name.length)
 }
 
 function sortBars(arr) {
