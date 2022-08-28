@@ -31,6 +31,20 @@ function onMicroTask(callback) {
 }
 ```
 
+### 判断是否为 Promise
+
+只需要判断该对象是否满足 Promise A+ 规范
+
+即对象是否存在且是否含有 then 方法
+
+```
+function isPromise(obj) {
+  return !!(
+    obj && typeof obj === "object" && obj.then && typeof obj.then == "function"
+  );
+}
+```
+
 
 
 ### Promise 手写
@@ -40,6 +54,25 @@ const PENDDING = Symbol("pendding");
 const FUFILLED = Symbol("fufilled");
 const REJECTED = Symbol("rejected");
 
+function onMicroTask(callback) {
+  if (process && process.nextTick) {
+    process.nextTick(callback);
+  } else if (MutationObserver) {
+    const ele = document.createElement("p");
+    const observer = new MutationObserver(callback);
+    observer.observe(ele, { attributes: true });
+    ele.style.width = 1;
+  } else {
+    setTimeout(callback, 0);
+  }
+}
+
+function isPromise(obj) {
+  return !!(
+    obj && typeof obj === "object" && obj.then && typeof obj.then == "function"
+  );
+}
+
 class MyPromise {
   /**
    *
@@ -48,6 +81,7 @@ class MyPromise {
   constructor(excutor) {
     this._status = PENDDING; // 任务状态
     this._value = undefined; // 任务数据
+    this._handlers = []; // 用来存放 then 的后续操作
     // 如果 Promise 内部报错，将直接调用 reject
     try {
       // 由于我们的 resolve、reject 是在class中 会启用严格模式，且被直接调用，this 隐式丢失
@@ -73,6 +107,7 @@ class MyPromise {
    */
   _resolve(data) {
     this._changeStatus(FUFILLED, data);
+    this._runHandler();
   }
   /**
    *
@@ -80,15 +115,85 @@ class MyPromise {
    */
   _reject(reason) {
     this._changeStatus(REJECTED, reason);
+    this._runHandler();
+  }
+  /**
+   * 将后续的处理放入执行栈中
+   * @param {*} excutor
+   * @param {*} status
+   * @param {*} resolve
+   * @param {*} reject
+   */
+  _pushState(excutor, status, resolve, reject) {
+    this._handlers.push({
+      excutor,
+      status,
+      resolve,
+      reject,
+    });
+  }
+  /**
+   * 调用执行栈中的函数。
+   */
+  _runHandler() {
+    if (this._status === PENDDING) return;
+    while (this._handlers.length > 0) {
+      const handler = this._handlers[0];
+      this._callHandler(handler);
+      this._handlers.shift();
+    }
+  }
+  /**
+   * 执行处理函数
+   */
+  _callHandler({ excutor, status, resolve, reject }) {
+    onMicroTask(() => {
+      if (this._status != status) return;
+      if (typeof excutor != "function") {
+        this._status === FUFILLED ? resolve(this._value) : reject(this_value);
+        return;
+      }
+      try {
+        const result = excutor(this._value);
+        if (isPromise(result)) {
+          result.then(resolve, reject);
+        } else {
+          resolve(result);
+        }
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+  /**
+   *
+   * @param {*} onFufilled
+   * @param {*} onRejected
+   */
+  then(onFufilled, onRejected) {
+    return new MyPromise((resolve, reject) => {
+      this._pushState(onFufilled, FUFILLED, resolve, reject);
+      this._pushState(onRejected, REJECTED, resolve, reject);
+      this._runHandler();
+    });
   }
 }
 
 const p = new MyPromise((resolve, reject) => {
-  reject("hello");
-  resolve(1);
+  setTimeout(() => {
+    resolve(1);
+  }, 1000);
 });
+p.then((r) => {
+  console.log(r);
+  return new MyPromise((resolve)=>{
+    resolve(100)
+  });
+}).then(data=>{
+  console.log(data);
+})
 
-console.log(p);
+
 ```
 
 
