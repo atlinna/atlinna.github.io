@@ -310,6 +310,7 @@ MyPromise.all([
 
 })
 ```
+其中 `MyPromise.resolve`、`MyPromise.reject`、`MyPromise.all`、`MyPromise.allSettled`、`MyPromise.race` 为 `Promise` 的静态方法。
 
 
 
