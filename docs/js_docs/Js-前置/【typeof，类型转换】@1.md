@@ -21,6 +21,9 @@ null -- 0
 undefined -- NaN
 
 parseInt 转换成整形数据
+parseInt 第二个参数是将 对应进制得数字转换成 10进制
+
+**toString 将10进制得数字转换成对应进制**
 
 
 ### 隐式类型转换
