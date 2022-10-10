@@ -1,6 +1,6 @@
 ---
 home: true  
-heroText: Break Your Leg
+heroText: 百炼自得
 author: '周始'
 # tagline: A simple and beautiful vuepress blog theme. # 首页显示的标语
 heroImage: /bg2.jpeg
