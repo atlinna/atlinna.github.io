@@ -37,7 +37,71 @@ console.log(proxy.age)
 1、观察者模式
 
 ```
+// ES5-实现方式
+function Observer(target, dom) {
+    const ob = {};
+    for (let prop in target) {
+        Object.defineProperty(ob, prop, {
+            get() {
+                return target[prop];
+            },
+            set(val) {
+                target[prop] = val;
+                render(dom, ob);
+            },
+            enumerable: true
+        })
+    }
+    render(dom, ob);
+    return ob;
+}
 
+function render(target, data) {
+    const div = target;
+    let h = '';
+    for (let prop in data) {
+        h += `<p><span>${prop}:</span><span>${data[prop]}</span></p>`
+    }
+    div.innerHTML = h;
+}
+
+let div = document.getElementById('container');
+var obs = Observer({
+    a: 1,
+    b: 2
+}, div)
+```
+```
+// ES6-实现
+function Observer(target, dom) {
+    const ob = new Proxy(target, {
+        get(target, propertyKey) {
+            return Reflect.get(target, propertyKey);
+        },
+        set(target, propertyKey, value) {
+            Reflect.set(target, propertyKey, value);
+            render(dom, target);
+        }
+    });
+
+    render(dom, ob);
+    return ob;
+}
+
+function render(target, data) {
+    const div = target;
+    let h = '';
+    for (let prop in data) {
+        h += `<p><span>${prop}:</span><span>${data[prop]}</span></p>`
+    }
+    div.innerHTML = h;
+}
+
+let div = document.getElementById('container');
+var obs = Observer({
+    a: 1,
+    b: 2
+}, div)
 ```
 
 2、偷懒的构造函数
