@@ -1,5 +1,5 @@
 ## Typeof 与 类型转换
-typeof(value)
+typeof(value) || typeof value
 能够返回我们传入数据的类型
 typeof能够返回给我们六种类型
 + number
