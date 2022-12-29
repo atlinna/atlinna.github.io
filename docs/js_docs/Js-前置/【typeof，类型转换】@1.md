@@ -41,6 +41,7 @@ parseInt 第二个参数是将 对应进制得数字转换成 10进制
 + 其他类型与布尔类型 --> 会将布尔类型转换为数字类型
 + `null` 和 `undefined` --> `null == undefined 为真` `null === undefined 为假` 
 + 对象与非对象比较 --> 按照 toPrmitive 规则先将对象转换为基本类型得数据在比较 
++ NaN 不等于任何数，包括他自己。
 
 如果使用typeof 打印未定义的变量，是不报错的且返回 undefined
 typeof(typeof a)  --》  “string”
