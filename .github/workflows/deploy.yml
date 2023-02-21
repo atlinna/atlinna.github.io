@@ -6,6 +6,9 @@ on:
       - main
 jobs:
   build-and-deploy:
+    strategy:
+      matrix:
+        node-version: [16.x]
     runs-on: ubuntu-latest
     ## 安装依赖
     steps:
