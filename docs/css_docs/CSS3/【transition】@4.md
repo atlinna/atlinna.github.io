@@ -26,4 +26,13 @@
 
 animation: 动画名 4s
 ```
-
+复合属性
+animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+animation-name // 动画名
+animation-duration // 持续时间
+animation-timing-function // 动画函数
+animation-delay // 延迟时间
+animation-iteration-count // 执行次数
+animation-direction // 执行方式
+animation-fill-mode //
+animation-play-state // 运行状态
