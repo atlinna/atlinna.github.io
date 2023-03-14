@@ -52,7 +52,7 @@ scale 伸缩的是坐标轴的刻度。
 
 
 
-### translate
+transform-origin:0 0; 变换中心
 
 ### perspective
 
