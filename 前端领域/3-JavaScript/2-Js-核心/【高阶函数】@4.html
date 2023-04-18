@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Javascript - 高阶函数 | Mr.Zhou</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="梦开始的地方">
+    
+    <link rel="preload" href="/assets/css/0.styles.fd1208e4.css" as="style"><link rel="preload" href="/assets/js/app.f6887468.js" as="script"><link rel="preload" href="/assets/js/3.83ad0eef.js" as="script"><link rel="preload" href="/assets/js/1.bbba36a5.js" as="script"><link rel="preload" href="/assets/js/59.a6e8072f.js" as="script"><link rel="prefetch" href="/assets/js/10.dd6fe8f4.js"><link rel="prefetch" href="/assets/js/100.56a63806.js"><link rel="prefetch" href="/assets/js/101.67169f78.js"><link rel="prefetch" href="/assets/js/102.e6249b25.js"><link rel="prefetch" href="/assets/js/103.7cdc76af.js"><link rel="prefetch" href="/assets/js/104.8a455bab.js"><link rel="prefetch" href="/assets/js/105.89649d1a.js"><link rel="prefetch" href="/assets/js/106.21c9101e.js"><link rel="prefetch" href="/assets/js/107.24518f90.js"><link rel="prefetch" href="/assets/js/108.f5e0a6d1.js"><link rel="prefetch" href="/assets/js/109.24b7093d.js"><link rel="prefetch" href="/assets/js/11.11c7df7b.js"><link rel="prefetch" href="/assets/js/110.afb962f9.js"><link rel="prefetch" href="/assets/js/111.98579b40.js"><link rel="prefetch" href="/assets/js/112.10f85b67.js"><link rel="prefetch" href="/assets/js/113.051749b3.js"><link rel="prefetch" href="/assets/js/114.e8953f7d.js"><link rel="prefetch" href="/assets/js/115.7a390be9.js"><link rel="prefetch" href="/assets/js/116.d2aa28f2.js"><link rel="prefetch" href="/assets/js/117.bfa75cec.js"><link rel="prefetch" href="/assets/js/118.a5753c35.js"><link rel="prefetch" href="/assets/js/119.aef46b1b.js"><link rel="prefetch" href="/assets/js/12.d9ce74c3.js"><link rel="prefetch" href="/assets/js/120.00c93b2d.js"><link rel="prefetch" href="/assets/js/121.5a39bcac.js"><link rel="prefetch" href="/assets/js/122.c191c236.js"><link rel="prefetch" href="/assets/js/123.dde7f959.js"><link rel="prefetch" href="/assets/js/124.e7e749fb.js"><link rel="prefetch" href="/assets/js/125.91483dee.js"><link rel="prefetch" href="/assets/js/126.f47569c5.js"><link rel="prefetch" href="/assets/js/127.7b9efb58.js"><link rel="prefetch" href="/assets/js/128.36d8153c.js"><link rel="prefetch" href="/assets/js/129.e365428d.js"><link rel="prefetch" href="/assets/js/13.698f774a.js"><link rel="prefetch" href="/assets/js/130.fcaaab4c.js"><link rel="prefetch" href="/assets/js/131.81f9f065.js"><link rel="prefetch" href="/assets/js/132.c880d455.js"><link rel="prefetch" href="/assets/js/133.b24efc83.js"><link rel="prefetch" href="/assets/js/134.db0ccedb.js"><link rel="prefetch" href="/assets/js/135.a96f3499.js"><link rel="prefetch" href="/assets/js/136.1cfe5b2c.js"><link rel="prefetch" href="/assets/js/137.b0715b98.js"><link rel="prefetch" href="/assets/js/138.8d272cc0.js"><link rel="prefetch" href="/assets/js/139.d19f131f.js"><link rel="prefetch" href="/assets/js/14.71eae88a.js"><link rel="prefetch" href="/assets/js/140.6eb451bf.js"><link rel="prefetch" href="/assets/js/141.0c57a46f.js"><link rel="prefetch" href="/assets/js/142.4fe102d1.js"><link rel="prefetch" href="/assets/js/143.586b7efb.js"><link rel="prefetch" href="/assets/js/144.3c6fef5c.js"><link rel="prefetch" href="/assets/js/145.ccac8673.js"><link rel="prefetch" href="/assets/js/146.826ba52a.js"><link rel="prefetch" href="/assets/js/147.81273d95.js"><link rel="prefetch" href="/assets/js/148.b6b79f31.js"><link rel="prefetch" href="/assets/js/149.a0c07b40.js"><link rel="prefetch" href="/assets/js/15.29c80c55.js"><link rel="prefetch" href="/assets/js/150.b46d2f93.js"><link rel="prefetch" href="/assets/js/151.064e2858.js"><link rel="prefetch" href="/assets/js/152.c7b3e954.js"><link rel="prefetch" href="/assets/js/153.1af7f701.js"><link rel="prefetch" href="/assets/js/154.ede6f42c.js"><link rel="prefetch" href="/assets/js/155.90548478.js"><link rel="prefetch" href="/assets/js/156.c3b10d78.js"><link rel="prefetch" href="/assets/js/157.d5978cdc.js"><link rel="prefetch" href="/assets/js/158.0413ec83.js"><link rel="prefetch" href="/assets/js/159.e9dce9a6.js"><link rel="prefetch" href="/assets/js/16.c9c65f67.js"><link rel="prefetch" href="/assets/js/160.93407b2d.js"><link rel="prefetch" href="/assets/js/161.2c64f425.js"><link rel="prefetch" href="/assets/js/162.9f0d7cef.js"><link rel="prefetch" href="/assets/js/163.64f0ce4a.js"><link rel="prefetch" href="/assets/js/164.4da161a1.js"><link rel="prefetch" href="/assets/js/165.63d218c6.js"><link rel="prefetch" href="/assets/js/166.44d46e1c.js"><link rel="prefetch" href="/assets/js/167.d453dcbf.js"><link rel="prefetch" href="/assets/js/168.831c55e9.js"><link rel="prefetch" href="/assets/js/169.65aee5ed.js"><link rel="prefetch" href="/assets/js/17.d2f4b2f2.js"><link rel="prefetch" href="/assets/js/170.5a8838b5.js"><link rel="prefetch" href="/assets/js/171.62b3b542.js"><link rel="prefetch" href="/assets/js/172.12bd3c0c.js"><link rel="prefetch" href="/assets/js/173.30061c23.js"><link rel="prefetch" href="/assets/js/174.ff355962.js"><link rel="prefetch" href="/assets/js/175.5fba082c.js"><link rel="prefetch" href="/assets/js/176.b8087a57.js"><link rel="prefetch" href="/assets/js/177.376ebf95.js"><link rel="prefetch" href="/assets/js/178.a7206acb.js"><link rel="prefetch" href="/assets/js/179.c886141e.js"><link rel="prefetch" href="/assets/js/18.d5ebd44a.js"><link rel="prefetch" href="/assets/js/180.ec450d95.js"><link rel="prefetch" href="/assets/js/181.839633b4.js"><link rel="prefetch" href="/assets/js/182.b752a7e9.js"><link rel="prefetch" href="/assets/js/183.aca52f33.js"><link rel="prefetch" href="/assets/js/184.c70b3553.js"><link rel="prefetch" href="/assets/js/185.e1141d11.js"><link rel="prefetch" href="/assets/js/186.2b9bcabb.js"><link rel="prefetch" href="/assets/js/187.3da6b83b.js"><link rel="prefetch" href="/assets/js/188.565399cc.js"><link rel="prefetch" href="/assets/js/19.3116eb77.js"><link rel="prefetch" href="/assets/js/20.d8cc4f42.js"><link rel="prefetch" href="/assets/js/21.5d2dbf13.js"><link rel="prefetch" href="/assets/js/22.0f666d8a.js"><link rel="prefetch" href="/assets/js/23.4ed99059.js"><link rel="prefetch" href="/assets/js/24.586fb5e4.js"><link rel="prefetch" href="/assets/js/25.3acece01.js"><link rel="prefetch" href="/assets/js/26.9f629d4b.js"><link rel="prefetch" href="/assets/js/27.8092f6d7.js"><link rel="prefetch" href="/assets/js/28.e880f7e9.js"><link rel="prefetch" href="/assets/js/29.bb9c9685.js"><link rel="prefetch" href="/assets/js/30.22cde99b.js"><link rel="prefetch" href="/assets/js/31.2d508d17.js"><link rel="prefetch" href="/assets/js/32.e9846943.js"><link rel="prefetch" href="/assets/js/33.d284b79e.js"><link rel="prefetch" href="/assets/js/34.cd6cb85a.js"><link rel="prefetch" href="/assets/js/35.75dcae1b.js"><link rel="prefetch" href="/assets/js/36.e84580eb.js"><link rel="prefetch" href="/assets/js/37.2030966b.js"><link rel="prefetch" href="/assets/js/38.3631807e.js"><link rel="prefetch" href="/assets/js/39.5dca28f6.js"><link rel="prefetch" href="/assets/js/4.2d69c627.js"><link rel="prefetch" href="/assets/js/40.d510eff9.js"><link rel="prefetch" href="/assets/js/41.1f396a23.js"><link rel="prefetch" href="/assets/js/42.ac1836a1.js"><link rel="prefetch" href="/assets/js/43.117eaead.js"><link rel="prefetch" href="/assets/js/44.c43888b3.js"><link rel="prefetch" href="/assets/js/45.7907b4d9.js"><link rel="prefetch" href="/assets/js/46.37bb8c35.js"><link rel="prefetch" href="/assets/js/47.950b7b61.js"><link rel="prefetch" href="/assets/js/48.dd9bdef6.js"><link rel="prefetch" href="/assets/js/49.e0fb1245.js"><link rel="prefetch" href="/assets/js/5.a4f53b63.js"><link rel="prefetch" href="/assets/js/50.f7d708b6.js"><link rel="prefetch" href="/assets/js/51.101855bd.js"><link rel="prefetch" href="/assets/js/52.b8f2351c.js"><link rel="prefetch" href="/assets/js/53.5c8dd716.js"><link rel="prefetch" href="/assets/js/54.007371a1.js"><link rel="prefetch" href="/assets/js/55.2b136780.js"><link rel="prefetch" href="/assets/js/56.b587fe6b.js"><link rel="prefetch" href="/assets/js/57.6bf2206d.js"><link rel="prefetch" href="/assets/js/58.6157ea0b.js"><link rel="prefetch" href="/assets/js/6.d1940848.js"><link rel="prefetch" href="/assets/js/60.e0287eb9.js"><link rel="prefetch" href="/assets/js/61.8020f4ec.js"><link rel="prefetch" href="/assets/js/62.63127a36.js"><link rel="prefetch" href="/assets/js/63.79826a75.js"><link rel="prefetch" href="/assets/js/64.51b2f18b.js"><link rel="prefetch" href="/assets/js/65.bbd6cb71.js"><link rel="prefetch" href="/assets/js/66.ae1736f6.js"><link rel="prefetch" href="/assets/js/67.9fb814a7.js"><link rel="prefetch" href="/assets/js/68.c9ca66a2.js"><link rel="prefetch" href="/assets/js/69.854d76c7.js"><link rel="prefetch" href="/assets/js/7.d525a637.js"><link rel="prefetch" href="/assets/js/70.14590b4e.js"><link rel="prefetch" href="/assets/js/71.40fc9ab1.js"><link rel="prefetch" href="/assets/js/72.aa02ee48.js"><link rel="prefetch" href="/assets/js/73.309f6bfb.js"><link rel="prefetch" href="/assets/js/74.1be1e3a0.js"><link rel="prefetch" href="/assets/js/75.d40d8d64.js"><link rel="prefetch" href="/assets/js/76.0a32132e.js"><link rel="prefetch" href="/assets/js/77.07350038.js"><link rel="prefetch" href="/assets/js/78.0a064e6d.js"><link rel="prefetch" href="/assets/js/79.b8945024.js"><link rel="prefetch" href="/assets/js/8.bddc6f73.js"><link rel="prefetch" href="/assets/js/80.55ee0848.js"><link rel="prefetch" href="/assets/js/81.b3fa17a3.js"><link rel="prefetch" href="/assets/js/82.44ee5273.js"><link rel="prefetch" href="/assets/js/83.8408ac0e.js"><link rel="prefetch" href="/assets/js/84.78fe62c1.js"><link rel="prefetch" href="/assets/js/85.0300716b.js"><link rel="prefetch" href="/assets/js/86.00fe67d3.js"><link rel="prefetch" href="/assets/js/87.8e48c765.js"><link rel="prefetch" href="/assets/js/88.acd077c7.js"><link rel="prefetch" href="/assets/js/89.54c5b342.js"><link rel="prefetch" href="/assets/js/9.9339215b.js"><link rel="prefetch" href="/assets/js/90.984db6e5.js"><link rel="prefetch" href="/assets/js/91.89ed9f74.js"><link rel="prefetch" href="/assets/js/92.eddefa21.js"><link rel="prefetch" href="/assets/js/93.4fc92ff0.js"><link rel="prefetch" href="/assets/js/94.6ab205de.js"><link rel="prefetch" href="/assets/js/95.e370c2c9.js"><link rel="prefetch" href="/assets/js/96.308563f6.js"><link rel="prefetch" href="/assets/js/97.bf154ff4.js"><link rel="prefetch" href="/assets/js/98.6da00237.js"><link rel="prefetch" href="/assets/js/99.61f7fe1e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fd1208e4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Mr.Zhou</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>梦开始的地方</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2023
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Mr.Zhou</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/前端领域/" class="nav-link"><i class="undefined"></i>
+  前端领域
+</a></div><div class="nav-item"><a href="/Python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/移动端/" class="nav-link"><i class="undefined"></i>
+  移动端
+</a></div><div class="nav-item"><a href="/服务器类/" class="nav-link"><i class="undefined"></i>
+  服务器类
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>147</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/前端领域/" class="nav-link"><i class="undefined"></i>
+  前端领域
+</a></div><div class="nav-item"><a href="/Python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/移动端/" class="nav-link"><i class="undefined"></i>
+  移动端
+</a></div><div class="nav-item"><a href="/服务器类/" class="nav-link"><i class="undefined"></i>
+  服务器类
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>网络</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/前端领域/0-网络/【客户端与服务器】@1.html" class="sidebar-link">【客户端与服务器】</a></li><li><a href="/前端领域/0-网络/【URL 地址】@2.html" class="sidebar-link">【URL 地址】</a></li><li><a href="/前端领域/0-网络/【http】@3.html" class="sidebar-link">【http】</a></li><li><a href="/前端领域/0-网络/【浏览器页面处理流程】@4.html" class="sidebar-link">【浏览器页面处理流程】</a></li><li><a href="/前端领域/0-网络/【AJAX】@5.html" class="sidebar-link">【AJAX】</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>模块化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>手写</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2023
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">Javascript - 高阶函数</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="javascript-高阶函数"><a href="#javascript-高阶函数" class="header-anchor">#</a> Javascript - 高阶函数</h1> <p>这一章主要给大家介绍一下 Javascript 中的高阶函数， 在 Javascript 中，函数是一种特殊类型的对象，称为 Function Objects。</p> <h3 id="高阶函数"><a href="#高阶函数" class="header-anchor">#</a> 高阶函数</h3> <p>什么是高阶函数呢？如何判断一个函数是不是高阶函数？
+高阶函数要满足以下两个条件：</p> <ul><li>接受一个或多个函数作为输入</li> <li>输出一个函数</li></ul> <p>就是说高阶函数是对其他函数进行操作的函数，可以将他们作为参数传递，或者是返回他们。
+总结起来就是，高阶函数是一个接受函数作为参数或将函数作为返回值输出的函数。</p> <h3 id="内置高阶函数-built-in"><a href="#内置高阶函数-built-in" class="header-anchor">#</a> 内置高阶函数（built-in）</h3> <p>Javascript 语言内置了一些高阶函数，比如 Array.prototype.map, Array.prototype.filter, Array.prototype.reduce, 他们接受一个函数作为参数，并应用这个函数到列表的每一个元素。
+接下来我们对比一下使用高阶函数和不使用高阶函数。</p> <p><strong>Array.prototype.map</strong><br>
+map 方法创建一个新的数组，返回的结果是该数组中的每项都调用一个提供的函数后返回的结果，原数组不会改变，原数组不会改变。 传递给 map 的回调函数有三个参数，分别是 item（项），index（索引、可选），self（自身数组、可选），map 方法除了可以接受一个回调函数外还能接受一个 this 值（可选），用来执行回调函数中使用的 this。</p> <p>练习：我们要生成一个新数组，数组中的每一项都是 arr 中的每一项的两倍。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!-- 不使用高阶函数 --&gt;
+var arr = [1, 2, 3, 4];
+var brr = []
+
+for (var i = 0; i &lt; arr.length; i++) {
+    brr.push(arr[i] * 2)
+}
+
+console.log(brr, arr); //(4) [2, 4, 6, 8] (4) [1, 2, 3, 4]
+
+
+&lt;!-- 使用高阶函数 --&gt;
+var arr = [1, 2, 3, 4];
+
+var brr = arr.map(function (item, index, self) {
+    return item * 2
+})
+
+console.log(brr, arr); //(4) [2, 4, 6, 8] (4) [1, 2, 3, 4]
+</code></pre></div><p><strong>Array.prototype.filter</strong><br>
+filter 方法创建一个新数组，其包含通过提供函数实现的过滤元素，原数组不会改变。参数同 map 相同，返回值是个新数组、 数组中是由符合条件的项构成，如果都不符合，则数组为空。</p> <p>练习：
+现有一个数组 [1,2,3,1,2,3,1,1,1,2,3,4,5,6,2,2,4,5] , 我们想要生成一个新数组，这个数组要去重（去掉重复的内容）。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!-- 不使用高阶函数 --&gt;
+var arr = [1, 2, 3, 1, 2, 3, 1, 1, 1, 2, 3, 4, 5, 6, 2, 2, 4, 5];
+
+var brr = [];
+
+for (var i = 0; i &lt; arr.length; i++) {
+    if (brr.indexOf(arr[i]) === -1) {
+        brr.push(arr[i])
+    }
+}
+
+console.log(brr, arr); // (6) [1, 2, 3, 4, 5, 6] 
+
+
+&lt;!-- 使用高阶函数 --&gt;
+var arr = [1, 2, 3, 1, 2, 3, 1, 1, 1, 2, 3, 4, 5, 6, 2, 2, 4, 5];
+
+var brr = arr.filter(function (item, index, self) {
+    return self.indexOf(item) === index;
+})
+
+console.log(brr, arr); // (6) [1, 2, 3, 4, 5, 6] 
+/*
+  解析：
+  为什么这样可以去重？
+  因为 self 代表的是原数组本身 也就是 arr 
+  arr.indexOf(item) 返回的是第一个符合元素的索引
+  也就是说只要不重复那么 arr.indexOf(item) 的值就会等于 index
+*/
+
+</code></pre></div><p><strong>Array.prototype.reduce</strong><br>
+reduce 方法对数组中的每个元素执行一个传入的 callback 函数，并返回单个的经过 callback 处理过的结果。传递给 reduce 的回调函数 callback 接受四个参数，分别是 prev（累加器 | 前一个结果）,
+item（遍历项），index（索引），self（数组本身），reduce 除了接受一个回调函数 callback 外，还会接受一个<strong>初始值 initialValue</strong>。</p> <ul><li>如果没有提供 initialValue，在第一次调用 callback 函数时，prev 使用原数组中的第一个元素，item 则是数组中的第二项。如果调用 reduce 的数组是空数组，则会报错。</li> <li>如果提供了 initialValue ，那么 initialValue 将会在 reduce 调用的第一次作为 prev 的值，item则是数组第一项。</li></ul> <p>练习：
+现有一数组 arr = [1,2,3,4,5] 将数组内的每一项相加 计算 数组中的合
+使用高阶函数：</p> <div class="language- extra-class"><pre class="language-text"><code>var arr = [1, 2, 3, 4, 5]
+
+/**
+ * prev 前一项
+ * item 遍历项
+ * index 索引
+ * self 数组本身 --》 arr
+ */
+var ret = arr.reduce(function (prev, item, index, self) {
+  return prev + item
+}, 0)
+
+console.log(ret); // 15
+/*
+  计算过程：
+  第一次 因为 我们传入了 initialValue
+  prev = 0, item = 1 相当于 prev = prev + item
+  第二次 
+  prev = 1 item = 2 prev = prev + item
+   ·
+   ·
+   ·
+  prev = 10 item = 5 prev = prev + item
+  return prev
+*/
+</code></pre></div><p>不使用高阶函数:</p> <div class="language- extra-class"><pre class="language-text"><code>var ret2 = 0
+for (var i = 0; i &lt; arr.length; i++) {
+  ret2 += arr[i]
+}
+
+console.log(ret2); // 15
+</code></pre></div><h3 id="函数作为返回值输出"><a href="#函数作为返回值输出" class="header-anchor">#</a> 函数作为返回值输出</h3> <p>这个很好理解，就是函数中返回一个函数。</p> <h4 id="istype-函数"><a href="#istype-函数" class="header-anchor">#</a> isType 函数</h4> <p>通常，我们在判断类型的时候 会使用 Object.prototype.toString.call() 来得到对应对象的返回值，通过这个返回值来确定我们的数据类型。</p> <div class="language- extra-class"><pre class="language-text"><code>    console.log(Object.prototype.toString.call(1));                         // [object Number]
+    console.log(Object.prototype.toString.call('str'));                     // [object String]
+    console.log(Object.prototype.toString.call(true));                      // [object Boolean]
+    console.log(Object.prototype.toString.call(Symbol('1')));               // [object Symbol]
+    console.log(Object.prototype.toString.call(null));                      // [object Null]
+    console.log(Object.prototype.toString.call(undefined));                 // [object Undefined]
+    console.log(Object.prototype.toString.call({}));                        // [object Object]
+    console.log(Object.prototype.toString.call([]));                        // [object Array]
+    console.log(Object.prototype.toString.call(function () { }));           // [object Function]
+    console.log(Object.prototype.toString.call(new Date()));                // [object Date]
+</code></pre></div><p>我们发现通过这个对立关系可以封装一个判断数据类型的函数
+于是：</p> <div class="language- extra-class"><pre class="language-text"><code>function isType(type) {
+  var isType_t = '';
+  switch (type) {
+    case 'number':
+      isType_t = '[object Number]';
+      break;
+    case 'string':
+      isType_t = '[object String]';
+      break
+    case 'boolean':
+      isType_t = '[object Boolean]';
+      break;
+    case 'symbol':
+      isType_t = '[object Symbol]';
+      break;
+    case 'null':
+      isType_t = '[object Null]';
+      break
+    case 'undefined':
+      isType_t = '[object Undefined]';
+      break;
+    case 'object':
+      isType_t = '[object Object]';
+      break
+    case 'array':
+      isType_t = '[object Array]';
+      break
+    case 'function':
+      isType_t = '[object Function]';
+      break
+    case 'date':
+      isType_t = '[object Date]';
+      break
+  }
+  return function (params) {
+    return Object.prototype.toString.call(params) === isType_t;
+  }
+}
+
+console.log(isType('array')([]));
+</code></pre></div><p>优化：</p> <div class="language- extra-class"><pre class="language-text"><code>function isType(type) {
+  return function (params) {
+    return Object.prototype.toString.call(params) === '[object ' + type + ']';
+  }
+}
+
+console.log(isType('Array')([]));
+</code></pre></div><p>练习2：
+用 js 实现一个无限累加的函数 add 形式如下：</p> <div class="language- extra-class"><pre class="language-text"><code>add(1)
+add(1)(2)
+add(1)(2)(3)
+add(1)(2)(3)(4)
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>function add(a) {
+  function sum(b) {
+    a = a + b
+    return sum
+  }
+
+  sum.toString = function () {
+    return a
+  }
+
+  return sum
+}
+
+
+console.log(add(1)(2));
+</code></pre></div><p>思考：
+现有一个数组 arr = [[1,2,3],[4,5,6],[7,[8,9,[10]]]]
+如何将数组扁平化</p> <div class="language- extra-class"><pre class="language-text"><code>var arr = [[1, 2, 3], [4, 5, 6], [7, [8, 9, [10]]]]
+
+console.log(arr.toString().split(',').map(Number));
+console.log(arr.flat(Infinity));
+</code></pre></div><p>两种方式 均能满足。如需更多， <strong><a href="https://es6.ruanyifeng.com/#docs/array" target="_blank" rel="noopener noreferrer">点击劫里噢~<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong></p> <hr> <h3 id="柯里化"><a href="#柯里化" class="header-anchor">#</a> 柯里化</h3> <p>什么是柯里化？
+柯里化又叫部分求值，维基百科中对柯里化的定义是这样的：
+<strong>在数学和计算机科学中，柯里化是一种将使用多个参数的函数转换成一系列使用一个参数的函数，并且返回接受余下的参数而且返回结果的新函数的技术。</strong></p> <p>通俗来讲就是只传递给函数一部分参数来调用它，让它返回一个新函数去处理剩下的参数。
+如：</p> <div class="language- extra-class"><pre class="language-text"><code>const add = (...args)=&gt; args.reduce((a,b)=&gt; a + b)
+
+add(1,2) // 3
+
+var sum = currying(add)
+var ret = sum(1)
+sum(2)
+sum(3)
+sum()
+</code></pre></div><p>请实现上述代码中 currying 函数</p> <div class="language- extra-class"><pre class="language-text"><code>function currying(add) {
+  const m = []
+  return function result(...args) {
+    if (args.length === 0) {
+      return add(...(m.flat(Infinity)))
+    } else {
+      m.push(args)
+      return result
+    }
+  }
+}
+
+// 测试 ----------------------------------------------
+const add = (...args) =&gt; args.reduce((a, b) =&gt; a + b)
+
+// console.log(add(1, 2)); // 3
+
+var sum = currying(add)
+var ret1 = sum(1)  // 1
+sum(2)(1)
+sum(3, 4, 5)
+console.log(sum());  // 3
+</code></pre></div><p>上述代码其实很好理解 currying 函数 接受了一个函数 add 内部 使用闭包保存参数， 当传入参数的数量足够执行函数时，开始执行函数。
+上面 currying 函数实现是一种简化的写法，判断传入的参数长度是否大于0 如果为 0 则执行 否则进行参数收集。</p> <p><strong>另一种常见的应用是 bind 函数</strong>，我们应该还记得 bind 的作用是返回一个可执行的函数，修改 this 指向我们的目标对象，我们来看一下 bind 的使用：</p> <div class="language- extra-class"><pre class="language-text"><code>function sayName() {
+  console.log(this.name);
+}
+
+var ob1 = {
+  name: 'zhang san',
+}
+
+var ob2 = {
+  name: 'li si'
+}
+
+
+sayName.call(ob1) // zhang san
+var fun = sayName.bind(ob2)
+fun()  // li si
+
+</code></pre></div><p>首先我们看到 我们用两种方式来演示 一种是 call ，一种是 bind。首先如果不改变 sayName 中 this 的指向，this 会指向全局对象，全局对象中没有 name 属性，所以是 undefined
+再看下面 ，使用 call 执行代码时，函数执行，但是 当我们使用 bind 的时候，没有直接执行，而是返回了一个可执行的函数，这其实就是一种柯里化。 bind 的模拟实现和柯里化函数的实现，其核心都是一致的。</p> <div class="language- extra-class"><pre class="language-text"><code>Function.prototype.binds = function () {
+  var target = Array.prototype.shift.call(arguments)
+  var args = Array.prototype.slice.call(arguments)
+  var self = this;
+
+  return function (...params) {
+    return self.apply(target, args.concat(params))
+  }
+}
+
+function name(params) {
+  console.log(this.name);
+}
+
+var ob1 = {
+  name: 'zhang san'
+}
+
+
+var func = name.binds(ob1)
+func()
+</code></pre></div><p><strong>参数复用</strong><br>
+我们知道调用 toString() 可以获取每个对象的类型，但是不同对象的 toString() 有不同的实现，所以需要通过 Object.prototype.toString() 来获取 Object 上的实现， 同时以 call / apply 的形式来调用，并传递要检查的对象作为第一个参数。
+如下：</p> <div class="language- extra-class"><pre class="language-text"><code>function isArray(params) {
+  return Object.prototype.toString.call(params) === '[object Array]'
+}
+
+console.log(isArray([1, 2]));
+console.log(isArray({}));
+console.log(isArray(1));
+</code></pre></div><p>但是这样会存在一个问题，<strong>不够灵活</strong>，假如说我们现在要检查很多类型，那我们每个类型都要去定义一个方法去判断吗？
+那肯定是不行的，所以我们就来换一种方式</p> <div class="language- extra-class"><pre class="language-text"><code>var getType = Function.prototype.call.bind(Object.prototype.toString)
+
+console.log(getType([1, 2]));
+</code></pre></div><p>这里我们使用 bind 来扩展，优点是可以直接使用改造后的函数
+使用 Function.prototype.call 函数指定一个 this 值，然后 .bind 返回一个新的函数，始终将 Object.prototype.toString 设置为传入参数，其实等价于 Object.prototype.toString.call()。</p> <p><strong>实现currying函数</strong><br>
+开始我们用简单的方式粗略的实现了一个 currying 函数，接下来我们完善以下 currying 将他封装的更加健壮
+首先我们知道柯里化函数的实质就是<strong>通过闭包收集参数，并将参数集中起来处理，最后返回我们需要的结果</strong>。
+那么我们 currying 函数的原理就是通过闭包搜集参数，当参数足够时执行传入函数。</p> <div class="language- extra-class"><pre class="language-text"><code>function currying(fn, length) {
+  length = length || fn.length   // 获取参数的长度
+  return function (...args) {
+    return args.length &gt;= length ?
+      fn.apply(this, args) : currying(fn.bind(this, ...args), length - args.length)
+  }
+}
+
+
+var func = currying(function (a, b, c) {
+  console.log([a, b, c]);
+})
+
+// func('a', 'b', 'c')
+// func('a', 'b')('c')
+// func('a')('c')('b')
+</code></pre></div><p>currying 函数其实就是判断参数个数是否符合要求，如果够了，就会立即执行函数。那么注意这里  如果参数够了，但是你的注入的参数超过需要的参数数量，则会报错。</p> <div class="language- extra-class"><pre class="language-text"><code>func('a')('c')('b')('d')
+</code></pre></div><p><strong>扩展：函数的length</strong>
+在我们实现 currying 的过程中，我们用到了 fn.length 有的小伙伴就会说了 函数的 length 是我们传入所有参数的 length 吗， 其实并不是这样的
+函数的 length 属性获取的确实是参数的个数，但是并不是入参的个数，而是定义函数时的形参个数，但是形参的个数不包括剩余参数的个数，且仅包括第一个具有默认值之前的参数个数</p> <div class="language- extra-class"><pre class="language-text"><code>console.log((function (a, b, c) { }).length); // 3
+console.log((function (a, b, c = 2) { }).length); // 2
+console.log((function (a, b = 2, c) { }).length); // 1
+console.log((function (a = 2, b, c) { }).length); // 0
+function test(...args) { console.log(args.length); }
+test(1, 2, 3)  // 3
+</code></pre></div><p>所以在<strong>柯里化函数中，不建议使用 ES6 的参数默认值</strong></p> <h3 id="array-原型方法"><a href="#array-原型方法" class="header-anchor">#</a> Array 原型方法</h3> <p>下面给大家整理一些 Array 上常用的数组方法的实现。
+<strong>1、Array.prototype.map：</strong>
+完整的结构是 Array.prototype.map(callback,this_args), map 函数接收两个参数，一个是必须的回调函数，另一个是在执行 callback 函数时的 this 的值
+map 方法的主要功能是把原数组中每个元素按顺序执行一次 callback 函数，并且把所有返回的结果组合成一个新的数组，map 的返回值就是这个数组</p> <div class="language- extra-class"><pre class="language-text"><code>Array.prototype.newMap = function (callback, this_args) {
+  // 异常处理
+  if (this == null) {
+    throw new TypeError('Cannot read property &quot;map&quot; of null or undefined');
+  }
+  let O = Object(this); // 1、转成数组对象，有 length 属性和 k-v 键值对
+  let len = O.length &gt;&gt;&gt; 0; // 2、无符号右移 0 位，左侧填 0 补充，结果非负
+  // 3、判断 callback 是否为函数
+  if (typeof callback !== 'function') {
+    throw new TypeError(callback + ' is not a function');
+  }
+
+  let T = this_args; // 4、保存传入的 this
+  let A = new Array(len); // 5、创建一个新数组 长度为 len 默认为 空
+  let k = 0; // 6、 变量 k 为遍历索引
+  while (k &lt; len) {
+    // 7、检查 k ： 是否在 O 及 O 的原型链上包含属性 k
+    if (k in O) {
+      let val = O[k]; // 8、获取遍历项 item
+      let mapedVal = callback.call(T, val, k, O); // 9、执行函数 callback 并传入参数 遍历项 、索引、数组本身
+      A[k] = mapedVal; // 10、取得返回值 并对新数组赋值
+    }
+    k++;
+  }
+  return A;
+}
+
+
+let arr = [1, 2, 3]
+let brr = arr.newMap((item, index) =&gt; {
+  return item * 2
+})
+
+console.log(brr);
+</code></pre></div><p>map 实现的核心在于不会关注我们回调函数的逻辑，而是通过遍历执行回调函数（传入 遍历项、索引、数组本身）拿到返回结果并赋值给新数组。
+只有 O 及其原型链上包含属性 k 时才会执行 callback 函数，所以对于稀疏数组 empty 元素 或者使用 delete 删除后的索引则不会调用。</p> <p><strong>Array.prototype.reduce</strong><br>
+reduce 的作用就是 将数据处理为单个返回值，如同河流汇聚，变为大海。 reduce 的完整结构是 Array.prototype.reduce(callback,initialVal), 在这里第二个参数就不是 this 了，而是初始值 initialVal，关于初始值，我们在使用的时候介绍过。</p> <ul><li>如果我们没有初始的 initialVal，那么第一次调用 callback 函数时，prev 使用原数组的第一个元素，那么 item 就是数组中的第二个元素</li> <li>如果设置了初始值 initialVal，那么首次运行时第一次 prev 的值是 initialVal ，item 是数组中的第一个元素。</li> <li>如果没有设置初始值并且数组为空 那么 reduce 将报错。
+接下来我们来模拟实现一个reduce：</li></ul> <div class="language- extra-class"><pre class="language-text"><code>Array.prototype.myReduce = function (callback, initialVal) {
+  if (this == null) {
+    throw new TypeError('')
+  }
+  let O = Object(this);
+  let len = this.length &gt;&gt;&gt; 0;
+
+  if (typeof callback !== 'function') {
+    throw new TypeError(callback + ' is not a function')
+  }
+  if (initialVal &amp;&amp; len == 0) {
+    throw new TypeError('error')
+  }
+
+
+  let k = 0;
+  let accumulator = null;
+  if (initialVal) {
+    accumulator = initialVal;
+  } else {
+    let kpresent = false
+    while (!kpresent &amp;&amp; k &lt; len) {
+      kpresent = k in O
+      if (kpresent) {
+        accumulator = O[k]
+      }
+      k++;
+    }
+  }
+
+  while (k &lt; len) {
+    if (k in O) {
+      let keyVal = O[k];
+      let ret = callback(accumulator, keyVal, k, O);
+      accumulator = ret
+    }
+    k++;
+  }
+
+  return accumulator;
+}
+</code></pre></div><p>大部分逻辑和 map 都是差不多的哈，只不过 map 返回的是数组，而 reduce 返回的是 accumulator 是 经由 reduce 处理之后的单个结果。
+这里来说一下这部分代码，如下：</p> <div class="language- extra-class"><pre class="language-text"><code>  let k = 0;
+  let accumulator = null;
+  if (initialVal) {
+    accumulator = initialVal;
+  } else {
+    let kpresent = false
+    while (!kpresent &amp;&amp; k &lt; len) {
+      kpresent = k in O
+      if (kpresent) {
+        accumulator = O[k]
+      }
+      k++;
+    }
+  }
+</code></pre></div><p>首先还是定义循环变量 k ，紧接着定义了一个 accumulator 变量，这个是我们要返回的结果，继续往下  我们曾经说过有无初始值 initialVal 的两种情况，当 initialVal 不存在的时候会先定义一个标记值，
+如果这个标记值为 false 的时候会从0开始遍历 判断 k 值 是否是 O 及 O 的原型链上的属性，是的话就将 O[k] 的值赋值给 accumulator ，然后 k + 1</p> <p><strong>Array.prototype.forEach</strong>
+forEach 方法和 map 极其相似，只不过 map 是有返回值的，但是 forEach 是没有返回值的</p> <div class="language- extra-class"><pre class="language-text"><code>Array.prototype.myForEach = function (callback, this_args) {
+  if (this == null) {
+    throw new TypeError('Cannot read property &quot;forEach&quot; of null or undefined');
+  }
+  if (typeof callback !== 'function') {
+    throw new TypeError(callback + ' is not a function')
+  }
+  let O = Object(this);
+  let len = this.length &gt;&gt;&gt; 0;
+  let _this = this_args;
+
+  let k = 0;
+  while (k &lt; len) {
+    if (k in O) {
+      let kVal = O[k];
+      callback.call(_this, kVal, k, O);
+    }
+    k++;
+  }
+}
+
+let arr = [1, 2, 3, 4, 5, 6]
+let brr = [];
+arr.myForEach(function (item, index) {
+  this[index] = item * index
+}, brr)
+console.log(brr);
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/前端领域/3-JavaScript/2-Js-核心/【原型原型链】@3.html" class="prev">
+            【原型原型链】
+          </a></span> <span class="next"><a href="/前端领域/3-JavaScript/2-Js-核心/【对象继承方案】@6.html">
+            【对象继承方案】
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div></div></div>
+    <script src="/assets/js/app.f6887468.js" defer></script><script src="/assets/js/3.83ad0eef.js" defer></script><script src="/assets/js/1.bbba36a5.js" defer></script><script src="/assets/js/59.a6e8072f.js" defer></script>
+  </body>
+</html>

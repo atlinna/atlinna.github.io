@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ECAMScript-5 | Mr.Zhou</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="梦开始的地方">
+    
+    <link rel="preload" href="/assets/css/0.styles.fd1208e4.css" as="style"><link rel="preload" href="/assets/js/app.f6887468.js" as="script"><link rel="preload" href="/assets/js/3.83ad0eef.js" as="script"><link rel="preload" href="/assets/js/1.bbba36a5.js" as="script"><link rel="preload" href="/assets/js/55.2b136780.js" as="script"><link rel="prefetch" href="/assets/js/10.dd6fe8f4.js"><link rel="prefetch" href="/assets/js/100.56a63806.js"><link rel="prefetch" href="/assets/js/101.67169f78.js"><link rel="prefetch" href="/assets/js/102.e6249b25.js"><link rel="prefetch" href="/assets/js/103.7cdc76af.js"><link rel="prefetch" href="/assets/js/104.8a455bab.js"><link rel="prefetch" href="/assets/js/105.89649d1a.js"><link rel="prefetch" href="/assets/js/106.21c9101e.js"><link rel="prefetch" href="/assets/js/107.24518f90.js"><link rel="prefetch" href="/assets/js/108.f5e0a6d1.js"><link rel="prefetch" href="/assets/js/109.24b7093d.js"><link rel="prefetch" href="/assets/js/11.11c7df7b.js"><link rel="prefetch" href="/assets/js/110.afb962f9.js"><link rel="prefetch" href="/assets/js/111.98579b40.js"><link rel="prefetch" href="/assets/js/112.10f85b67.js"><link rel="prefetch" href="/assets/js/113.051749b3.js"><link rel="prefetch" href="/assets/js/114.e8953f7d.js"><link rel="prefetch" href="/assets/js/115.7a390be9.js"><link rel="prefetch" href="/assets/js/116.d2aa28f2.js"><link rel="prefetch" href="/assets/js/117.bfa75cec.js"><link rel="prefetch" href="/assets/js/118.a5753c35.js"><link rel="prefetch" href="/assets/js/119.aef46b1b.js"><link rel="prefetch" href="/assets/js/12.d9ce74c3.js"><link rel="prefetch" href="/assets/js/120.00c93b2d.js"><link rel="prefetch" href="/assets/js/121.5a39bcac.js"><link rel="prefetch" href="/assets/js/122.c191c236.js"><link rel="prefetch" href="/assets/js/123.dde7f959.js"><link rel="prefetch" href="/assets/js/124.e7e749fb.js"><link rel="prefetch" href="/assets/js/125.91483dee.js"><link rel="prefetch" href="/assets/js/126.f47569c5.js"><link rel="prefetch" href="/assets/js/127.7b9efb58.js"><link rel="prefetch" href="/assets/js/128.36d8153c.js"><link rel="prefetch" href="/assets/js/129.e365428d.js"><link rel="prefetch" href="/assets/js/13.698f774a.js"><link rel="prefetch" href="/assets/js/130.fcaaab4c.js"><link rel="prefetch" href="/assets/js/131.81f9f065.js"><link rel="prefetch" href="/assets/js/132.c880d455.js"><link rel="prefetch" href="/assets/js/133.b24efc83.js"><link rel="prefetch" href="/assets/js/134.db0ccedb.js"><link rel="prefetch" href="/assets/js/135.a96f3499.js"><link rel="prefetch" href="/assets/js/136.1cfe5b2c.js"><link rel="prefetch" href="/assets/js/137.b0715b98.js"><link rel="prefetch" href="/assets/js/138.8d272cc0.js"><link rel="prefetch" href="/assets/js/139.d19f131f.js"><link rel="prefetch" href="/assets/js/14.71eae88a.js"><link rel="prefetch" href="/assets/js/140.6eb451bf.js"><link rel="prefetch" href="/assets/js/141.0c57a46f.js"><link rel="prefetch" href="/assets/js/142.4fe102d1.js"><link rel="prefetch" href="/assets/js/143.586b7efb.js"><link rel="prefetch" href="/assets/js/144.3c6fef5c.js"><link rel="prefetch" href="/assets/js/145.ccac8673.js"><link rel="prefetch" href="/assets/js/146.826ba52a.js"><link rel="prefetch" href="/assets/js/147.81273d95.js"><link rel="prefetch" href="/assets/js/148.b6b79f31.js"><link rel="prefetch" href="/assets/js/149.a0c07b40.js"><link rel="prefetch" href="/assets/js/15.29c80c55.js"><link rel="prefetch" href="/assets/js/150.b46d2f93.js"><link rel="prefetch" href="/assets/js/151.064e2858.js"><link rel="prefetch" href="/assets/js/152.c7b3e954.js"><link rel="prefetch" href="/assets/js/153.1af7f701.js"><link rel="prefetch" href="/assets/js/154.ede6f42c.js"><link rel="prefetch" href="/assets/js/155.90548478.js"><link rel="prefetch" href="/assets/js/156.c3b10d78.js"><link rel="prefetch" href="/assets/js/157.d5978cdc.js"><link rel="prefetch" href="/assets/js/158.0413ec83.js"><link rel="prefetch" href="/assets/js/159.e9dce9a6.js"><link rel="prefetch" href="/assets/js/16.c9c65f67.js"><link rel="prefetch" href="/assets/js/160.93407b2d.js"><link rel="prefetch" href="/assets/js/161.2c64f425.js"><link rel="prefetch" href="/assets/js/162.9f0d7cef.js"><link rel="prefetch" href="/assets/js/163.64f0ce4a.js"><link rel="prefetch" href="/assets/js/164.4da161a1.js"><link rel="prefetch" href="/assets/js/165.63d218c6.js"><link rel="prefetch" href="/assets/js/166.44d46e1c.js"><link rel="prefetch" href="/assets/js/167.d453dcbf.js"><link rel="prefetch" href="/assets/js/168.831c55e9.js"><link rel="prefetch" href="/assets/js/169.65aee5ed.js"><link rel="prefetch" href="/assets/js/17.d2f4b2f2.js"><link rel="prefetch" href="/assets/js/170.5a8838b5.js"><link rel="prefetch" href="/assets/js/171.62b3b542.js"><link rel="prefetch" href="/assets/js/172.12bd3c0c.js"><link rel="prefetch" href="/assets/js/173.30061c23.js"><link rel="prefetch" href="/assets/js/174.ff355962.js"><link rel="prefetch" href="/assets/js/175.5fba082c.js"><link rel="prefetch" href="/assets/js/176.b8087a57.js"><link rel="prefetch" href="/assets/js/177.376ebf95.js"><link rel="prefetch" href="/assets/js/178.a7206acb.js"><link rel="prefetch" href="/assets/js/179.c886141e.js"><link rel="prefetch" href="/assets/js/18.d5ebd44a.js"><link rel="prefetch" href="/assets/js/180.ec450d95.js"><link rel="prefetch" href="/assets/js/181.839633b4.js"><link rel="prefetch" href="/assets/js/182.b752a7e9.js"><link rel="prefetch" href="/assets/js/183.aca52f33.js"><link rel="prefetch" href="/assets/js/184.c70b3553.js"><link rel="prefetch" href="/assets/js/185.e1141d11.js"><link rel="prefetch" href="/assets/js/186.2b9bcabb.js"><link rel="prefetch" href="/assets/js/187.3da6b83b.js"><link rel="prefetch" href="/assets/js/188.565399cc.js"><link rel="prefetch" href="/assets/js/19.3116eb77.js"><link rel="prefetch" href="/assets/js/20.d8cc4f42.js"><link rel="prefetch" href="/assets/js/21.5d2dbf13.js"><link rel="prefetch" href="/assets/js/22.0f666d8a.js"><link rel="prefetch" href="/assets/js/23.4ed99059.js"><link rel="prefetch" href="/assets/js/24.586fb5e4.js"><link rel="prefetch" href="/assets/js/25.3acece01.js"><link rel="prefetch" href="/assets/js/26.9f629d4b.js"><link rel="prefetch" href="/assets/js/27.8092f6d7.js"><link rel="prefetch" href="/assets/js/28.e880f7e9.js"><link rel="prefetch" href="/assets/js/29.bb9c9685.js"><link rel="prefetch" href="/assets/js/30.22cde99b.js"><link rel="prefetch" href="/assets/js/31.2d508d17.js"><link rel="prefetch" href="/assets/js/32.e9846943.js"><link rel="prefetch" href="/assets/js/33.d284b79e.js"><link rel="prefetch" href="/assets/js/34.cd6cb85a.js"><link rel="prefetch" href="/assets/js/35.75dcae1b.js"><link rel="prefetch" href="/assets/js/36.e84580eb.js"><link rel="prefetch" href="/assets/js/37.2030966b.js"><link rel="prefetch" href="/assets/js/38.3631807e.js"><link rel="prefetch" href="/assets/js/39.5dca28f6.js"><link rel="prefetch" href="/assets/js/4.2d69c627.js"><link rel="prefetch" href="/assets/js/40.d510eff9.js"><link rel="prefetch" href="/assets/js/41.1f396a23.js"><link rel="prefetch" href="/assets/js/42.ac1836a1.js"><link rel="prefetch" href="/assets/js/43.117eaead.js"><link rel="prefetch" href="/assets/js/44.c43888b3.js"><link rel="prefetch" href="/assets/js/45.7907b4d9.js"><link rel="prefetch" href="/assets/js/46.37bb8c35.js"><link rel="prefetch" href="/assets/js/47.950b7b61.js"><link rel="prefetch" href="/assets/js/48.dd9bdef6.js"><link rel="prefetch" href="/assets/js/49.e0fb1245.js"><link rel="prefetch" href="/assets/js/5.a4f53b63.js"><link rel="prefetch" href="/assets/js/50.f7d708b6.js"><link rel="prefetch" href="/assets/js/51.101855bd.js"><link rel="prefetch" href="/assets/js/52.b8f2351c.js"><link rel="prefetch" href="/assets/js/53.5c8dd716.js"><link rel="prefetch" href="/assets/js/54.007371a1.js"><link rel="prefetch" href="/assets/js/56.b587fe6b.js"><link rel="prefetch" href="/assets/js/57.6bf2206d.js"><link rel="prefetch" href="/assets/js/58.6157ea0b.js"><link rel="prefetch" href="/assets/js/59.a6e8072f.js"><link rel="prefetch" href="/assets/js/6.d1940848.js"><link rel="prefetch" href="/assets/js/60.e0287eb9.js"><link rel="prefetch" href="/assets/js/61.8020f4ec.js"><link rel="prefetch" href="/assets/js/62.63127a36.js"><link rel="prefetch" href="/assets/js/63.79826a75.js"><link rel="prefetch" href="/assets/js/64.51b2f18b.js"><link rel="prefetch" href="/assets/js/65.bbd6cb71.js"><link rel="prefetch" href="/assets/js/66.ae1736f6.js"><link rel="prefetch" href="/assets/js/67.9fb814a7.js"><link rel="prefetch" href="/assets/js/68.c9ca66a2.js"><link rel="prefetch" href="/assets/js/69.854d76c7.js"><link rel="prefetch" href="/assets/js/7.d525a637.js"><link rel="prefetch" href="/assets/js/70.14590b4e.js"><link rel="prefetch" href="/assets/js/71.40fc9ab1.js"><link rel="prefetch" href="/assets/js/72.aa02ee48.js"><link rel="prefetch" href="/assets/js/73.309f6bfb.js"><link rel="prefetch" href="/assets/js/74.1be1e3a0.js"><link rel="prefetch" href="/assets/js/75.d40d8d64.js"><link rel="prefetch" href="/assets/js/76.0a32132e.js"><link rel="prefetch" href="/assets/js/77.07350038.js"><link rel="prefetch" href="/assets/js/78.0a064e6d.js"><link rel="prefetch" href="/assets/js/79.b8945024.js"><link rel="prefetch" href="/assets/js/8.bddc6f73.js"><link rel="prefetch" href="/assets/js/80.55ee0848.js"><link rel="prefetch" href="/assets/js/81.b3fa17a3.js"><link rel="prefetch" href="/assets/js/82.44ee5273.js"><link rel="prefetch" href="/assets/js/83.8408ac0e.js"><link rel="prefetch" href="/assets/js/84.78fe62c1.js"><link rel="prefetch" href="/assets/js/85.0300716b.js"><link rel="prefetch" href="/assets/js/86.00fe67d3.js"><link rel="prefetch" href="/assets/js/87.8e48c765.js"><link rel="prefetch" href="/assets/js/88.acd077c7.js"><link rel="prefetch" href="/assets/js/89.54c5b342.js"><link rel="prefetch" href="/assets/js/9.9339215b.js"><link rel="prefetch" href="/assets/js/90.984db6e5.js"><link rel="prefetch" href="/assets/js/91.89ed9f74.js"><link rel="prefetch" href="/assets/js/92.eddefa21.js"><link rel="prefetch" href="/assets/js/93.4fc92ff0.js"><link rel="prefetch" href="/assets/js/94.6ab205de.js"><link rel="prefetch" href="/assets/js/95.e370c2c9.js"><link rel="prefetch" href="/assets/js/96.308563f6.js"><link rel="prefetch" href="/assets/js/97.bf154ff4.js"><link rel="prefetch" href="/assets/js/98.6da00237.js"><link rel="prefetch" href="/assets/js/99.61f7fe1e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fd1208e4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Mr.Zhou</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>梦开始的地方</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2023
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Mr.Zhou</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/前端领域/" class="nav-link"><i class="undefined"></i>
+  前端领域
+</a></div><div class="nav-item"><a href="/Python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/移动端/" class="nav-link"><i class="undefined"></i>
+  移动端
+</a></div><div class="nav-item"><a href="/服务器类/" class="nav-link"><i class="undefined"></i>
+  服务器类
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>147</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/前端领域/" class="nav-link"><i class="undefined"></i>
+  前端领域
+</a></div><div class="nav-item"><a href="/Python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/移动端/" class="nav-link"><i class="undefined"></i>
+  移动端
+</a></div><div class="nav-item"><a href="/服务器类/" class="nav-link"><i class="undefined"></i>
+  服务器类
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>网络</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/前端领域/0-网络/【客户端与服务器】@1.html" class="sidebar-link">【客户端与服务器】</a></li><li><a href="/前端领域/0-网络/【URL 地址】@2.html" class="sidebar-link">【URL 地址】</a></li><li><a href="/前端领域/0-网络/【http】@3.html" class="sidebar-link">【http】</a></li><li><a href="/前端领域/0-网络/【浏览器页面处理流程】@4.html" class="sidebar-link">【浏览器页面处理流程】</a></li><li><a href="/前端领域/0-网络/【AJAX】@5.html" class="sidebar-link">【AJAX】</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>模块化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>手写</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2023
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">ECAMScript-5</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="ecamscript-5"><a href="#ecamscript-5" class="header-anchor">#</a> ECAMScript-5</h1> <h2 id="this-toturial-will-teach-you-javascript-from-basic-to-advanced"><a href="#this-toturial-will-teach-you-javascript-from-basic-to-advanced" class="header-anchor">#</a> This toturial will teach you javascript from basic to advanced</h2> <h2 id="come-on-let-s-go-get-start-it"><a href="#come-on-let-s-go-get-start-it" class="header-anchor">#</a> come on,let's go get start it!</h2> <p>** First! Learn to use documents **
+https://www.w3schools.com/js/js_whereto.asp</p> <h3 id="some-knowledges"><a href="#some-knowledges" class="header-anchor">#</a> some knowledges</h3> <div class="language- extra-class"><pre class="language-text"><code>  javascript and java are completely different languages,
+  both in concept and design.JavaScript was invented by Brendan Eich in 1995,
+  and became an ECMA standard in 1997.
+</code></pre></div><hr> <h3 id="基本数据类型"><a href="#基本数据类型" class="header-anchor">#</a> 基本数据类型</h3> <ul><li>String</li> <li>Number</li> <li>Boolean</li> <li>Symbol</li> <li>Null</li> <li>Undefined</li> <li>BigInt    for google only</li></ul> <h3 id="引用类型"><a href="#引用类型" class="header-anchor">#</a> 引用类型</h3> <ul><li>Object</li></ul> <ul><li>Function</li> <li>Array</li> <li>Date</li> <li>RegExp</li></ul> <p>你可以使用typeof 来查看我们的数据类型(基本类型)，
+但是你会发现 当你使用typeof 来检查null的时候 返回的是object
+具体原因是：</p> <div class="language- extra-class"><pre class="language-text"><code>  因为不同的对象在底层都表示为二进制，在javascript中二进制前三位为0的话都会被判断为object类型，
+  null的二进制表示为全0，所以他的前三位肯定是0，因此 当你使用typeof来检查null的类型返回的是object。
+</code></pre></div><p>如果使用typeof 来检查引用类型
+举个栗子：</p> <div class="language- extra-class"><pre class="language-text"><code>typeof Array  //function
+typeof Array()  //object
+typeof new Array() //object
+
+typeof Boolean //function
+typeof Boolean() // boolean
+typeof new Boolean() // object
+</code></pre></div><p>我们可以看到 typeof 不止能检查出基本数据的类型 ，还能检测出function 类型，也就是说
+我们的js 内置构造函数 如Array，Number等 都是function，函数也属于对象。
+而我们使用new关键字创建的实例是 一个对象Object。</p> <p>typeof的安全防护机制</p> <div class="language- extra-class"><pre class="language-text"><code>首先要知道undefined(未定义)和undeclared（未声明）
+undefined 和 undeclared 表现相同都为undefined。
+假设我们要引入一个js 但是这个js我们只想在开发环境或者测试环境中引入，这个js中有个全局开关Flag 当Flag=true时 我们认为他引入
+如果直接使用if判断Flag的话 会报错。
+if(Flag){//···}
+因为根本没有生命这个变量
+所以 我们可以使用一种安全的方式
+我们可以确定 typeof Flag 存在的话 是boolean 不存在的话 或者说没有声明的话 是undefined
+if(typeof Flag !== 'undefined' ){//···}
+</code></pre></div><p>注意：</p> <ul><li>js是单线程</li> <li>代码同步执行，只有栈顶的上下文执行，其他的需要等待。</li> <li>全局上下文只有一个，当浏览器关闭时出栈。</li> <li>函数的执行上下文没有限制，理论上可以无限增加。</li></ul> <hr> <h3 id="类型转换"><a href="#类型转换" class="header-anchor">#</a> 类型转换</h3> <p>js 可以通过一些内置的构造函数或方法来将一种类型转换成另外一种类型，如 字符串 转换成 数字</p> <div class="language- extra-class"><pre class="language-text"><code> 有构造函数Number、String、Boolean、Symbol 构造函数 分别能将数据转为 数字、字符串、布尔值、标记值。
+ 
+ let a = 12;        //  12
+ let b = String(a); // '12'
+ 
+ 像这种你能够清楚的知道要转换的类型是什么的行为吧 成为显式类型转换。
+ 
+ 你知道上面的结果 那你知道下面的结果吗？
+ let a = '12';
+ let b = 3;
+ let c = 8;
+ let ret;
+ 
+ ret = a + b;      // '123'
+ ret = a - c;      // 4
+ ret = c + a;      // '812'
+ ret = a * b;      // 36
+ ret = a + b * c;  // '1224'
+ ret = a / b;      // 3
+ 
+ 看看你答对了多少？
+ 
+ 为什么会这样？
+ 因为在计算时由于等号两边的数据类型不同 导致cpu无法进行计算，js的编译器会自动将运算符两边的数据转换为同一类型。
+ 
+ 规则是怎样的呢？
+ 
+ 1、String字符串转换：如字符串 + 变量 = 字符串；
+ 如 '12' + 3 = '123';
+    '' + 4 = '4';
+    
+ 2、Number数字类型：使用算术运算符 或 关系运算符
+    '12' - 3 = 9;
+    '12' - '3' = 9;
+    
+ 3、Boolean布尔转换： ！变量
+    !!'12' = true;
+    
+ 4、undefined == null 但是 undefeied !== null
+ 
+ 5、NaN 不等于任何数 包括他自身
+ 
+ 6、true = 1， false = 0
+ 
+ 7、引用类型不要使用 == 判断 因为保存的是引用地址。
+ 
+ 8、'12' + 3 如何等于 15
+    +'12' + 3 = 15
+    9 + +'12' = ? // 21
+ 
+</code></pre></div><h3 id="的作用"><a href="#的作用" class="header-anchor">#</a> == 的作用</h3> <p>我们知道 1 != 2; true == true;
+那是否知道 [] == ![]的结果呢？ 答案是true
+很神奇是吧，如果你对 == 有了一定理解之后这个就很简单啦。</p> <p>首先我们来看看 == 是怎么工作的。这里会涉及强制类型转换（隐式）。</p> <ul><li>1、如果有一个数据是布尔值，则在比较相等性前会将他转换成数值 即 false -- 0   true -- 1.</li> <li>2、如果有一个数据是字符串，另一个值是数字，在比较相等性前会先将字符串转为数字。 '' -- 0</li> <li>3、如果一个数据是对象，另一个不是，则会调用对象的valueOf方法，如果拿到的值不是基本类型，则会根据valueOf的返回值继续调用toString方法 （这是为什么会出现&quot;[object object]&quot;的原因）</li> <li>4、如果两个数据都是对象，则比较他们是否为同一对象。如果是 返回true 否则为 false
+这两个数据在比较时要遵循以下规则</li> <li>null 和 undefined 是相等的</li> <li>在比较相等性前，不能把null 和 undefined 转换成其他值</li> <li>如果一个数是NaN 则相等操作符会返回false ，不等操作符返回true，且NaN != NaN</li></ul> <p>这样我们就可以发现上面的例子中 ![] 将数据转换为Boolean 也就是 !Boolean([]) -- !true --&gt; false
+然后呢 等式就变成了 [] == false --&gt; [] == 0 根据第一条和第三条来看 首先 []是对象 会调用valueOf 得到[] 不是基本类型 继续调用同String（）方法 [].valueOf().toString()，得到空字符串
+&quot;&quot; == 0 然后再根据第二条 Number(&quot;&quot;) == 0 --&gt; 0 == 0 --&gt; true</p> <p>这个我们会了 再来个 [undefined] == false.
+你会发现，当我们熟悉这个规则之后是very的easy，very的简单。</p> <hr> <h3 id="scope-作用域"><a href="#scope-作用域" class="header-anchor">#</a> Scope 作用域</h3> <p>我的理解 作用域类似于一个集合，这个集合显示出的是我们函数或者变量能够访问到的值。
+打个比方说 如果有一个变量a在全局作用域中创建 然后 有一个变量b 在函数foo中创建，然后我们把a的值赋给b,然后我们在foo函数外打印出b，此时会发生什么？</p> <div class="language- extra-class"><pre class="language-text"><code>var a = 1
+function foo(){
+  var b = a;
+}
+console.log(b)
+</code></pre></div><p>会报错 b is not defined 对吧 为什么呢？
+我们来看一下这个流程 在全局作用域中 我们能访问到的是不是 { a, foo } 这个
+然后呢 我们再看看 foo 的作用域 { b } 但是 我们的 foo 函数是处于全局作用域下的 所以 他能访问到的作用域 是 [{b},{a,foo}] 这两个
+当我们给 b 赋值 a 时 由于 a 在我们能找到的范围中。 但是 当我们想要在函数外打印出 b 的时候我们发现 b 只能在foo中才能找到，可是
+我们打印实在foo函数外面 所以找不到变量 b 于是就报错了。
+<strong>而 foo 访问的作用域 称为作用域链 ScopeChain:[VO(foo),VO(global)].</strong>
+可能会有人认为 我们的 foo 的作用域是含于 全局作用域的，这样是错误的。
+你可以认为形成了一条单向的通道供我们来访问外部的作用域，事实上 是会按照 VO 这个变量对象创建的顺序来访问的 也就是按照作用域链的顺序
+如 在foo函数中 我们给变量b赋值为a 作用域链是[{b},{a,foo}]
+这个时候首先查找了自己的作用域 发现没有 a 于是会继续向上查找 发现 诶全局作用域是有的，然后就拿过来用了。</p> <h3 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h3> <p><strong><a href="https://github.com/yygmind/blog/issues/17" target="_blank" rel="noopener noreferrer">可参考此文章<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong><br>
+闭包是面试时候面试官最喜欢问的面试题之一吧，听说闭包是能将个二十分钟到半个小时的，我们一起来研究一下。争取咱也来个半小时。
+闭包是一种特殊的对象。
+由两个部分组成，一个是函数创建的执行上下文 代号 Alpa 及 在这个执行上下文中创建的函数 代号Beta。
+当Beta这个函数执行并开始访问Alpa中的变量对象的值时，就会发生闭包。 如下：
+我们定义了一个函数foo 并 创建了 a，b 两个变量并赋值，然后在foo 函数内 又定义了一个函数 boo 最后通过 foo 把 boo 函数返回出来。</p> <div class="language- extra-class"><pre class="language-text"><code>  function foo(){
+    var a = 10;
+    var b = 20;
+    
+    function boo(){
+      a ++;
+      b ++;
+      return a + b; 
+    }
+    return boo;
+  }
+ var sn1 =  foo()
+ sn1();
+</code></pre></div><p>我们来分析一下这个函数
+在全局作用域中 作用域是 { foo,sn1 }
+在foo作用域中 作用域是 { a,b,boo } 作用域链 [{a,b,boo},{foo,sn1}]
+在boo作用域中 因为没有定义新的函数或变量 所以自身的作用域为 { } 但是 boo 是在foo作用域下创建的 自然能够访问到 foo 的作用域 于是 作用域链 [{a,b,boo},{foo,sn1}]
+虽然 foo 这个函数执行会得到 function boo(){a++;b++;return a+b} 这个函数 但是我们的作用域链中是可以访问到 a 和 b 的值的 所以并不会出现爆红的现象。
+如果我们执行boo 就会访问到foo 的内部变量 a,b 这个时候就会产生闭包。
+也就是说当 foo 执行完毕 且已经向外部返回了函数 boo 之后 他的执行上下文确实已经出栈销毁，但是他的激活对象AO并没有销毁，因为boo还保存着对foo内部变量的引用，所以foo
+的AO 会一直存在内存中。</p> <div class="language- extra-class"><pre class="language-text"><code>var func = null
+
+function handler() {
+    var a = 0;
+
+    function counter() {
+        return a++;
+    }
+
+    func = counter
+}
+
+handler();
+console.log(func()); //0
+console.log(func()); //1
+console.log(func()); //2
+</code></pre></div><p>我们也可以通过闭包来保存我们之前的状态
+如上面这个计数器 虽然 counter 被保存在全局变量func中，但是实际上 counter的作用域还是指向 函数 handler 的 我们只是将 counter 的访问地址付给了全局变量func</p> <p><strong>闭包的应用：</strong></p> <ul><li>函数柯里化 形如  foo()()</li> <li>模块</li></ul> <p>有一个很简单很常见的例子 就是说 如何 让 下面的执行结果是按顺序的</p> <div class="language- extra-class"><pre class="language-text"><code>for (var i = 0; i &lt; 5; i++) {
+        setTimeout(()=&gt;{
+            console.log(i);
+        },1000)
+}
+</code></pre></div><p>我们可以发现 当你运行这段代码的时候 执行结果是 5 全都是 5。</p> <div class="language- extra-class"><pre class="language-text"><code>//1、可以将 var 改为 let 这样块级作用域就不会出现这种问题
+for (let i = 0; i &lt; 5; i++) {
+        setTimeout(()=&gt;{
+            console.log(i);
+        },1000)
+}
+
+//2、可以使用立即执行函数，我们可以将 i 作为参数传入到立即执行函数中 此时
+for (var i = 0; i &lt; 5; i++) {
+    (function (s) {
+        setTimeout(()=&gt;{
+            console.log(s);
+        },1000)
+    })(i)
+}
+</code></pre></div><p><strong>切记闭包不是真的只让你回答现象，包括了闭包的产生，作用域，作用域链，执行上下文，VO，AO</strong></p> <p>《javascript高级编程》中有句话是这么说的：由于闭包会携带包含它的函数的作用域，因此会比其他函数占用更多的资源，过度使用闭包，会导致内存占用过多，造成内存泄漏。</p> <p>所以要及时的将不用的空间释放。</p> <hr> <h3 id="this-绑定"><a href="#this-绑定" class="header-anchor">#</a> this 绑定</h3> <ul><li>默认情况（严格模式/非严格模式）</li> <li>隐式绑定</li> <li>显式绑定</li> <li>new关键字绑定</li> <li>箭头函数（ES6）</li></ul> <h4 id="默认情况"><a href="#默认情况" class="header-anchor">#</a> 默认情况</h4> <p><strong>非严格模式：</strong> 在非严格模式下 this 默认指向全局对象
+<strong>严格模式：</strong> 严格模式下，this 会指向 undefined。在严格模式下嗲用函数不会影响默认绑定。
+如下 1：a 默认为全局变量 运行test函数 此时能够打印出结果1 this 默认情况下指向全局对象
+如下 2：当我们将此函数运行在严格模式时，此时会发现爆红，a is not defined，因为严格模式下不能使用默认情况，此时的 this 指向的是 undefined。</p> <div class="language- extra-class"><pre class="language-text"><code>// 1
+a = 1
+function test() {
+    console.log(this.a);
+}
+
+test()
+
+// 2
+'use strict';
+a = 1
+function test(){
+    console.log(this.a);
+}
+test()
+</code></pre></div><h3 id="隐式绑定"><a href="#隐式绑定" class="header-anchor">#</a> 隐式绑定</h3> <p>当函数的引用有<strong>上下文对象</strong>，隐式绑定规则会把函数中的this绑定到这个上下文对象。
+如下： 当我们想要使用对象中的name属性时</p> <div class="language- extra-class"><pre class="language-text"><code>var user = {
+    name: 'lilei',
+    sayHi: sayHi
+}
+
+function sayHi() {
+    console.log('hello, my name is' + this.name);
+}
+
+user.sayHi();
+</code></pre></div><p>但是这样的绑定是不牢固的，在某些特定情况下可能会丢失this的绑定
+这种情况叫做<strong>隐式丢失</strong>
+被隐式绑定的函数，如果将引用传递给一个新的变量，那么此时就相当于直接调用函数本身，this 指向 全局对象或 undefined</p> <div class="language- extra-class"><pre class="language-text"><code>var user = {
+    name: 'lilei',
+    sayHi: sayHi
+}
+
+name = 'hanmeimei'
+
+function sayHi() {
+    console.log('hello, my name is ' + this.name || '空');
+}
+
+var handler = user.sayHi;
+handler()
+</code></pre></div><p>如下：同上面的情况相同，本质都是直接引用了函数本身，但是通过回调函数传递的方式，实质上相当于变量赋值。</p> <div class="language- extra-class"><pre class="language-text"><code>var user = {
+    name: 'lilei',
+    sayHi: sayHi
+}
+
+name = 'hanmeimei'
+
+function sayHi() {
+    console.log('hello, my name is ' + this.name || '空');
+}
+
+
+function main(func) {
+    func()
+}
+
+main(user.sayHi)
+</code></pre></div><p><strong>显式绑定</strong>：
+javascript中可以通过call，apply方法来改变 this 的指向。
+call(target,...rest) 第一个参数是我们要指向的目标 ，然后是我们 函数需要接受的参数
+如下 我们定义了一个对象 user 合一个方法 sayName 来输出 对象 user 的名称信息
+然后通过 call 方法来改变 this 的指向让其指向 user</p> <div class="language- extra-class"><pre class="language-text"><code>var user = {
+    name: 'zhangsan'
+}
+
+function sayName(age, hobbies) {
+    console.log('hello my name is ' + this.name + ' ' + age + ' ' + hobbies.reduce((prev, item) =&gt; prev + ',' + item), '');
+}
+// hello my name is zhangsan 10 football,basketball,swimming 
+
+sayName.call(user, 10, ['football', 'basketball', 'swimming'])
+</code></pre></div><p>apply(target,[...rest]) apply方法和call的功能类似，但是apply如果想要给函数传递参数的话，需要以数组的形式传参
+如下：</p> <div class="language- extra-class"><pre class="language-text"><code>var user = {
+    name: 'zhangsan'
+}
+
+function sayName(age, hobbies) {
+    console.log('hello my name is ' + this.name + ' ' + age + ' ' + hobbies.reduce((prev, item) =&gt; prev + ',' + item), '');
+}
+
+sayName.apply(user, [10, ['football', 'basketball', 'swimming']])
+</code></pre></div><p>在隐式绑定的时候会出现丢失this指向的情况。如果我们更换了显示绑定也就是 call、apply还会不会出现呢？</p> <p><strong>bind</strong>
+bind(target)
+ES5中内置了 Function.prototype.bind bing会返回一个绑定了target的函数</p> <div class="language- extra-class"><pre class="language-text"><code>var user = {
+    name: 'zhangsan'
+}
+
+var user1 = {
+    name: 'linken'
+}
+
+function sayName(age, hobbies) {
+    console.log('hello my name is ' + this.name + ' ' + age + ' ' + hobbies.reduce((prev, item) =&gt; prev + ',' + item), '');
+}
+
+sayName.apply(user, [10, ['football', 'basketball', 'swimming']])
+sayName.bind(user1)(20, [1, 2, 3])
+</code></pre></div><h3 id="native-code"><a href="#native-code" class="header-anchor">#</a> native code</h3> <p>我们可以尝试着去实现一下 bind
+首先我们可以看一下 bind 的特征</p> <ul><li>bind可以被我们的函数调用 说明 在Function原型中</li> <li>调用bind 需要传入一个参数target</li> <li>返回一个已经绑定了target的函数</li> <li>这个返回的函数可以继续传入参数来调用</li></ul> <div class="language- extra-class"><pre class="language-text"><code>Function.prototype.myBind = function (target) {
+    var _this = this
+    return function () {
+        _this.call(target, ...arguments)
+        // 或是 _this.apply(target,arguments)
+    }
+}
+
+var user = {
+    name: 'zhangsan'
+}
+
+function hello(...rest) {
+    console.log(this, rest);
+}
+
+var handler = hello.myBind(user)
+handler(1, 2, 3, 4, 5)
+</code></pre></div><p>一些内置的api也是有能够改变this指向的参数的 比如：下列代码，这个参数的功能和call 与 apply是</p> <div class="language- extra-class"><pre class="language-text"><code>var user = {
+    name: 'zhangsan'
+}
+var arr = [1, 2, 3, 4, 5]
+arr.forEach(function () {
+    console.log(this);
+}, user)
+</code></pre></div><p><strong>new关键字来绑定</strong>
+情人节的时候，我们都听过一个梗叫做 new 一个对象出来 那个被 new 的东西叫做构造函数 但是。</p> <ul><li>js中 ，构造函数只是使用 new 操作符时被调用的 普通函数 （意思就是谁来都一样，只不过后来规定了构造函数需要首字母大写），他们不属于类，也不会实例化类（js是没有类这个概念的，虽然ES6定义了class）</li> <li>js中内置对象函数也是可以用 new 来调用的 这种称为构造函数调用。</li> <li>并没有构造函数这个东西，只有<strong>构造调用</strong>。</li></ul> <p>使用 new 来调用函数，会进行一些操作：</p> <ul><li>创建一个新对象。</li> <li>将新对象的原型指向构造函数</li> <li>将新对象绑定为构造函数的this</li> <li>如果构造函数返回了其他对象则 不变 否则 返回新对象！</li></ul> <p>根据上面的步骤我们来模拟一下 new 关键字</p> <div class="language- extra-class"><pre class="language-text"><code>function myNew(constructor, ...rest) {
+    let obj = {};
+    obj.__proto__ = constructor.prototype;
+    let ret = constructor.apply(obj, rest);
+    return ret instanceof Object ? ret : obj
+}
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+p = myNew(Person, '张三', 18);
+console.log(p);
+let obj = myNew(Object)
+console.log(obj);
+</code></pre></div><p>测试正常！
+<strong>代码解析</strong>
+首先创建一个新对象，然后将新对象的原型指向了构造函数，这样我们的对象就能够访问构造函数中的属性，然后 通过 apply 将 对象绑定到了构造函数中 也就是说 对象和构造函数真正的关联起来
+此时 构造函数中的 this 指向了 对象 ，也就相当于 obj['name'] = name;obj['age'] = age; 然后对外返回这个对象或者是构造函数中的对象。</p> <p>如果 显示改变this指向时传入的是 null 那么默认绑定规则会把this绑定到全局对象中。</p> <p>更安全的做法是 传入一个空对象，把this绑定到这个对象不会有任何副作用。
+JS中创建一个空对象的方式是Object.create(null) 他会创建一个空对象，但是不会创建Object.prototype 所以 比直接赋值为{}更空 更安全。</p> <p><strong>间接引用：</strong></p> <div class="language- extra-class"><pre class="language-text"><code>function test() {
+    var a = 1;
+    var b = { a: 2, foo: foo };
+    var c = { a: 3 };
+
+
+    console.log(b.foo()); // 2
+
+    var s = (c.foo = b.foo)()
+    console.log(s);
+}
+
+function foo() {
+    console.log(this);
+    return this.a
+}
+
+a = 10
+
+test()
+</code></pre></div><p>(c.foo = b.foo)() 相当于直接执行foo函数 this 指向全局对象。</p> <div class="language- extra-class"><pre class="language-text"><code>Function.prototype.myBindTwo = function (obj) {
+    var _this = this
+    var arr = [].slice.call(arguments, 1)
+    var bind_fun = function () {
+        return _this.apply((!this || this === (window || global)) ? obj : this, arr.concat.apply(arr, arguments))
+    }
+    bind_fun.prototype = Object.create(_this.prototype)
+    return bind_fun;
+}
+---------
+function foo() {
+    console.log(&quot;name:&quot; + this.name);
+}
+
+var obj = { name: &quot;obj&quot; },
+    obj2 = { name: &quot;obj2&quot; },
+    obj3 = { name: &quot;obj3&quot; };
+
+// 默认绑定，应用软绑定，软绑定把this绑定到默认对象obj
+var fooOBJ = foo.softBind( obj );
+fooOBJ(); // name: obj 
+
+// 隐式绑定规则
+obj2.foo = foo.softBind( obj );
+obj2.foo(); // name: obj2 &lt;---- 看！！！
+
+// 显式绑定规则
+fooOBJ.call( obj3 ); // name: obj3 &lt;---- 看！！！
+
+// 绑定丢失，应用软绑定
+setTimeout( obj2.foo, 10 ); // name: obj
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/前端领域/3-JavaScript/1-Js-前置/【属性描述符】@13.html" class="prev">
+            【属性描述符】
+          </a></span> <span class="next"><a href="/前端领域/3-JavaScript/2-Js-核心/【深浅拷贝原理】@2.html">
+            【深浅拷贝原理】
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div></div></div>
+    <script src="/assets/js/app.f6887468.js" defer></script><script src="/assets/js/3.83ad0eef.js" defer></script><script src="/assets/js/1.bbba36a5.js" defer></script><script src="/assets/js/55.2b136780.js" defer></script>
+  </body>
+</html>

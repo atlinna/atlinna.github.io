@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>原型和原型链 | Mr.Zhou</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="梦开始的地方">
+    
+    <link rel="preload" href="/assets/css/0.styles.fd1208e4.css" as="style"><link rel="preload" href="/assets/js/app.f6887468.js" as="script"><link rel="preload" href="/assets/js/3.83ad0eef.js" as="script"><link rel="preload" href="/assets/js/1.bbba36a5.js" as="script"><link rel="preload" href="/assets/js/53.5c8dd716.js" as="script"><link rel="prefetch" href="/assets/js/10.dd6fe8f4.js"><link rel="prefetch" href="/assets/js/100.56a63806.js"><link rel="prefetch" href="/assets/js/101.67169f78.js"><link rel="prefetch" href="/assets/js/102.e6249b25.js"><link rel="prefetch" href="/assets/js/103.7cdc76af.js"><link rel="prefetch" href="/assets/js/104.8a455bab.js"><link rel="prefetch" href="/assets/js/105.89649d1a.js"><link rel="prefetch" href="/assets/js/106.21c9101e.js"><link rel="prefetch" href="/assets/js/107.24518f90.js"><link rel="prefetch" href="/assets/js/108.f5e0a6d1.js"><link rel="prefetch" href="/assets/js/109.24b7093d.js"><link rel="prefetch" href="/assets/js/11.11c7df7b.js"><link rel="prefetch" href="/assets/js/110.afb962f9.js"><link rel="prefetch" href="/assets/js/111.98579b40.js"><link rel="prefetch" href="/assets/js/112.10f85b67.js"><link rel="prefetch" href="/assets/js/113.051749b3.js"><link rel="prefetch" href="/assets/js/114.e8953f7d.js"><link rel="prefetch" href="/assets/js/115.7a390be9.js"><link rel="prefetch" href="/assets/js/116.d2aa28f2.js"><link rel="prefetch" href="/assets/js/117.bfa75cec.js"><link rel="prefetch" href="/assets/js/118.a5753c35.js"><link rel="prefetch" href="/assets/js/119.aef46b1b.js"><link rel="prefetch" href="/assets/js/12.d9ce74c3.js"><link rel="prefetch" href="/assets/js/120.00c93b2d.js"><link rel="prefetch" href="/assets/js/121.5a39bcac.js"><link rel="prefetch" href="/assets/js/122.c191c236.js"><link rel="prefetch" href="/assets/js/123.dde7f959.js"><link rel="prefetch" href="/assets/js/124.e7e749fb.js"><link rel="prefetch" href="/assets/js/125.91483dee.js"><link rel="prefetch" href="/assets/js/126.f47569c5.js"><link rel="prefetch" href="/assets/js/127.7b9efb58.js"><link rel="prefetch" href="/assets/js/128.36d8153c.js"><link rel="prefetch" href="/assets/js/129.e365428d.js"><link rel="prefetch" href="/assets/js/13.698f774a.js"><link rel="prefetch" href="/assets/js/130.fcaaab4c.js"><link rel="prefetch" href="/assets/js/131.81f9f065.js"><link rel="prefetch" href="/assets/js/132.c880d455.js"><link rel="prefetch" href="/assets/js/133.b24efc83.js"><link rel="prefetch" href="/assets/js/134.db0ccedb.js"><link rel="prefetch" href="/assets/js/135.a96f3499.js"><link rel="prefetch" href="/assets/js/136.1cfe5b2c.js"><link rel="prefetch" href="/assets/js/137.b0715b98.js"><link rel="prefetch" href="/assets/js/138.8d272cc0.js"><link rel="prefetch" href="/assets/js/139.d19f131f.js"><link rel="prefetch" href="/assets/js/14.71eae88a.js"><link rel="prefetch" href="/assets/js/140.6eb451bf.js"><link rel="prefetch" href="/assets/js/141.0c57a46f.js"><link rel="prefetch" href="/assets/js/142.4fe102d1.js"><link rel="prefetch" href="/assets/js/143.586b7efb.js"><link rel="prefetch" href="/assets/js/144.3c6fef5c.js"><link rel="prefetch" href="/assets/js/145.ccac8673.js"><link rel="prefetch" href="/assets/js/146.826ba52a.js"><link rel="prefetch" href="/assets/js/147.81273d95.js"><link rel="prefetch" href="/assets/js/148.b6b79f31.js"><link rel="prefetch" href="/assets/js/149.a0c07b40.js"><link rel="prefetch" href="/assets/js/15.29c80c55.js"><link rel="prefetch" href="/assets/js/150.b46d2f93.js"><link rel="prefetch" href="/assets/js/151.064e2858.js"><link rel="prefetch" href="/assets/js/152.c7b3e954.js"><link rel="prefetch" href="/assets/js/153.1af7f701.js"><link rel="prefetch" href="/assets/js/154.ede6f42c.js"><link rel="prefetch" href="/assets/js/155.90548478.js"><link rel="prefetch" href="/assets/js/156.c3b10d78.js"><link rel="prefetch" href="/assets/js/157.d5978cdc.js"><link rel="prefetch" href="/assets/js/158.0413ec83.js"><link rel="prefetch" href="/assets/js/159.e9dce9a6.js"><link rel="prefetch" href="/assets/js/16.c9c65f67.js"><link rel="prefetch" href="/assets/js/160.93407b2d.js"><link rel="prefetch" href="/assets/js/161.2c64f425.js"><link rel="prefetch" href="/assets/js/162.9f0d7cef.js"><link rel="prefetch" href="/assets/js/163.64f0ce4a.js"><link rel="prefetch" href="/assets/js/164.4da161a1.js"><link rel="prefetch" href="/assets/js/165.63d218c6.js"><link rel="prefetch" href="/assets/js/166.44d46e1c.js"><link rel="prefetch" href="/assets/js/167.d453dcbf.js"><link rel="prefetch" href="/assets/js/168.831c55e9.js"><link rel="prefetch" href="/assets/js/169.65aee5ed.js"><link rel="prefetch" href="/assets/js/17.d2f4b2f2.js"><link rel="prefetch" href="/assets/js/170.5a8838b5.js"><link rel="prefetch" href="/assets/js/171.62b3b542.js"><link rel="prefetch" href="/assets/js/172.12bd3c0c.js"><link rel="prefetch" href="/assets/js/173.30061c23.js"><link rel="prefetch" href="/assets/js/174.ff355962.js"><link rel="prefetch" href="/assets/js/175.5fba082c.js"><link rel="prefetch" href="/assets/js/176.b8087a57.js"><link rel="prefetch" href="/assets/js/177.376ebf95.js"><link rel="prefetch" href="/assets/js/178.a7206acb.js"><link rel="prefetch" href="/assets/js/179.c886141e.js"><link rel="prefetch" href="/assets/js/18.d5ebd44a.js"><link rel="prefetch" href="/assets/js/180.ec450d95.js"><link rel="prefetch" href="/assets/js/181.839633b4.js"><link rel="prefetch" href="/assets/js/182.b752a7e9.js"><link rel="prefetch" href="/assets/js/183.aca52f33.js"><link rel="prefetch" href="/assets/js/184.c70b3553.js"><link rel="prefetch" href="/assets/js/185.e1141d11.js"><link rel="prefetch" href="/assets/js/186.2b9bcabb.js"><link rel="prefetch" href="/assets/js/187.3da6b83b.js"><link rel="prefetch" href="/assets/js/188.565399cc.js"><link rel="prefetch" href="/assets/js/19.3116eb77.js"><link rel="prefetch" href="/assets/js/20.d8cc4f42.js"><link rel="prefetch" href="/assets/js/21.5d2dbf13.js"><link rel="prefetch" href="/assets/js/22.0f666d8a.js"><link rel="prefetch" href="/assets/js/23.4ed99059.js"><link rel="prefetch" href="/assets/js/24.586fb5e4.js"><link rel="prefetch" href="/assets/js/25.3acece01.js"><link rel="prefetch" href="/assets/js/26.9f629d4b.js"><link rel="prefetch" href="/assets/js/27.8092f6d7.js"><link rel="prefetch" href="/assets/js/28.e880f7e9.js"><link rel="prefetch" href="/assets/js/29.bb9c9685.js"><link rel="prefetch" href="/assets/js/30.22cde99b.js"><link rel="prefetch" href="/assets/js/31.2d508d17.js"><link rel="prefetch" href="/assets/js/32.e9846943.js"><link rel="prefetch" href="/assets/js/33.d284b79e.js"><link rel="prefetch" href="/assets/js/34.cd6cb85a.js"><link rel="prefetch" href="/assets/js/35.75dcae1b.js"><link rel="prefetch" href="/assets/js/36.e84580eb.js"><link rel="prefetch" href="/assets/js/37.2030966b.js"><link rel="prefetch" href="/assets/js/38.3631807e.js"><link rel="prefetch" href="/assets/js/39.5dca28f6.js"><link rel="prefetch" href="/assets/js/4.2d69c627.js"><link rel="prefetch" href="/assets/js/40.d510eff9.js"><link rel="prefetch" href="/assets/js/41.1f396a23.js"><link rel="prefetch" href="/assets/js/42.ac1836a1.js"><link rel="prefetch" href="/assets/js/43.117eaead.js"><link rel="prefetch" href="/assets/js/44.c43888b3.js"><link rel="prefetch" href="/assets/js/45.7907b4d9.js"><link rel="prefetch" href="/assets/js/46.37bb8c35.js"><link rel="prefetch" href="/assets/js/47.950b7b61.js"><link rel="prefetch" href="/assets/js/48.dd9bdef6.js"><link rel="prefetch" href="/assets/js/49.e0fb1245.js"><link rel="prefetch" href="/assets/js/5.a4f53b63.js"><link rel="prefetch" href="/assets/js/50.f7d708b6.js"><link rel="prefetch" href="/assets/js/51.101855bd.js"><link rel="prefetch" href="/assets/js/52.b8f2351c.js"><link rel="prefetch" href="/assets/js/54.007371a1.js"><link rel="prefetch" href="/assets/js/55.2b136780.js"><link rel="prefetch" href="/assets/js/56.b587fe6b.js"><link rel="prefetch" href="/assets/js/57.6bf2206d.js"><link rel="prefetch" href="/assets/js/58.6157ea0b.js"><link rel="prefetch" href="/assets/js/59.a6e8072f.js"><link rel="prefetch" href="/assets/js/6.d1940848.js"><link rel="prefetch" href="/assets/js/60.e0287eb9.js"><link rel="prefetch" href="/assets/js/61.8020f4ec.js"><link rel="prefetch" href="/assets/js/62.63127a36.js"><link rel="prefetch" href="/assets/js/63.79826a75.js"><link rel="prefetch" href="/assets/js/64.51b2f18b.js"><link rel="prefetch" href="/assets/js/65.bbd6cb71.js"><link rel="prefetch" href="/assets/js/66.ae1736f6.js"><link rel="prefetch" href="/assets/js/67.9fb814a7.js"><link rel="prefetch" href="/assets/js/68.c9ca66a2.js"><link rel="prefetch" href="/assets/js/69.854d76c7.js"><link rel="prefetch" href="/assets/js/7.d525a637.js"><link rel="prefetch" href="/assets/js/70.14590b4e.js"><link rel="prefetch" href="/assets/js/71.40fc9ab1.js"><link rel="prefetch" href="/assets/js/72.aa02ee48.js"><link rel="prefetch" href="/assets/js/73.309f6bfb.js"><link rel="prefetch" href="/assets/js/74.1be1e3a0.js"><link rel="prefetch" href="/assets/js/75.d40d8d64.js"><link rel="prefetch" href="/assets/js/76.0a32132e.js"><link rel="prefetch" href="/assets/js/77.07350038.js"><link rel="prefetch" href="/assets/js/78.0a064e6d.js"><link rel="prefetch" href="/assets/js/79.b8945024.js"><link rel="prefetch" href="/assets/js/8.bddc6f73.js"><link rel="prefetch" href="/assets/js/80.55ee0848.js"><link rel="prefetch" href="/assets/js/81.b3fa17a3.js"><link rel="prefetch" href="/assets/js/82.44ee5273.js"><link rel="prefetch" href="/assets/js/83.8408ac0e.js"><link rel="prefetch" href="/assets/js/84.78fe62c1.js"><link rel="prefetch" href="/assets/js/85.0300716b.js"><link rel="prefetch" href="/assets/js/86.00fe67d3.js"><link rel="prefetch" href="/assets/js/87.8e48c765.js"><link rel="prefetch" href="/assets/js/88.acd077c7.js"><link rel="prefetch" href="/assets/js/89.54c5b342.js"><link rel="prefetch" href="/assets/js/9.9339215b.js"><link rel="prefetch" href="/assets/js/90.984db6e5.js"><link rel="prefetch" href="/assets/js/91.89ed9f74.js"><link rel="prefetch" href="/assets/js/92.eddefa21.js"><link rel="prefetch" href="/assets/js/93.4fc92ff0.js"><link rel="prefetch" href="/assets/js/94.6ab205de.js"><link rel="prefetch" href="/assets/js/95.e370c2c9.js"><link rel="prefetch" href="/assets/js/96.308563f6.js"><link rel="prefetch" href="/assets/js/97.bf154ff4.js"><link rel="prefetch" href="/assets/js/98.6da00237.js"><link rel="prefetch" href="/assets/js/99.61f7fe1e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fd1208e4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>Mr.Zhou</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>梦开始的地方</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2023
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Mr.Zhou</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/前端领域/" class="nav-link"><i class="undefined"></i>
+  前端领域
+</a></div><div class="nav-item"><a href="/Python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/移动端/" class="nav-link"><i class="undefined"></i>
+  移动端
+</a></div><div class="nav-item"><a href="/服务器类/" class="nav-link"><i class="undefined"></i>
+  服务器类
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>147</h3> <h6 data-v-39576ba9>Articles</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>Tags</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/前端领域/" class="nav-link"><i class="undefined"></i>
+  前端领域
+</a></div><div class="nav-item"><a href="/Python/" class="nav-link"><i class="undefined"></i>
+  Python
+</a></div><div class="nav-item"><a href="/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></div><div class="nav-item"><a href="/移动端/" class="nav-link"><i class="undefined"></i>
+  移动端
+</a></div><div class="nav-item"><a href="/服务器类/" class="nav-link"><i class="undefined"></i>
+  服务器类
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>网络</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/前端领域/0-网络/【客户端与服务器】@1.html" class="sidebar-link">【客户端与服务器】</a></li><li><a href="/前端领域/0-网络/【URL 地址】@2.html" class="sidebar-link">【URL 地址】</a></li><li><a href="/前端领域/0-网络/【http】@3.html" class="sidebar-link">【http】</a></li><li><a href="/前端领域/0-网络/【浏览器页面处理流程】@4.html" class="sidebar-link">【浏览器页面处理流程】</a></li><li><a href="/前端领域/0-网络/【AJAX】@5.html" class="sidebar-link">【AJAX】</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>模块化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>手写</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2023
+        </a></span></div></div> <div data-v-130b300a><main class="page" style="padding-right:0;"><section><div class="page-title"><h1 class="title">原型和原型链</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h3 id="原型和原型链"><a href="#原型和原型链" class="header-anchor">#</a> 原型和原型链</h3> <hr> <h4 id="构造函数"><a href="#构造函数" class="header-anchor">#</a> 构造函数</h4> <h5 id="什么是构造函数"><a href="#什么是构造函数" class="header-anchor">#</a> 什么是构造函数</h5> <p>constructor 返回创建实例对象时构造函数的引用。此属性的值是对函数的本身的引用，而不是一个包含函数名称的字符串。</p> <div class="language- extra-class"><pre class="language-text"><code>function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+p = new Person('zhang san', 18)
+console.log(p.constructor === Person); // true
+console.log(p.constructor === Object); // false
+</code></pre></div><p>构造函数本身就是一个函数，和普通函数没有任何区别，不过为了规范一般将首字母大写。
+构造函数和普通函数的区别在于：使用new 生成实例的函数就是构造函数，直接调用的就是普通函数。
+那这样是不是意味着普通的函数创建的实例没有 constructor 属性呢？ 不一定。</p> <div class="language- extra-class"><pre class="language-text"><code>function score() {
+    return {
+        name: 'lisi'
+    }
+}
+
+var s = score()
+console.log(s.constructor === Object);
+</code></pre></div><h4 id="symbol-是构造函数吗"><a href="#symbol-是构造函数吗" class="header-anchor">#</a> Symbol 是构造函数吗</h4> <p>Symbol 是基本数据类型，但是作为构造函数来说它并不完整，因为它不支持语法new Symbol(),Chrome 认为其不是构造函数，如果要生成实例直接使用 Symbol（）即可。</p> <div class="language- extra-class"><pre class="language-text"><code>console.log(new Symbol(123)); // Symbol is not a constructor
+console.log(Symbol(123)); // Symbol(123)
+</code></pre></div><p>虽然 Symbol是基本数据类型，但是Symbol(123)实例可以获取constructor属性值。</p> <div class="language- extra-class"><pre class="language-text"><code>var s = Symbol(123)
+console.log(s.constructor); // f Symbol(){ [native code] }
+</code></pre></div><p>这里的 constructor 属性来自哪里？ 其实是 Symbol 原型上的，即Symbol.prototype.constructor 返回创建实例原型的函数，默认为 Symbol 函数。</p> <h4 id="constructor值只读吗"><a href="#constructor值只读吗" class="header-anchor">#</a> constructor值只读吗</h4> <p>这个要分情况来看的，对于引用类型来讲 constructor 属性值是可以修改的，但是对u基本类型来说是只读的。
+引用类型中constructor值可以修改，比如在原型链继承方案中，需要对constructor重新赋值进行修改。</p> <div class="language- extra-class"><pre class="language-text"><code>function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype = {
+    method: function () { }
+};
+
+function Teacher() {
+}
+
+Teacher.prototype = new Person('zhang san', 19)
+Teacher.prototype.fs = 'Hello Person';
+
+console.log(Teacher.prototype.constructor === Object); // true
+
+Teacher.prototype.constructor = Person;
+
+console.log(Teacher.prototype); // {name: &quot;zhang san&quot;, age: 19, fs: &quot;Hello Person&quot;, constructor: ƒ}
+var t = new Teacher('zhang san', 10)
+console.log(t); // Teacher {}
+console.log(t.name); // zhang san
+console.log(t.age); // 19
+</code></pre></div><p>对于基本类型来说 constructor 是只读的 如 1、‘hello world’、true、Symbol 当然 null 和 undefined 是没有 constructor 属性的。</p> <div class="language- extra-class"><pre class="language-text"><code>function Type() { };
+var	types = [1, &quot;hello world&quot;, true, Symbol(11)];
+
+for(var i = 0; i &lt; types.length; i++) {
+	types[i].constructor = Type;
+	types[i] = [ types[i].constructor, types[i] instanceof Type, types[i].toString() ];
+};
+
+console.log( types.join(&quot;\n&quot;) );
+// function Number() { [native code] }, false, 1
+// function String() { [native code] }, false, muyiy
+// function Boolean() { [native code] }, false, true
+// function Symbol() { [native code] }, false, Symbol(123)
+</code></pre></div><p>为什么呢？ 因为创建他们的是只读的原生构造函数(native constructors), 这个例子也说明了依赖一个对象的 constructor 属性并不安全。</p> <h4 id="模拟new的实现"><a href="#模拟new的实现" class="header-anchor">#</a> 模拟new的实现</h4> <div class="language- extra-class"><pre class="language-text"><code>function myNEW() {
+    // 1、创建一个空对象
+    var obj = Object.create(null)
+    // 2、拿到我们的构造函数并删除arguments中的第一项
+    var handler = Array.prototype.shift.call(arguments)
+    // 3、链接到原型，obj可以访问构造函数原型中的属性
+    Object.setPrototypeOf(obj, handler.prototype)
+    // 4、绑定 this 实现继承，obj可以访问到构造函数中的属性
+    var ret = handler.apply(obj, arguments)
+    // 5、优先返回构造函数中的返回的对象
+    return ret instanceof Object ? ret : obj
+}
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+console.log(myNEW(Person, 'zhang san', 19));
+console.log(new Person('zhang san', 19));
+</code></pre></div><h4 id="prototype"><a href="#prototype" class="header-anchor">#</a> prototype</h4> <p>Javascript 是一种基于原型的语言（prototype-based language），这个和 Java 等基于类的语言不同。</p> <p>每个对象拥有一个<strong>原型对象</strong>，对象以其原型为模板，从原型继承方法和属性，这些属性和方法定义在对象的构造器函数的 prototype 属性上，而非对象实例本身。</p> <div class="language- extra-class"><pre class="language-text"><code>function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+var person = new Person('zhang san', 18)
+console.dir(Person)
+
+console.log(Person.prototype.constructor === Person);
+
+console.log(Person.prototype);
+
+// 打印结果如下
+    ƒ Person(name, age)
+      arguments: null
+      caller: null
+      length: 2
+      name: &quot;Person&quot;
+      prototype:
+          constructor: ƒ Person(name, age)
+          __proto__: Object
+      __proto__: ƒ ()
+
+// 2
+    {constructor: ƒ}
+      constructor: ƒ Person(name, age)
+      __proto__: Object
+      
+// 3
+    true
+</code></pre></div><p>我们写了一个构造函数，然后通过 console.dir 打印出了 Person
+通过执行结果 我们可以看到 构造函数Person 有一个原型对象 prototype， 其上有两个属性，分别是 constructor 和 <strong>proto</strong></p> <p>构造函数Person 有一个指向原型的指针（Person.prototype），原型 Person.prototype 有一个指向构造函数的指针，通过上面的代码我们会发现，这是一个循环引用。</p> <h4 id="proto"><a href="#proto" class="header-anchor">#</a> <strong>proto</strong></h4> <p>上面代码可以看到 Person 原型(Person.prototype) 上有 <strong>proto</strong> 属性， 这个是一个访问器属性(即 getter 函数 和 setter 函数),
+通过它可以访问到对象的内部[[Prototype]]   这个[[Prototype]]可以是一个对象 也可能是 null。  对象 或 null。</p> <p><strong>proto</strong> 发音 (dunder proto),最先被 Firefox 使用，后来在 ES6 被列为 Javascript 的标准内建属性。</p> <p>[[Prototype]] 是对象的一个内部属性，外部代码无法直接访问。 --》 遵循 ECMAScript 标准，someObject.[[Prototype]] 符号用于指向 someObject 的原型。
+<strong>proto</strong> dunder proto 是每个实例上都会有的属性， 但是 prototype 是构造函数的属性， 这两个并不相同，但是他们指向同一个对象。</p> <div class="language- extra-class"><pre class="language-text"><code>function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+var person = new Person('zhang san', 18)
+
+console.log(person.__proto__ === Person.prototype); // true
+</code></pre></div><p>这里获取 person 的对象的原型 与 Person 的原型对象进行比较</p> <p><strong>那么 构造函数、实例对象、对象原型之间的关系：</strong><br>
+首先构造函数的 dunder proto（<strong>proto</strong>）指向的是 对象原型 [CONSTRUCTOR -- 构造函数 ].prototype ,然后对象原型中有属性 constructor 指向构造函数，然后构造函数的 prototype 指向对象原型。
+由于工作环境无法上传图片 就给各位老板手绘一波关系图</p> <div class="language- extra-class"><pre class="language-text"><code>                     .__proto__                                       .constructor
+    实例 person   ---------------- &gt;    对象原型 Person.prototype   --------------------- &gt;  构造函数 - Person 
+                                                   ^                                                |
+                                                   |________________________________________________|
+                                                                       .prototype
+</code></pre></div><p><strong>注意：</strong> <strong>proto</strong> 属性在 ES6 时才被标准化，以确保 Web 浏览器的兼容性，但是不推荐使用，除了标准化的原因之外还有性能问题。为了更好的支持，推荐使用 Object.getPrototypeOf().</p> <div class="language- extra-class"><pre class="language-text"><code>    通过改变一个对象的 [[Prototype]] 属性来改变和继承属性会对性能造成非常严重的影响，并且性能消耗的时间也不是简单的花费在 obj.__proto__ = ... 语句上, 它还会影响到所有继承自该 [[Prototype]] 的对象，如果你关心性能，你就不应该修改一个对象的 [[Prototype]]。
+</code></pre></div><p>如果要读取或修改对象的 [[Prototype]] 属性，建议使用如下方案，但是此时设置对象的 [[Prototype]] 依旧是一个缓慢的操作，如果性能是一个问题，就要避免这种操作。</p> <div class="language- extra-class"><pre class="language-text"><code>var obj = {
+    name: 'Person',
+    age: 18
+}
+
+var teacher = {
+    type: 'teacher',
+    gender: 'man'
+}
+
+Object.setPrototypeOf(obj, teacher)
+console.log(obj);
+console.log(Object.getPrototypeOf(obj));
+</code></pre></div><p>如果要创建一个新对象，同时继承另一个对象的[[Prototype]],推荐使用 Object.create().</p> <div class="language- extra-class"><pre class="language-text"><code>var teacher = {
+    type: 'teacher',
+    gender: 'man'
+}
+var s = Object.create(teacher)
+console.log(s);
+</code></pre></div><p><strong>优化 new 的实现</strong><br>
+正如上面介绍的不建议使用 <strong>proto</strong> 修改原型，所以我们使用 Object.create() 来实现
+我们只需要把之前 链接原型 和创建空对象 放在一起进行 使对象直接继承我们构造函数的原型。
+如下：</p> <div class="language- extra-class"><pre class="language-text"><code>	function myNEW() {
+	    var handler = Array.prototype.shift.call(arguments);
+	    var obj = Object.create(handler.prototype);
+	    var ret = handler.apply(obj, arguments)
+	    return ret instanceof Object ? ret : obj
+	}
+</code></pre></div><h4 id="原型链"><a href="#原型链" class="header-anchor">#</a> 原型链</h4> <p>每个对象都拥有一个原型对象，通过 <strong>proto</strong> 指向上一个原型，并从中继承方法和属性， 同时原型对象也可能拥有原型，这样一层一层，最终指向 null。这种关系被称为原型链（prototype chain），
+通过原型链，一个对象会拥有定义在其他对象中的属性和方法。</p> <div class="language- extra-class"><pre class="language-text"><code>function Person(name) {
+    this.name = name;
+}
+
+var p = new Person('zhang san');
+
+console.log(p.constructor === Person); // true
+</code></pre></div><p>这段代码打印出的结果是 true 是意味着 实例中存在 constructor 属性指向构造函数吗？
+当然不是 我们之前打印除了 实例的结构 发现  实例 p 本身没有 constructor，是通过原型链向上查找 <strong>proto</strong>，最终找到 constructor 属性，该属性指向 Person。
+于是 我们的原型链 如下：</p> <div class="language- extra-class"><pre class="language-text"><code>function Person(name) {
+    this.name = name;
+}
+
+var p = new Person('zhang san');
+
+console.log(p.__proto__ === Person.prototype);
+console.log(p.__proto__.__proto__ === Object.prototype);
+console.log(p.__proto__.__proto__.__proto__ === null);
+</code></pre></div><p>__proto__属性指向的是上一个原型，也就是说 我们一直在取上一个原型，只要我们的取出来的不是null （最顶层的原型）</p> <h4 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h4> <ul><li>Symbol 作为构造函数来说并不完整，因为不支持语法 new Symbol()，但其原型上拥有 constructor 属性，即 Symbol.prototype.constructor。</li> <li>引用类型 constructor 属性值是可以修改的， 但是对于基本类型来说是只读的， null 和 undefined 没有 constructor 属性。</li> <li><strong>proto</strong> 是每个实例上都有的属性， prototype 是构造函数的属性，这两个并不一样，但 p.<strong>proto</strong> 和 Person.prototype 指向同一个对象。</li> <li><strong>proto</strong> 属性在 ES6 时被标准化，但因为性能问题并不推荐使用，推荐使用Object.getPrototypeOf（）</li> <li>每个对象拥有一个原型对象，通过 <strong>proto</strong> 指针指向上一个原型，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向null，这就是原型链。</li></ul> <hr> <p><strong>注意：对象是通过 <strong>proto</strong> 指向上一个原型，并继承方法和属性</strong>
+用到的是继承而不是复制</p> <div class="language- extra-class"><pre class="language-text"><code>function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.length = 101;
+
+var p = new Person('zhang san');
+console.log(p.__proto__);
+</code></pre></div><p>我们会发现 结果中存在 length 属性。</p> <p><strong>原型上的属性和方法定义在 prototype 对象上，而非对象实例本身/当访问一个对象的属性/方法时,它不仅仅在该对象上查找，还会查找该对象的原型，以及该对象的原型的原型，一层一层往上找，
+直到找到一个名字匹配的属性/方法或者到达原型的最顶层 null 。</strong></p> <p>思考如果调用 person.valueOf() 会发生什么？</p> <ul><li>首先会检查 person 对象上是否具有可用的 valueOf 方法。</li> <li>如果没有，则会向上查找 person 对象的原型对象 (person.<strong>proto</strong> 即 Person.prototype) 是否具有可用的 valueOf 方法。</li> <li>如果没有，则继续向上查找 person 的原型对象的原型对象 (person.<strong>proto</strong>.<strong>proto</strong> 即 Object.prototype) 看是否存在可用的 valueOf 方法。此时找到了 valueOf 方法执行</li></ul> <div class="language- extra-class"><pre class="language-text"><code>function Person(name) {
+    this.name = name;
+}
+
+
+var p = new Person('zhang san');
+console.log(p.valueOf(),p);
+</code></pre></div><h4 id="prototype-和-proto"><a href="#prototype-和-proto" class="header-anchor">#</a> prototype 和 <strong>proto</strong></h4> <p>区别：
+原型对象 prototype 是构造函数上的属性， <strong>proto</strong> 是每个实例上都有的属性，两个属性不同但是指向的是同一个对象。</p> <p>那么原型链的构建是依赖于 prototype 还是 <strong>proto</strong> 呢？
+<a href="https://camo.githubusercontent.com/20b790bd15137b6aa77ddc1ce17a60ed2a772d8807cc6886dd1e2185052d7d75/68747470733a2f2f322e62702e626c6f6773706f742e636f6d2f2d3269694c57367774454f302f55477444582d5a505f6f492f41414141414141414166512f46705346434567316b37512f73313630302f4a6176617363726970742b50726f746f747970616c2b496e6865726974616e63652b4469616772616d2b2d2b6772616e642b706963747572652b2833292e706e67" target="_blank" rel="noopener noreferrer">如图<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>
+如上图所示，我们会发现在原型链中 Foo.prototype 中的 prototype 并没有狗哼一条原型链，它只是指向了原型链中的某一处位置。 原型链的构建依赖于 <strong>proto</strong>， 如上图中 foo.<strong>proto</strong> 指向 Foo.prototype ， foo.<strong>proto</strong>.<strong>proto</strong> 指向 Bichon.prototype 如此一层一层最终链接到 null 。</p> <p><strong>注意： 不要使用 Bar.prototype = Foo ,因为这不会执行 Foo 的原型，而是指向函数 Foo ，因此原型链将会链接到 Function.prototype 而不是 Foo.prototype ,因此 methods 方法不会再 Bar
+的原型链上。</strong></p> <div class="language- extra-class"><pre class="language-text"><code>function Foo() {
+    return 'foo'
+}
+
+Foo.prototype.methods = function () {
+    return 'method'
+}
+
+function Bar() {
+    return 'bar'
+}
+
+Bar.prototype = Foo
+let bar = new Bar()
+console.log(bar);
+</code></pre></div><h4 id="instanceof-的原理"><a href="#instanceof-的原理" class="header-anchor">#</a> instanceOf 的原理</h4> <p>instanceOf 运算符用来检测 constructor.prototype 是否在参数的原型链上</p> <div class="language- extra-class"><pre class="language-text"><code>function Person() {
+
+}
+
+function People() {
+
+}
+
+var p = new Person()
+
+console.log(p instanceof Person); // true   Object.getPrototypeOf(p) === Person.prototype
+console.log(p instanceof People); // false
+console.log(Object.getPrototypeOf(p) === Person.prototype);
+</code></pre></div><p><strong>instanceOf原理就是:一层一层查找 <strong>proto</strong>，如果和 constructor.prototype 相等 则返回 true ，如果一直没有查找成功则返回 false</strong></p> <div class="language- extra-class"><pre class="language-text"><code>  instance.[__proto__...] === instance.constructor.prototype
+</code></pre></div><p>那么我们知道了原理就来浅试一下 实现 instanceOf：</p> <div class="language- extra-class"><pre class="language-text"><code>function myInstanceOf(A, B) {
+    var target = B.prototype;
+    while (A.__proto__) {
+        if (A.__proto__ === target) {
+            return true;
+        }
+        A = A.__proto__;
+    }
+    return false;
+}
+
+function Person() {
+
+}
+
+function People() {
+
+}
+
+var p = new Person();
+
+console.log(p instanceof Person); // true   Object.getPrototypeOf(p) === Person.prototype
+console.log(p instanceof People); // false
+console.log(Object.getPrototypeOf(p) === Person.prototype);
+
+
+console.log(myInstanceOf(p, Person));  // true
+console.log(myInstanceOf(p, People));  // false
+</code></pre></div><h4 id="原型链继承"><a href="#原型链继承" class="header-anchor">#</a> 原型链继承</h4> <p>原型链继承的本质就是重写原型对象，用一个新的要继承的实例来替代。 新的原型 Solder 不仅有 new Person() 实例上的全部属性和方法，并且由于指向了 Person 原型，所以还拥有 Person 原型上的所有方法和属性。</p> <div class="language- extra-class"><pre class="language-text"><code>function Person() {
+    this.name = 'zhang san';
+}
+
+Person.prototype.run = function () {
+    console.log(this.name + ' is running!');
+}
+
+function Solder() {
+
+}
+
+
+Solder.prototype = new Person()
+var s = new Solder()
+console.log(s);
+s.name = 'li si'
+s.run()
+</code></pre></div><p>原型链继承方案有以下缺点：</p> <ul><li>多个实例对引用类型的操作会被篡改</li> <li>子类型的原型上的 constructor 属性被重写了</li> <li>给子类型原型添加属性和方法必须在替换原型之后</li> <li>创建子类型实例时无法向父类型的构造函数传参</li></ul> <p>** 一**<br>
+我们先来看第一个
+在原型链继承方案中，我们的原型会变成另一个类型的实例，如下数代码， Solder.prototype 变成了 Person 的一个实例，所以 Person的实例属性 hobbies 就变成了 Solder 的属性。</p> <p>在原型属性上的引用类型数据会被所有的实例共享，每个实例都能对其进行修改，所以多个实例对引用类型的操作会篡改原数据，如下 我们修改了 s1 实例中的实例属性后，影响到了 s2 中实例属性的值。</p> <div class="language- extra-class"><pre class="language-text"><code>function Person() {
+    this.hobbies = ['football', 'basketball', 'swimming'];
+}
+
+Person.prototype.run = function () {
+    console.log(this.name + ' is running!');
+}
+
+function Solder() {
+
+}
+
+
+Solder.prototype = new Person()
+var s1 = new Solder()
+var s2 = new Solder()
+console.log(s1.hobbies, s2.hobbies);
+s1.hobbies.shift()
+console.log(s1.hobbies, s2.hobbies);
+</code></pre></div><p>** 二**<br>
+首先看下面代码</p> <div class="language- extra-class"><pre class="language-text"><code>function Person() {
+    this.hobbies = ['football', 'basketball', 'swimming'];
+}
+
+Person.prototype.run = function () {
+    console.log(this.name + ' is running!');
+}
+
+function Solder() {
+
+}
+
+
+Solder.prototype = new Person()
+var p = new Solder()
+console.log(p.constructor);
+
+/
+*ƒ Person() {
+    this.hobbies = ['football', 'basketball', 'swimming'];
+}
+*/
+</code></pre></div><p>观察打印结果 我们发现通过 new Solder() 出的实例的构造函数，不是 Solder 而是 Person
+因为这个 Solder 的 原型对象指向的是 Person 的实例 这个实例的构造函数 constructor 是 Person
+解决方法就是 重写 我们这个 Solder 的 constructor 让他指向 Solder</p> <div class="language- extra-class"><pre class="language-text"><code>function Person() {
+    this.hobbies = ['football', 'basketball', 'swimming'];
+}
+
+Person.prototype.run = function () {
+    console.log(this.name + ' is running!');
+}
+
+function Solder() {
+
+}
+
+
+Solder.prototype = new Person()
+Solder.prototype.constructor = Solder;  // 新增代码 将 Solder 原型对象的 constructor 指向自己的构造函数 Solder
+var p = new Solder()
+console.log(p.constructor);
+/*
+ƒ Solder() {
+
+}
+*/
+</code></pre></div><p>** 三**<br>
+给子类型原型添加属性和方法要在替换原型之后，因为我们会替换子类型的原型 替换之后指向了 Person 的 实例。</p> <div class="language- extra-class"><pre class="language-text"><code>function Person() {
+    this.hobbies = ['football', 'basketball', 'swimming'];
+}
+
+Person.prototype.say = function () {
+    return this.hobbies.join(' ') // 修改方法
+}
+
+function Solder() {
+
+}
+
+
+Solder.prototype = new Person()
+Solder.prototype.constructor = Solder;
+
+Solder.prototype.say = function () {
+    return this.hobbies.join(','); // 新增方法
+}
+
+var p = new Solder()
+console.log(p.say());
+</code></pre></div><p>我们会发现，现在实例能访问两个 say 方法 ，但是 实际上运行的是我们新增在 Solder 原型对象上的 say 方法 而 Person.prototype 上也有一个 say 方法，但是它不会访问到。这种情况称为 属性遮蔽。
+如果我们要访问 Person 上的 say 方法要如何操作？ 通过 <strong>proto</strong>  // console.log(p.<strong>proto</strong>.<strong>proto</strong>.say);</p> <h4 id="其他继承方案"><a href="#其他继承方案" class="header-anchor">#</a> 其他继承方案</h4> <p>由于 ES6 封装了 class 日常工作中我们使用 ES6 Class Extends (模拟原型)继承方案即可，更多可阅读 木易杨大神的 <a href="https://github.com/yygmind/blog/issues/7" target="_blank" rel="noopener noreferrer">Javascript 8种继承方案<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h4 id="练习"><a href="#练习" class="header-anchor">#</a> 练习：</h4> <p>有三个判断数组的方法，请分别介绍他们之间的区别和优劣</p> <ul><li>Object.prototype.toString.call()</li> <li>instanceOf</li> <li>Array.isArray()</li></ul> <h4 id="小结-2"><a href="#小结-2" class="header-anchor">#</a> 小结</h4> <ul><li>每个对象拥有一个原型对象，通过 <strong>proto</strong> 指向上一个原型，并从中继承方法和属性，同时原型对象也可能拥有原型，这样一层一层，最终指向 null，这种关系被称为 <strong>原型链</strong></li> <li>当访问一个对象的属性或方法时，它不止在对象本身查找，还会查找该对象的原型，如果对象的原型也有原型，还会再该对象的原型的原型，一层一层，向上查找，直到找到名称完全匹配的属性或方法，或到达原型链的顶层 null 。</li> <li>原型链的构建依赖于 <strong>proto</strong>,一层一层最终链接到null。</li> <li>instanceOf 的原理就是一层一层查找 <strong>proto</strong>，如果和 constructor.prototype 相等则返回 true ，如果一直没有查找成功，则返回 false</li> <li>原型链继承的本质就是重写原型对象，用一个新类型的实例来代替。</li></ul> <h3 id="深入探究-function-object-鸡蛋问题"><a href="#深入探究-function-object-鸡蛋问题" class="header-anchor">#</a> 深入探究 Function &amp; Object 鸡蛋问题</h3> <p>上一部分在介绍原型链继承的过程中，给大家描述了原型链运作机制以及属性遮蔽等知识，这一节我们就来探究下 Function.<strong>proto</strong>  === Function.prototype 引起的鸡生蛋，蛋生鸡问题，并在这个过程中深入了解 Object.prototype、Function.prototype、function Object、function Function 之间的关系。</p> <p>我们可以先来看看 ECMAScript 上的定义。</p> <div class="language- extra-class"><pre class="language-text"><code>	The value of the [[Prototype]] internal property of the Object prototype object is null, the value of the [[Class]] internal property is &quot;Object&quot;, and the initial value of the [[Extensible]] internal property is true.
+	
+	Object原型对象的【[Prototype】]内部属性的值为null,[[Class]]内部属性的值为&quot;Object&quot;,[[可扩展]]内部属性的初始值为true。
+</code></pre></div><p>Object.prototype 表示 Object 的原型对象，其 [[Prototype]] 属性值是 null ，访问器属性 <strong>proto</strong> 暴露了一个对象的内部 [[Prototype]]。 Object.prototype 并不是通过 Object 函数创建的，为什么呢？ 看如下代码</p> <div class="language- extra-class"><pre class="language-text"><code>function Person() {
+    this.val = 'person'
+}
+
+var person1 = new Person();
+person1.__proto__ = Person.prototype;
+</code></pre></div><div class="language- extra-class"><pre><code>实例对象的 __proto__ 指向 构造函数的 prototype 即 person1.__proto___ = Person.prototype,但是 Object.prototype.__proto__ = null 所以 Object.prototype 并不是通过 Object 函数创建的，那他是如何生成的？ 其实 Object.prototype 是浏览器底层根据 ECMAScript 规范创造的一个对象。
+Object.prototype 就是原型链的顶端 （不考虑 null），所有对象纪恒了它的 toString 等方法和属性。
+</code></pre></div><h4 id="function-prototype"><a href="#function-prototype" class="header-anchor">#</a> Function.prototype</h4> <p>首先来看下 ECMAScript 上的定义：</p> <div class="language- extra-class"><pre class="language-text"><code>	The Function prototype object is itself a Function object (its [[Class]] is &quot;Function&quot;).
+
+	The value of the [[Prototype]] internal property of the Function prototype object is the standard built-in Object prototype object.
+
+	The Function prototype object does not have a valueOf property of its own; however, it inherits the valueOf property from the Object prototype Object.
+</code></pre></div><div class="language- extra-class"><pre><code>Function.prototype 对象是一个函数（对象），其[[Prototype]] 内部属性值指向内建对象 Object.prototype. Function.prototype 对象自身没有 valueOf 属性，其从 Object.prototype 对象继承了 valueOf 属性。
+
+Function.prototype 的 [[Class]] 属性是 Function，所以这是一个函数，但又不大一样。为什么这么说呢？因为我们直到只有函数才有 prototype 属性，但并不是所有函数都有这个属性，因为 Function.prototype 这个函数就没有。
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>	console.log(Function.prototype) // f(){[native code]}
+	console.log(Function.prototype.prototype);  // undefined
+</code></pre></div><p>为什么 会没有 prototype 呢？
+Function.prototype 是引擎创建出来的函数，引擎认为不需要给这个函数对象添加 prototype 属性，不然 Function.prototype.prototype... 将无休无止并且没有意义。</p> <h4 id="function-object"><a href="#function-object" class="header-anchor">#</a> function Object</h4> <p>先来看 ECMAScript 的定义</p> <div class="language- extra-class"><pre class="language-text"><code>	The value of the [[Prototype]] internal property of the Object constructor is the standard built-in Function prototype object.
+</code></pre></div><p>Object 作为构造函数时，其 [[Prototype]] 内部属性值指向 Function.prototype, 即</p> <div class="language- extra-class"><pre class="language-text"><code> 	Object.__proto__ = Function.prototype
+</code></pre></div><p>使用 new Object() 创建新对象时，这个新对象的 [[Prototype]] 内部属性指向构造函数的 prototype 属性，即 Object.prototype 属性，对应 Object.prototype</p> <p>也可以通过对象字面量等方式创建对象。</p> <ul><li>使用对象字面量创建的对象，其 [[Prototype]] 值是 Object.prototype。</li> <li>使用数组字面量创建的对象，其 [[Prototype]] 值是 Array.prototype。</li> <li>使用 function f(){} 函数创建的对象， 其 [[Prototype]] 值是 Function.prototype。</li> <li>使用 new fun() 创建的对象，其中 fun 是由 Javascript 提供的内建构造器函数之一 (Object, Function, Array, Boolean, Date, Number, String 等等)，其 [[Prototype]] 值是 fun.prototype</li> <li>使用其他 Javascript 构造器函数创建的对象，其 [[Prototype]] 值就是该构造器函数的 prototype 属性。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// 1 -- 对象字面量方式
+var obj = { name: 'zhang san' }
+console.log(obj.__proto__ === Object.prototype); // true obj -- &gt; Object.prototype --&gt; null
+
+
+// 2 -- 数组字面量方式
+var arr = ['zhangsan', 'lisi', 'wangwu'];
+console.log(arr.__proto__ === Array.prototype); // true
+console.log(arr.__proto__.__proto__ === Object.prototype); // true  arr --&gt; Array.prototype --&gt; Object.prototype --&gt; null
+
+
+// 3 -- function f(){} 方式
+function f() {
+    return 's'
+}
+console.log(f.__proto__ === Function.prototype); // true
+console.log(f.__proto__.__proto__ === Object.prototype); // true f --&gt; Function.prototype --&gt; Object.prototype --&gt; null
+
+
+// 4 -- new Function() 方式
+var fun = new Function()
+console.log(fun.__proto__ === Function.prototype); // true
+console.log(fun.__proto__.__proto__ === Object.prototype); // true fun --&gt; Function.prototype --&gt; Object.prototype --&gt; null
+
+
+var ob = new Object() // ob --&gt; Object.prototype --&gt; null
+
+
+// 5 -- 其他构造器函数
+function Person() {
+    return {}
+}
+var p = new Person()
+console.log(p.__proto__ === Person.prototype); // false
+console.log(p.__proto__ === Object.prototype); // true  p --&gt; Object.prototype --&gt; null
+</code></pre></div><h4 id="function-function"><a href="#function-function" class="header-anchor">#</a> function Function</h4> <p>定义</p> <div class="language- extra-class"><pre class="language-text"><code>The Function constructor is itself a Function object and its [[Class]] is &quot;Function&quot;. The value of the [[Prototype]] internal property of the Function constructor is the standard built-in Function prototype object.
+</code></pre></div><p>Fcuntion 构造函数是一个函数对象，其 [[Class]] 属性是 Function。Function 的 [[Prototype]] 属性指向了 Function.prototype ,即</p> <div class="language- extra-class"><pre class="language-text"><code>Function.__proto__ === Function.prototype
+</code></pre></div><p>哦吼？ 是不是有点意思了。</p> <h4 id="function-object-鸡蛋问题"><a href="#function-object-鸡蛋问题" class="header-anchor">#</a> Function &amp; Object 鸡蛋问题</h4> <p>ok 我们先看下面的代码</p> <div class="language- extra-class"><pre class="language-text"><code>Object instanceof Function  // true
+Function instanceof Object  // true
+
+Object instanceof Object    // true
+Function instanceof Function    // true
+</code></pre></div><p>Object 构造函数继承了 Function.prototype，同时 Function 构造函数继承了 Object.prototype。这里就产生了<strong>鸡和蛋</strong>的问题。 为什么会出现这种问题，因为 Function.prototype 和 Function.<strong>proto</strong> 都指向 Function.prototype。</p> <div class="language- extra-class"><pre class="language-text"><code>console.log(Object.__proto__ === Function.prototype); // true
+console.log(Object.__proto__.__proto__ === Object.prototype); // true
+
+console.log(Function.__proto__.__proto__ === Object.prototype); // true
+console.log(Function.__proto__ === Function.prototype); // true
+</code></pre></div><p>而对于 Function.<strong>proto</strong> === Function.prototype 这一现象有两种解释，争论点就在于 Function 对象是不是由 Function 构造函数创建的一个实例？</p> <p><strong>解释1、YES:</strong>
+根据 Javascript 中对实例的定义， a 是 b 的实例，即 a instanceof b 为 true，默认判断条件就是 b.prototype 在 a 的原型链上。而 Function instanceof Function 为 true，本质上即 Object.getPrototypeOf(Function) === Function.prototype, 符合定义</p> <p><strong>解释2、NO:</strong><br>
+Function 是 built-in 的对象（内置对象），也就是说并不存在 Function 对象由 Function 构造函数创建，这样显然会造成<strong>鸡蛋问题</strong>。实际上，当你直接写一个函数是（如 function f(){} 或 x =&gt; x),也不存在调用 Function 构造器，只有在显示调用 Function 构造器时 （如 new Function('x','return x')） 才有。</p> <p>个人比较偏向第二种吧，现有 Function.prototype 然后有的 function Function (){}, 所以就不存在<strong>鸡蛋问题</strong>，把 Function.<strong>proto</strong> 指向 Function.prototype 是为了保证原型链的完整， 让 Function 可以获取定义在 Object.prototype 上的方法。</p> <p><a href="https://camo.githubusercontent.com/f6885e99add627deab51b5533d4ae52b0755d8b3d0d71b8e27533ccaa821f084/68747470733a2f2f7773322e73696e61696d672e636e2f6c617267652f303036744e6337396779316732336e3436757a6a616a33306836306c703076372e6a7067" target="_blank" rel="noopener noreferrer">上图<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h4 id="内置类型构建过程"><a href="#内置类型构建过程" class="header-anchor">#</a> 内置类型构建过程</h4> <p>Javascript 内置类型是浏览器内核自带的，浏览器底层对 Javascript 的实现基于 C/C++，那么浏览器在初始化 Javascript 环境时发生了什么？</p> <ul><li>用 C/C++ 构建内部数据结构创建一个 OP （Object.prototype）以及初始化其内部属性但不包括行为。</li> <li>用 C/C++ 构建内部数据结构创建一个 FP （Function.prototype） 以及初始化其内部属性但不包括行为。</li> <li>将 FP 的 [[Prototype]] 指向 OP。</li> <li>用 C/C++ 构造内部数据结构创建各种内置引用类型。</li> <li>将各个内置引用类型的 [[Prototype]] 指向 FP。</li> <li>将 Function 的 prototype 指向 FP</li> <li>将 Object 的 prototype 指向 OP</li> <li>用 Function 实例化出 OP，FP，以及 Object 的行为并挂载。</li> <li>实例化内置对象 Math 和 Global
+至此，所有内置类型构建完成。</li></ul></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/前端领域/3-JavaScript/2-Js-核心/【深浅拷贝原理】@2.html" class="prev">
+            【深浅拷贝原理】
+          </a></span> <span class="next"><a href="/前端领域/3-JavaScript/2-Js-核心/【高阶函数】@4.html">
+            【高阶函数】
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-cb1513f6></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div></div></div>
+    <script src="/assets/js/app.f6887468.js" defer></script><script src="/assets/js/3.83ad0eef.js" defer></script><script src="/assets/js/1.bbba36a5.js" defer></script><script src="/assets/js/53.5c8dd716.js" defer></script>
+  </body>
+</html>
