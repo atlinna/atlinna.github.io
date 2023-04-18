@@ -1,6 +1,6 @@
 const utils = require('./utils/index.js')
 module.exports = {
-    title: 'Mr.Zhou（周始）',
+    title: 'Mr.Zhou',
     keywords: '前端开发',
     description: '梦开始的地方',
     repo: '',
@@ -30,7 +30,7 @@ module.exports = {
                 showIcon: "/favicon.ico",
                 showText: "欢迎来到梦的起点",
                 hideIcon: "/failure.ico",
-                hideText: "哦呦~客观不要急",
+                hideText: "快回来我的宝",
                 recoverTime: 2000
             }
         ]
