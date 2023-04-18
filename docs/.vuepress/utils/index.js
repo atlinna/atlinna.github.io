@@ -1,18 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const arr = [
-    // 导航栏
-    { text: '首页', link: '/' },
-    { text: 'HTML', link: '/html_docs/' },
-    { text: 'CSS', link: '/css_docs/' },
-    { text: 'JS', link: '/js_docs/' },
-    { text: 'Vue', link: '/Vue/' },
-    { text: '设计模式', link: '/设计模式/' },
-    { text: '数据结构与算法', link: '/problem/' },
-    { text: '手写系列', link: '/手写/' },
-    { text: '其他', link: '/Other/' },
-]
+const arr = require('../routes')
 
 function getSideBar(dir) {
     const bars = []
@@ -21,8 +10,8 @@ function getSideBar(dir) {
     files.forEach(filename => {
         if (filename.indexOf('.') == -1) {
             let path = `${dir}${filename}/`
-            let sort = getSortFolder(filename);
-            bars.push({ title: filename, children: getSideBar(path),sort })
+            let sort = getFolderField(filename);
+            bars.push({ title: filename.replace(/[0-9]+[-]/,''), children: getSideBar(path), sort })
         }
         if (filename.endsWith('.md') && filename !== 'index.md') {
             let s = getSortField(filename)
@@ -40,9 +29,12 @@ function getSideBar(dir) {
 function getSortField(n) {
     return n.substring(n.indexOf('@') + 1, n.length - 3)
 }
-function getSortFolder(name){
-    if(name.indexOf('@') == -1) return 0;
-    return name.substring(name.indexOf('@')+1,name.length)
+
+
+function getFolderField(name) {
+    let i = name.indexOf('-');
+    if (i == -1) return 0;
+    return parseInt(name.substring(0, i + 1));
 }
 
 function sortBars(arr) {
