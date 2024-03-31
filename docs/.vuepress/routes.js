@@ -18,4 +18,5 @@ module.exports = [
   { text: "设计模式", link: "/设计模式/" },
   { text: "移动端", link: "/移动端/" },
   { text: "服务器类", link: "/服务器类/" },
+  { text: "HarmonyOS", link: "/HarmonyOS/" },
 ];
